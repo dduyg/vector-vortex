@@ -1,6 +1,7 @@
-Making music with magenta.js
-=================
+# GeoGlitchies
 
-[Magenta.js](https://magenta.tensorflow.org/) is a JavaScript library that helps you generate art and 
-music on the web. In this tutorial, we'll talk about the music generation bits in `@magenta/music` -- 
-how to make your browser sing, and in particular, how to make your browser sing like you!
+Remember live journal and webrings and geocities and just writing text and not being worried where 
+it's hosted and what framework to use to display it? 
+
+Remember making a website about dolphins or being able to look at 100 websites about 
+dolphins in a row? This is kind of like that.
