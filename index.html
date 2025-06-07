@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>  
-  <title>404: Signal Lost</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>404: Data Not Found</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -12,30 +13,28 @@
     }
 
     body {
-      background: linear-gradient(135deg, #ff9dea, #8ef6e4, #fcd1ff);
-      background-size: 400% 400%;
-      animation: bgShift 20s ease infinite;
-      color: #fff;
-      font-family: 'Press Start 2P', cursive;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       height: 100vh;
+      background: linear-gradient(135deg, #0f0f0f, #1a0033);
+      color: #00ffc3;
+      font-family: 'Share Tech Mono', monospace;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       overflow: hidden;
-      text-align: center;
     }
 
-    @keyframes bgShift {
-      0% {background-position: 0% 50%;}
-      50% {background-position: 100% 50%;}
-      100% {background-position: 0% 50%;}
+    .container {
+      text-align: center;
+      padding: 2rem;
+      max-width: 800px;
     }
 
     .glitch {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 5rem;
       position: relative;
-      font-size: 1.2rem;
-      text-transform: uppercase;
-      animation: flicker 3s infinite;
+      color: #00ffc3;
+      animation: glitch 1s infinite;
     }
 
     .glitch::before,
@@ -45,104 +44,86 @@
       left: 0;
       width: 100%;
       overflow: hidden;
-      clip: rect(0, 900px, 0, 0);
     }
 
     .glitch::before {
-      animation: glitchTop 2s infinite linear alternate-reverse;
-      color: #f0f;
+      animation: glitchTop 1s infinite;
+      color: #ff00c8;
+      top: -2px;
     }
 
     .glitch::after {
-      animation: glitchBottom 1.5s infinite linear alternate-reverse;
-      color: #0ff;
+      animation: glitchBottom 1s infinite;
+      color: #00ffff;
+      top: 2px;
+    }
+
+    @keyframes glitch {
+      0% { transform: none; }
+      20% { transform: skew(-2deg); }
+      40% { transform: skew(2deg); }
+      60% { transform: skew(-1deg); }
+      80% { transform: skew(1deg); }
+      100% { transform: none; }
     }
 
     @keyframes glitchTop {
-      0% {
-        clip: rect(0, 9999px, 0, 0);
-      }
-      5% {
-        clip: rect(5px, 9999px, 20px, 0);
-        transform: translate(-3px, -3px);
-      }
-      10% {
-        clip: rect(10px, 9999px, 25px, 0);
-        transform: translate(3px, -1px);
-      }
-      15% {
-        clip: rect(15px, 9999px, 30px, 0);
-        transform: translate(-5px, 0);
-      }
-      100% {
-        clip: rect(0, 9999px, 0, 0);
-        transform: none;
-      }
+      0% { clip-path: inset(0 0 90% 0); }
+      20% { clip-path: inset(10% 0 85% 0); }
+      40% { clip-path: inset(20% 0 75% 0); }
+      60% { clip-path: inset(30% 0 65% 0); }
+      80% { clip-path: inset(40% 0 55% 0); }
+      100% { clip-path: inset(0 0 90% 0); }
     }
 
     @keyframes glitchBottom {
-      0% {
-        clip: rect(0, 9999px, 0, 0);
-      }
-      5% {
-        clip: rect(25px, 9999px, 40px, 0);
-        transform: translate(5px, 2px);
-      }
-      10% {
-        clip: rect(30px, 9999px, 50px, 0);
-        transform: translate(-3px, 1px);
-      }
-      15% {
-        clip: rect(35px, 9999px, 60px, 0);
-        transform: translate(3px, -2px);
-      }
-      100% {
-        clip: rect(0, 9999px, 0, 0);
-        transform: none;
-      }
+      0% { clip-path: inset(90% 0 0 0); }
+      20% { clip-path: inset(85% 0 10% 0); }
+      40% { clip-path: inset(75% 0 20% 0); }
+      60% { clip-path: inset(65% 0 30% 0); }
+      80% { clip-path: inset(55% 0 40% 0); }
+      100% { clip-path: inset(90% 0 0 0); }
     }
 
-    @keyframes flicker {
-      0%, 18%, 22%, 25%, 53%, 57%, 100% {
-        opacity: 1;
-      }
-      20%, 24%, 55% {
-        opacity: 0.3;
-      }
+    p {
+      margin-top: 1rem;
+      font-size: 1.2rem;
+      color: #ccc;
     }
 
-    .content {
-      max-width: 700px;
-      padding: 2rem;
-      background: rgba(0, 0, 0, 0.35);
-      border: 2px solid #fff;
-      border-radius: 12px;
-      backdrop-filter: blur(4px);
-    }
-
-    .return-link {
-      margin-top: 2rem;
+    .cyber-button {
       display: inline-block;
-      color: #0ff;
+      margin-top: 2rem;
+      padding: 1rem 2rem;
+      border: 2px solid #00ffc3;
+      color: #00ffc3;
       text-decoration: none;
-      border: 1px solid #0ff;
-      padding: 0.5rem 1rem;
-      transition: all 0.3s ease;
+      font-weight: bold;
+      transition: background 0.3s, color 0.3s;
+      border-radius: 8px;
+      background-color: rgba(255, 255, 255, 0.02);
     }
 
-    .return-link:hover {
-      background: #0ff;
-      color: #000;
+    .cyber-button:hover {
+      background-color: #00ffc3;
+      color: #1a0033;
+    }
+
+    .code {
+      margin-top: 1.5rem;
+      font-size: 0.9rem;
+      color: #999;
     }
   </style>
 </head>
 <body>
-  <div class="content">
-    <h1 class="glitch" data-text="404: SIGNAL LOST">404: SIGNAL LOST</h1>
-    <p class="glitch" data-text="Query Failed. The dataset is empty.">Query Failed. The dataset is empty.</p>
-    <p>Our neural net reached into the datascape… and found nothing but neon static.</p>
-    <p><em>"All models are wrong — but this page doesn't even exist."</em></p>
-    <a href="/" class="return-link">⮐ Return to Mainframe</a>
+  <div class="container">
+    <div class="glitch" data-text="404">404</div>
+    <p>∿∿∿ ∞ QUERY FAILED ∞ ∿∿∿</p>
+    <p>The data you seek has vanished into the quantum void.</p>
+    <p><em>“All models are wrong — but this page doesn’t even exist.”</em></p>
+    <a href="/" class="cyber-button">↳ Return to Mainframe</a>
+    <div class="code">ERROR_CODE: NULL_REALITY_VW404</div>
   </div>
 </body>
 </html>
