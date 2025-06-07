@@ -2,80 +2,114 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>404 - Data Node Not Found</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
+  <title>404: Data Node Not Found</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+
     body {
       margin: 0;
+      padding: 0;
       background: radial-gradient(ellipse at center, #0f0f0f 0%, #000000 100%);
-      color: #00fff7;
-      font-family: 'Orbitron', sans-serif;
+      color: #00ffea;
+      font-family: 'Orbitron', monospace;
       display: flex;
-      align-items: center;
       justify-content: center;
+      align-items: center;
       height: 100vh;
       overflow: hidden;
-      text-shadow: 0 0 8px #00fff7, 0 0 15px #00bcd4;
+    }
+
+    .glitch {
+      font-size: 4rem;
+      position: relative;
+      color: #00fff7;
+      text-shadow: 0 0 5px #0ff, 0 0 10px #0ff, 0 0 20px #0ff;
+      animation: flicker 2s infinite;
+    }
+
+    .glitch::before, .glitch::after {
+      content: attr(data-text);
+      position: absolute;
+      left: 0;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .glitch::before {
+      animation: glitchTop 2s infinite;
+      top: -2px;
+      color: #ff00c8;
+    }
+
+    .glitch::after {
+      animation: glitchBottom 2s infinite;
+      top: 2px;
+      color: #00ff88;
+    }
+
+    @keyframes glitchTop {
+      0% { clip: rect(0, 9999px, 0, 0); }
+      10% { clip: rect(0, 9999px, 80%, 0); }
+      20% { clip: rect(0, 9999px, 0, 0); }
+      30% { clip: rect(0, 9999px, 40%, 0); }
+      100% { clip: rect(0, 9999px, 0, 0); }
+    }
+
+    @keyframes glitchBottom {
+      0% { clip: rect(0, 9999px, 0, 0); }
+      10% { clip: rect(60%, 9999px, 100%, 0); }
+      20% { clip: rect(0, 9999px, 0, 0); }
+      30% { clip: rect(70%, 9999px, 100%, 0); }
+      100% { clip: rect(0, 9999px, 0, 0); }
+    }
+
+    @keyframes flicker {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.8; }
     }
 
     .container {
       text-align: center;
-      padding: 2rem;
-      border: 2px solid #00fff7;
-      border-radius: 10px;
-      background: rgba(0, 255, 247, 0.05);
-      box-shadow: 0 0 25px #00fff7;
       max-width: 600px;
-      animation: flicker 3s infinite alternate;
     }
 
-    h1 {
-      font-size: 4rem;
-      margin: 0;
-    }
-
-    p {
+    .message {
       font-size: 1.2rem;
-      margin-top: 1rem;
+      margin: 20px 0;
+      color: #00ffea;
     }
 
-    a {
-      color: #ff00ff;
+    .button {
+      display: inline-block;
+      padding: 12px 24px;
+      margin-top: 30px;
+      font-size: 1rem;
+      text-transform: uppercase;
+      color: #000;
+      background: #00ffe7;
+      border: none;
+      border-radius: 8px;
       text-decoration: none;
-      font-weight: bold;
-      text-shadow: 0 0 6px #ff00ff;
+      box-shadow: 0 0 10px #00ffe7, 0 0 20px #00ffe7;
+      transition: background 0.3s ease, transform 0.2s ease;
     }
 
-    a:hover {
-      color: #ffffff;
-      text-shadow: 0 0 10px #fff;
-    }
-
-    @keyframes flicker {
-      0% { opacity: 1; }
-      10% { opacity: 0.9; }
-      20% { opacity: 0.95; }
-      30% { opacity: 0.85; }
-      40% { opacity: 1; }
-      50% { opacity: 0.9; }
-      60% { opacity: 1; }
-      70% { opacity: 0.93; }
-      80% { opacity: 0.97; }
-      90% { opacity: 0.88; }
-      100% { opacity: 1; }
+    .button:hover {
+      background: #0ff;
+      transform: scale(1.05);
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>💾 ERROR 404</h1>
-    <p>Data Node Not Found</p>
-    <p>The city grid couldn’t trace the page you’re jacked into.</p>
-    <p>Maybe it was:<br>
-      – A ghost trace<br>
-      – Wiped by corp agents<br>
-      – A dead sector in the datastream</p>
-    <p><a href="/">↩ Return to the Mainframe</a></p>
+    <div class="glitch" data-text="ERROR 404">ERROR 404</div>
+    <div class="message">
+      Data node not found.<br>
+      You’ve hit a dead sector in the grid.<br>
+      <span style="color: #ff00c8;">Possible causes:</span> ghost trace, corp wipe, or link drift.
+    </div>
+    <a href="/" class="button">Return to Mainframe</a>
   </div>
 </body>
 </html>
