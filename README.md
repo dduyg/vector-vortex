@@ -590,3 +590,56 @@ body {font-family: 'Vanosky Thin', sans-serif;}
 }
 body {font-family: 'Argue', sans-serif;}
 ```
+
+
+```js
+   return {     
+      white, black, lemon, brick, apricot2,
+      blue, purple, green, seagreen, greenClassic,
+      gold      
+   }
+  
+  function getPalette() {
+    
+    let palettePastel = [materials.purple, materials.seagreen, materials.white, materials.black];
+    let paletteFlamingo = [materials.purple, materials.apricot2, materials.white, materials.black, materials.seagreen];
+    let paletteWarm = [materials.lemon, materials.brick, materials.blue, materials.green, materials.black, materials.gold];
+    let paletteWarm2 = [materials.lemon, materials.brick, materials.blue, materials.green, materials.black, materials.gold, materials.white];
+    let paletteWarm3 = [materials.lemon, materials.brick, materials.black, materials.greenClassic, materials.blue, materials.white];
+    let paletteElegant = [materials.blue, materials.black, materials.gold, materials.lemon, materials.green, materials.black, materials.blue];
+
+    let colorPalettes = [
+      
+      {
+        materials: palettePastel,
+        background: ["rgb(193, 181, 194)", "rgb(210, 175, 213)", "rgb(245, 224, 245)"],
+        svg: ["rgb(87, 221, 202)", "rgb(154, 87, 221)"]
+      },
+      {
+        materials: paletteFlamingo,
+        background: ["rgb(43, 42, 42)", "rgb(255, 213, 213)"],
+        svg: ["rgb(94, 208, 198)", "rgb(196, 113, 242)"]
+      },
+      {
+        materials: paletteWarm,
+        background: ["rgb(234, 215, 211)", "rgb(241, 212, 176)"],
+        svg: ["rgb(232, 27, 17)", "rgb(117, 151, 232)"]
+        
+      },
+      {
+        materials: paletteWarm2,
+        background: ["rgb(162, 169, 172)"],
+        svg: ["rgb(99, 117, 255)", "rgb(255, 87, 59)"]
+      },
+      {
+        materials: paletteWarm3,
+        background: ["rgb(193, 178, 175)", "rgb(220, 207, 205)", "rgb(235, 188, 161)"],
+        svg: ["rgb(68, 128, 86)", "rgb(67, 122, 227)"]
+      },
+      {
+        materials: paletteElegant,
+        background: ["#EAD7D3", "rgb(171, 178, 205)", "rgb(181, 182, 194)"],
+        svg: ["rgb(255, 199, 112)", "#745bef"]
+      }     
+    ];
+```
