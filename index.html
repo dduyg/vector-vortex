@@ -2,12 +2,22 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Video Footer</title>
   <style>
-    body {
+    * {
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: sans-serif;
+    }
+
+    .page-content {
+      min-height: 100vh;
+      padding-bottom: 270px; /* same height as video to avoid overlap */
     }
 
     .video-footer {
@@ -15,47 +25,46 @@
       bottom: 0;
       left: 0;
       width: 100%;
-      height: auto;
-      z-index: -1; /* behind other content */
+      height: 270px;
       overflow: hidden;
+      z-index: -1;
     }
 
     .video-footer video {
       width: 100%;
-      height: auto;
+      height: 100%;
       object-fit: cover;
-    }
-
-    .page-content {
-      min-height: 100vh;
-      padding-bottom: 270px; /* equal to video height to prevent overlap */
     }
   </style>
 </head>
 <body>
 
   <div class="page-content">
-    <h1>Your Page Content</h1>
-    <p>This is the rest of the page. Scroll down to see the video footer.</p>
+    <h1>Main Content</h1>
+    <p>Scroll to see the footer video.</p>
   </div>
 
   <div class="video-footer">
-    <video autoplay loop muted playsinline id="footerVideo">
-      <source src="kemalizm.mp4" type="video/mp4">
-      Your browser does not support the video tag.
+    <video id="footerVideo" autoplay loop playsinline>
+      <source src="kemalizm.mp4" type="video/mp4" />
+      Your browser does not support HTML5 video.
     </video>
   </div>
 
   <script>
-    // Unmute video via JS (browsers often require user interaction)
     const video = document.getElementById('footerVideo');
+
+    // Try to unmute & play video with sound
     video.muted = false;
 
-    // If needed, add this on a user action
-    // document.body.addEventListener('click', () => {
-    //   video.muted = false;
-    //   video.play();
-    // });
+    // Handle browser autoplay policy
+    video.play().catch(() => {
+      // If autoplay with sound is blocked, wait for user interaction
+      document.body.addEventListener('click', () => {
+        video.muted = false;
+        video.play();
+      }, { once: true });
+    });
   </script>
 
 </body>
