@@ -3,39 +3,37 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Typographic Grid Layout</title>
+  <title>Typographic Grid</title>
   <style>
     body {
       margin: 0;
       background: white;
       font-family: sans-serif;
     }
-
     .grid {
       position: relative;
       width: 100vw;
       height: 100vh;
-      background-image:
-        linear-gradient(to right, #ccc 1px, transparent 1px);
+      background-image: linear-gradient(to right, #ccc 1px, transparent 1px);
       background-size: 80px 80px;
     }
 
     /* Horizontal dashed lines */
-    .h-line {
+    aside {
       position: absolute;
       width: 100%;
       height: 1px;
-      border-top: 1px dashed #888;
+      border-bottom: 1px dashed #888;
     }
-
     .line-710 { top: 60px; }
     .line-530 { top: 160px; }
     .line-0   { top: 360px; }
     .line--150 { top: 460px; }
 
     .label {
-      position: absolute;
+      position: relative;
       right: 20px;
+      bottom: 0;
       transform: translateY(-50%);
       background: black;
       color: white;
@@ -43,11 +41,6 @@
       font-weight: bold;
       padding: 2px 6px;
     }
-
-    .label-710 { top: 60px; }
-    .label-530 { top: 160px; }
-    .label-0   { top: 360px; }
-    .label--150 { top: 460px; }
 
     .text {
       position: absolute;
@@ -69,22 +62,14 @@
 <body>
   <div class="grid">
 
-    <!-- Horizontal dashed lines -->
-    <div class="h-line line-710"></div>
-    <div class="h-line line-530"></div>
-    <div class="h-line line-0"></div>
-    <div class="h-line line--150"></div>
-
     <!-- Labels -->
-    <div class="label label-710">710</div>
-    <div class="label label-530">530</div>
-    <div class="label label-0">0</div>
-    <div class="label label--150">-150</div>
+    <aside class="line-710"><div class="label">710</div></aside>
+    <aside class="line-530"><div class="label">530</div></aside>
+    <aside class="line-0"><div class="label">0</div></aside>
+    <aside class="line--150"><div class="label">-150</div></aside>   
 
     <!-- Main Typography -->
-    <div class="text">
-      <span>t</span><span class="dot">.</span>
-    </div>
+    <div class="text"><span>t</span><span class="dot">.</span></div>
   </div>
 </body>
 </html>
