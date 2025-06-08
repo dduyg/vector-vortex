@@ -1,15 +1,104 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Endless Creativity ✨</title>
-  <link rel="stylesheet" href="./style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LiminalLoop</title>
+    <style>
+:root {
+  --purple: #e8cbf9;
+  --grey: #2b2b2b;
+  --seagreen: #61a69f;
+  --beige: #c6a49b;
+  --lightgrey: #c8c3c2;
+  --lightbeige: #e0c6bf;
+}
+body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: var(--lightbeige);
+  transition: background 250ms ease-in;
+  font-size: 16px;
+  font-family: Arial;
+}
 
+#scene-container {
+  position: absolute;
+}
+#credits {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  text-transform: none;
+  text-decoration: none;
+  color: black;
+  padding: 0.35rem 0.5rem;
+  margin: 0.75rem 0.75rem;
+  font-size: 0.75rem;
+  border: 1.5px solid black;
+  transition: background 200ms ease-in;
+  border-radius: 0.2rem;
+  opacity: 0;
+}
+
+#credits:hover {
+  background: rgba(255, 235, 195, 0.8);
+  background: #fff1bc;
+  background: rgba(255, 251, 215, 0.8);
+  background: rgba(255, 255, 255, 0.7);
+}
+
+
+a[title]:hover::after {
+  background: purple;
+}
+
+#svg-doodle {
+  position: absolute;
+  width: 100vw;
+  max-width: 100vw;
+  height: 100%;
+  max-height: 100vh;
+  display: block;
+  margin: auto;
+  z-index: -1;
+  opacity: 0;
+  opacity: 1;
+}
+
+.doodle-lines {
+  transition: stroke-opacity 1250ms ease-in-out;
+}
+
+/* .airbrush {
+  transition: opacity 1250ms ease-in-out;
+} */
+
+@keyframes fadeIn {
+  
+  0% { opacity: 0.0; }
+  85% { opacity: 0.0; }
+  100% { opacity: 1; }
+
+}
+
+@media(max-width: 800px) {
+  
+  #credits {
+    padding: 0.25rem 0.4rem;
+    margin: 0.5rem 0.5rem;
+    border: 1px solid black;
+    bottom: auto;
+    right: 0;
+  }
+  
+}
+    </style>
 </head>
 <body>
-<!-- partial:index.partial.html -->
-<!-- ★ Click anywhere to create new 3D art ★ -->
-
 <div id="scene-container">
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
@@ -736,8 +825,6 @@
 }
   
 </script>
-<!-- partial -->
-  <script src='https://unpkg.co/gsap@3/dist/gsap.min.js'></script><script type="module" src="./script.js"></script>
-
+<script src='https://unpkg.co/gsap@3/dist/gsap.min.js'></script><script type="module" src="./script.js"></script>
 </body>
 </html>
