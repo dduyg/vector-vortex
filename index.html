@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Typography Grid Layout</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: white;
+      font-family: Arial, sans-serif;
+    }
+
+    .grid-container {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      display: grid;
+      grid-template-rows: repeat(8, 1fr);
+      grid-template-columns: 1fr auto;
+      border-top: 1px solid #ddd;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .grid-line {
+      border-bottom: 1px solid #ddd;
+      position: relative;
+    }
+
+    .label {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: black;
+      color: white;
+      font-size: 12px;
+      padding: 2px 6px;
+      font-weight: bold;
+    }
+
+    .content {
+      position: absolute;
+      left: 100px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 160px;
+      font-weight: bold;
+      font-family: sans-serif;
+    }
+
+    .dot {
+      font-size: 100px;
+      margin-left: 40px;
+    }
+  </style>
+</head>
+<body>
+  <div class="grid-container">
+    <div class="grid-line" style="grid-row: 1 / 2;"><span class="label">710</span></div>
+    <div class="grid-line" style="grid-row: 2 / 3;"><span class="label">530</span></div>
+    <div class="grid-line" style="grid-row: 4 / 5;"><span class="label">0</span></div>
+    <div class="grid-line" style="grid-row: 6 / 7;"><span class="label">-150</span></div>
+
+    <div class="content">
+      t<span class="dot">.</span>
+    </div>
+  </div>
+</body>
+</html>
