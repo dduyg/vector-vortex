@@ -2,89 +2,61 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Typographic Grid</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Video Footer</title>
   <style>
     body {
       margin: 0;
-      background: w
-      font-family: sans-serif;
+      padding: 0;
     }
 
-    .container {
-      position: relative;
-      width: 100vw;
-      height: 100vh;
-      background-image: linear-gradient(to right, #ccc 1px, transparent 1px);
-      background-size: 80px 80px;
-    }
-
-    .horizontal-line {
-      position: absolute;
+    .video-footer {
+      position: fixed;
+      bottom: 0;
       left: 0;
       width: 100%;
-      height: 1px;
-      border-top: 1px dashed #999;
+      height: auto;
+      z-index: -1; /* behind other content */
+      overflow: hidden;
     }
 
-    .label {
-      position: absolute;
-      right: 20px;
-      transform: translateY(-50%);
-      background: black;
-      color: white;
-      font-size: 12px;
-      font-weight: bold;
-      padding: 2px 6px;
+    .video-footer video {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
     }
 
-    .line-710 {
-      top: 100px;
-    }
-
-    .line-530 {
-      top: 200px;
-    }
-
-    .line-0 {
-      top: 360px;
-    }
-
-    .line--150 {
-      top: 460px;
-    }
-
-    .text {
-      position: absolute;
-      left: 100px;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 220px;
-      font-weight: bold;
-      display: flex;
-      align-items: center;
-    }
-
-    .text .dot {
-      font-size: 120px;
-      margin-left: 40px;
+    .page-content {
+      min-height: 100vh;
+      padding-bottom: 270px; /* equal to video height to prevent overlap */
     }
   </style>
 </head>
 <body>
-  <div class="container">
 
-    <!-- Dashed horizontal lines with labels -->
-    <div class="horizontal-line line-710"><div class="label">710</div></div>
-    <div class="horizontal-line line-530"><div class="label">530</div></div>
-    <div class="horizontal-line line-0"><div class="label">0</div></div>
-    <div class="horizontal-line line--150"><div class="label">-150</div></div>
-
-    <!-- Large text -->
-    <div class="text">
-      <span>t</span><span class="dot">.</span>
-    </div>
-
+  <div class="page-content">
+    <h1>Your Page Content</h1>
+    <p>This is the rest of the page. Scroll down to see the video footer.</p>
   </div>
+
+  <div class="video-footer">
+    <video autoplay loop muted playsinline id="footerVideo">
+      <source src="kemalizm.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
+  <script>
+    // Unmute video via JS (browsers often require user interaction)
+    const video = document.getElementById('footerVideo');
+    video.muted = false;
+
+    // If needed, add this on a user action
+    // document.body.addEventListener('click', () => {
+    //   video.muted = false;
+    //   video.play();
+    // });
+  </script>
+
 </body>
 </html>
