@@ -3,30 +3,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Liminal⏳️Loop</title>
+  <title>Full-Width Banner Video Footer</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
     body {
+      margin: 0;
       font-family: sans-serif;
     }
 
     .content {
       min-height: 100vh;
-      padding-bottom: 270px; /* Prevent content from hiding behind video */
+      padding-bottom: calc(100vw / 2.95); /* Reserve space equal to video height */
     }
 
     .video-footer {
       position: fixed;
       bottom: 0;
       left: 0;
-      width: 100%;
-      height: 270px;
-      z-index: -1; /* Behind all content */
+      width: 100vw;
+      height: calc(100vw / 2.95); /* Maintain 796:270 ratio */
+      z-index: -1;
       overflow: hidden;
     }
 
@@ -38,42 +33,42 @@
 
     .enable-sound {
       position: fixed;
-      bottom: 280px;
+      bottom: calc((100vw / 2.95) + 10px);
       right: 20px;
-      padding: 10px 20px;
-      background: rgba(0,0,0,0.7);
+      padding: 10px 16px;
+      background-color: #000;
       color: white;
       border: none;
+      border-radius: 5px;
+      z-index: 1000;
       cursor: pointer;
-      z-index: 10;
     }
   </style>
 </head>
 <body>
 
   <div class="content">
-    <h1>Page Content</h1>
-    <p>Scroll down and test the footer video.</p>
+    <h1>Website Content</h1>
+    <p>This is your main content. Scroll to see the full-width footer video.</p>
   </div>
 
   <div class="video-footer">
-    <video id="footerVideo" autoplay loop playsinline>
+    <video id="footerVideo" autoplay loop playsinline muted>
       <source src="kemalizm.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
   </div>
 
-  <button class="enable-sound" onclick="unmuteVideo()">Enable Sound</button>
+  <button class="enable-sound" onclick="enableSound()">🔊 Enable Sound</button>
 
   <script>
     const video = document.getElementById('footerVideo');
-
-    function unmuteVideo() {
+    function enableSound() {
       video.muted = false;
       video.play();
     }
 
-    // Autoplay with muted ON to comply with browser rules
+    // Browsers require muted autoplay; sound can only be enabled via user action.
     video.muted = true;
     video.play();
   </script>
