@@ -5,66 +5,76 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Rails of the Republic - Kemalist Ideology & Railways</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap');body {
-  font-family: 'Roboto Slab', serif;
-  background: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
-  margin: 0;
-  padding: 0;
-  color: #2e2e2e;
-}
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: #fefefe;
+    color: #1f1f1f;
+    margin: 0;
+    padding: 0;
+  }
 
-.container {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 40px 20px;
-}
+  .container {
+    max-width: 960px;
+    margin: auto;
+    padding: 40px 20px;
+  }
 
-h1 {
-  color: #1e3d59;
-  text-align: center;
-  font-size: 2.8rem;
-  margin-bottom: 30px;
-}
+  h1 {
+    text-align: center;
+    color: #2c3e50;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+  }
 
-.chat-entry {
-  background-color: #ffffff;
-  margin: 20px 0;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  transition: background 0.3s ease;
-}
+  .chat-entry {
+    background-color: #ffffff;
+    margin: 20px 0;
+    padding: 24px;
+    border-radius: 14px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+    border-left: 5px solid transparent;
+    transition: box-shadow 0.3s ease;
+  }
 
-.user {
-  border-left: 6px solid #1976d2;
-}
+  .chat-entry:hover {
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.08);
+  }
 
-.assistant {
-  border-left: 6px solid #388e3c;
-}
+  .user {
+    border-left-color: #3498db;
+  }
 
-.chat-entry:hover {
-  background-color: #f1f1f1;
-}
+  .assistant {
+    border-left-color: #2ecc71;
+  }
 
-.chat-entry strong {
-  font-size: 1.1rem;
-  display: block;
-  margin-bottom: 8px;
-}
+  .chat-entry strong {
+    font-weight: 600;
+    margin-bottom: 10px;
+    display: block;
+    color: #34495e;
+  }
 
-code {
-  display: block;
-  background-color: #f6f8fa;
-  padding: 15px;
-  border-radius: 8px;
-  margin-top: 15px;
-  white-space: pre-wrap;
-  font-size: 0.95rem;
-  font-family: Consolas, Monaco, monospace;
-  overflow-x: auto;
-  border-left: 4px solid #999;
-}
+  code {
+    display: block;
+    background-color: #f4f6f8;
+    border-left: 4px solid #888;
+    padding: 16px;
+    margin-top: 15px;
+    border-radius: 10px;
+    font-family: 'Courier New', monospace;
+    font-size: 0.95rem;
+    overflow-x: auto;
+  }
+
+  ul {
+    padding-left: 1.5rem;
+  }
+
+  li {
+    margin-bottom: 0.5rem;
+  }
   </style>
 </head>
 <body>
