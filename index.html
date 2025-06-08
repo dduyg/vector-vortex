@@ -4,55 +4,44 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Rails of the Republic - Kemalist Ideology & Railways</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
-  <style> 
-  body {
-    font-family: "Roboto Slab", serif;
-    background: linear-gradient(120deg, #fffaf5 0%, #fbeee6 100%);
-    color: #3b2f2f;
-    line-height: 1.6;
-    margin: 40px;
-  }
-
-  h1, h2, h3 {
-    color: #cc5500;
-  }
-  h1 {
-    text-align: center;
-    font-size: 2.8rem;
-    margin-bottom: 30px;
-  }
-
-  .user, .assistant {
-    background-color: #fffdfb;
-    margin: 20px 0;
-    padding: 10px;
-    transition: background 0.3s ease;
-  }
-  .user { border-left: 6px solid #e76f51; }
-  .assistant { border-left: 6px solid #f4a261; }
-  .user:hover, .assistant:hover { background-color: #fdf6f2; }
-
-  strong {
-    font-size: 1.1rem;
-    display: block;
-    margin-bottom: 8px;
-  }    
-  code {
-    display: block;
-    background-color: #fff3eb;
-    padding: 15px;
-    margin-top: 15px;
-    white-space: pre-wrap;
-    font-size: 0.95rem;
-    font-family: Consolas, Monaco, monospace;
-    overflow-x: auto;
-    border-left: 4px solid #e07a5f;
-  }    
+  <style>
+    body {
+      font-family: Georgia, serif;
+      line-height: 1.6;
+      margin: 40px;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+    h1, h2, h3 {
+      color: #003366;
+    }
+    .user {
+      background-color: #d0e6ff;
+      padding: 10px;
+      border-left: 5px solid #007acc;
+      margin: 20px 0;
+    }
+    .assistant {
+      background-color: #e2ffe2;
+      padding: 10px;
+      border-left: 5px solid #339933;
+      margin: 20px 0;
+    }
+    code {
+      display: block;
+      background-color: #f0f0f0;
+      padding: 10px;
+      margin: 10px 0;
+      border-left: 3px solid #ccc;
+      white-space: pre-wrap;
+      font-size: 0.95rem;
+      overflow-x: auto;
+    }
   </style>
 </head>
 <body>
-  <h1>Rails of the Republic - Chat Archive</h1>  <div class="user">
+  <h1>Rails of the Republic - Chat Archive</h1>
+  <div class="user">
     <strong>User:</strong> Kemalistlere ve demiryolu sevgisi arasındaki nedeni ne
   </div>
   <div class="assistant">
@@ -64,7 +53,8 @@
       <li><strong>Devletçilik:</strong> Demiryolu projeleri, doğrudan devlet eliyle yürütüldü. Bu, Kemalist devletçilik anlayışının somut bir uygulamasıdır.</li>
       <li><strong>Milliyetçilik ve Ulusal Bütünlük:</strong> Osmanlı döneminde yabancıların kontrolünde olan demiryolları, Cumhuriyet’le birlikte millileştirildi ve ulusal egemenliğin bir sembolü haline geldi.</li>
     </ul>
-  </div>  <div class="user">
+  </div>
+  <div class="user">
     <strong>User:</strong> Atatürk'ün söylemleri ile bunu analiz et
   </div>
   <div class="assistant">
@@ -76,7 +66,8 @@
       <li>"<em>Demiryolu yapımı millî ülkü haline gelmelidir</em>" — Ulaşım projelerinin sadece teknik değil, ulusal hedeflerle de bütünleşmiş olduğunu belirtir.</li>
     </ul>
     Bu söylemler, demiryollarının Kemalist ideolojinin pratiğe geçirilmesinde oynadığı rolü doğrudan doğrular.
-  </div>  <div class="user">
+  </div>
+  <div class="user">
     <strong>User:</strong> List data project ideas with this theme
   </div>
   <div class="assistant">
@@ -96,7 +87,8 @@
       <li>Geospatial simulation: Economic effect of alternate railway scenarios</li>
       <li>Network centrality analysis: Republican vs. Ottoman rail logic</li>
     </ul>
-  </div>  <div class="user">
+  </div>
+  <div class="user">
     <strong>User:</strong> Suggest a data project explaining that railway development reflects Kemalist ideology
   </div>
   <div class="assistant">
@@ -110,7 +102,8 @@
       <li>Text mine Atatürk's speeches and associate quotes with locations</li>
       <li>Run correlation and network analysis for structural logic</li>
     </ul>
-  </div>  <div class="user">
+  </div> 
+  <div class="user">
     <strong>User:</strong> Build this project
   </div>
   <div class="assistant">
@@ -128,7 +121,8 @@ regions_data = { 'region': ['Ankara', 'Sivas', 'Kayseri', 'Istanbul'], 'literacy
 
 fig, ax = plt.subplots(figsize=(10,8)) colors = {'Halkçılık': 'green', 'Devletçilik': 'blue', 'Yabancı sermaye': 'red'} for _, row in railways.iterrows(): ax.plot(*row.geometry.xy, color=colors[row.ideology_tag], linewidth=3, label=row.ideology_tag) regions.plot(ax=ax, color='orange', markersize=100) ax.set_title('Republican Railway Expansion and Ideological Purpose') plt.show() </code> <p>This is just a prototype—you can replace synthetic data with real TCDD, TÜİK, or TBMM data and even build a dashboard using Plotly Dash or Streamlit.</p>
 
-  </div>  <div class="user">
+  </div> 
+  <div class="user">
     <strong>User:</strong> I want all my answers and your answers, so meaning this whole chat as a html page .give the full correct index.html
   </div>
   <div class="assistant">
