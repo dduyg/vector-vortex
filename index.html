@@ -10,7 +10,7 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { 
             min-height: 100vh;
-            background: #c6a49b;
+            background: #c8c3c2;
         }
         .marquee_container {
   height: 100vh;
@@ -67,13 +67,79 @@
   border-radius: 40%;
   filter: blur(140px);
 }
+
+#credits {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  text-transform: uppercase;
+  padding: 0.35rem 0.5rem;
+  margin: 0.75rem 0.75rem;
+  font-size: 0.75rem;
+  border: 1.5px solid black;
+  transition: background 200ms ease-in;
+  border-radius: 0.2rem;
+
+      opacity: 0;
+      animation: fadeIn 6s ease-in forwards;
+    }
+    @keyframes fadeIn {
+      0% { opacity: 0.0; }
+      85% { opacity: 0.0; }
+      100% { opacity: 1; }
+    }
+
+    h1 {
+      position: relative;
+      animation: glitch 1s infinite;
+    }
+    h1::before, h1::after {
+      content: attr(data-text);
+      position: absolute;
+      left: 0;
+      width: 100%;
+      overflow: hidden;
+    }
+    h1::before {
+      animation: glitchTop 1s infinite;
+      color: #ff00c8;
+      top: -2px;
+    }
+    h1::after {
+      animation: glitchBottom 1s infinite;
+      color: #00ffff;
+      top: 2px;
+    }
+    @keyframes glitch {
+      0% { transform: none; }
+      20% { transform: skew(-2deg); }
+      40% { transform: skew(2deg); }
+      60% { transform: skew(-1deg); }
+      80% { transform: skew(1deg); }
+      100% { transform: none; }
+    }
+    @keyframes glitchTop {
+      0% { clip-path: inset(0 0 90% 0); }
+      20% { clip-path: inset(10% 0 85% 0); }
+      40% { clip-path: inset(20% 0 75% 0); }
+      60% { clip-path: inset(30% 0 65% 0); }
+      80% { clip-path: inset(40% 0 55% 0); }
+      100% { clip-path: inset(0 0 90% 0); }
+    }
+    @keyframes glitchBottom {
+      0% { clip-path: inset(90% 0 0 0); }
+      20% { clip-path: inset(85% 0 10% 0); }
+      40% { clip-path: inset(75% 0 20% 0); }
+      60% { clip-path: inset(65% 0 30% 0); }
+      80% { clip-path: inset(55% 0 40% 0); }
+      100% { clip-path: inset(90% 0 0 0); }
+    }    
     </style>
 </head>
 <body>
+<aside id="credits"><h1 data-text="404">404</h1></aside>
 <div class="marquee_container">
-  <div class="blobs">
-    <div class="blob1"></div>
-  </div>
+  <div class="blobs"><div class="blob1"></div></div>
   <div class="marquee">
     <div class="marquee_group">
       <span>$ HACK</span>
