@@ -1,82 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Typography Grid</title>
+  <title>Typographic Grid</title>
   <style>
-    * {
-      box-sizing: border-box;
+    body {
       margin: 0;
       padding: 0;
-    }
-
-    body {
-      background: #fff;
+      background: white;
       font-family: Arial, sans-serif;
     }
 
-    .grid {
+    .container {
       display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      grid-template-rows: repeat(12, 60px);
-      width: 100vw;
+      grid-template-columns: 1fr auto;
       height: 100vh;
       position: relative;
-      background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
-                        linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
-      background-size: 60px 60px;
+      font-size: 0;
     }
 
-    .letter {
-      font-size: 400px;
-      font-weight: bold;
-      grid-column: 3 / span 2;
-      grid-row: 4 / span 4;
-      align-self: end;
-      justify-self: start;
-    }
-
-    .dot {
-      font-size: 200px;
-      font-weight: bold;
-      grid-column: 5 / span 2;
-      grid-row: 6 / span 2;
-      align-self: start;
-      justify-self: start;
-    }
-
-    .ruler {
+    .grid-lines {
       position: absolute;
-      right: 40px;
       top: 0;
-      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 100%;
+      background-image: repeating-linear-gradient(
+        to bottom,
+        #eee,
+        #eee 1px,
+        transparent 1px,
+        transparent 50px
+      );
+      z-index: 0;
+    }
+
+    .left {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 200px;
+      padding-left: 60px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .right {
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-      padding: 60px 0;
+      justify-content: center;
+      align-items: flex-end;
+      padding-right: 40px;
+      gap: 50px;
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      font-weight: bold;
+      position: relative;
+      z-index: 1;
     }
 
-    .ruler-label {
-      background: #000;
-      color: #fff;
-      font-size: 12px;
+    .label {
+      background: black;
+      color: white;
       padding: 2px 6px;
-      margin: 20px 0;
-      align-self: flex-end;
+      border-radius: 2px;
+    }
+
+    .text-content {
+      display: flex;
+      gap: 20px;
+    }
+
+    .char {
+      display: inline-block;
     }
   </style>
 </head>
 <body>
-  <div class="grid">
-    <div class="letter">t</div>
-    <div class="dot">.</div>
-
-    <div class="ruler">
-      <div class="ruler-label">710</div>
-      <div class="ruler-label">530</div>
-      <div class="ruler-label">0</div>
-      <div class="ruler-label">-150</div>
+  <div class="container">
+    <div class="grid-lines"></div>
+    <div class="left">
+      <div class="text-content">
+        <span class="char">t</span>
+        <span class="char">.</span>
+      </div>
+    </div>
+    <div class="right">
+      <div class="label">710</div>
+      <div class="label">530</div>
+      <div class="label">0</div>
+      <div class="label">-150</div>
     </div>
   </div>
 </body>
