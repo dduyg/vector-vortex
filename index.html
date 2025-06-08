@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head>   
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LiminalLoop</title>
     <link href="https://api.fontshare.com/v2/css?f[]=clash-display@200,400,700,500,600,1,300&display=swap" rel="stylesheet">
     <link href="https://api.fontshare.com/v2/css?f[]=stardom@400&display=swap" rel="stylesheet">
     <style>
- * { margin: 0; padding: 0; box-sizing: border-box; }
-body { min-height: 100vh; }
-.marquee_container {
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            min-height: 100vh;
+            background: #e0c6bf;
+        }
+        .marquee_container {
   height: 100vh;
   position: relative;
   overflow: hidden;
@@ -47,12 +50,8 @@ body { min-height: 100vh; }
   font-family: "Stardom", sans-serif;
 }
 @keyframes scroll {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(calc(-100% - 60px));
-  }
+  from { transform: translateX(0); }
+  to { transform: translateX(calc(-100% - 60px)); }
 }
 .blobs {
   height: 100vh;
@@ -67,7 +66,7 @@ body { min-height: 100vh; }
   background: blue;
   border-radius: 40%;
   filter: blur(140px);
-} 
+}
     </style>
 </head>
 <body>
