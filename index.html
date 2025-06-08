@@ -3,16 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Full-Width Banner Video Footer</title>
+  <title>Full-Width Footer Video Banner</title>
   <style>
-    body {
+    * {
       margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
       font-family: sans-serif;
     }
 
     .content {
       min-height: 100vh;
-      padding-bottom: calc(100vw / 2.95); /* Reserve space equal to video height */
+      padding-bottom: calc(100vw / 2.95); /* Reserve space for video */
     }
 
     .video-footer {
@@ -20,8 +25,8 @@
       bottom: 0;
       left: 0;
       width: 100vw;
-      height: calc(100vw / 2.95); /* Maintain 796:270 ratio */
-      z-index: -1;
+      height: calc(100vw / 2.95); /* Maintain 796:270 aspect ratio */
+      z-index: 999;
       overflow: hidden;
     }
 
@@ -32,43 +37,47 @@
     }
 
     .enable-sound {
-      position: fixed;
-      bottom: calc((100vw / 2.95) + 10px);
-      right: 20px;
-      padding: 10px 16px;
-      background-color: #000;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      padding: 6px 10px;
+      font-size: 12px;
+      background-color: rgba(0, 0, 0, 0.6);
       color: white;
       border: none;
-      border-radius: 5px;
-      z-index: 1000;
+      border-radius: 3px;
       cursor: pointer;
+      z-index: 2;
     }
   </style>
 </head>
 <body>
 
+  <!-- Main Page Content -->
   <div class="content">
-    <h1>Website Content</h1>
-    <p>This is your main content. Scroll to see the full-width footer video.</p>
+    <h1>Your Page Content</h1>
+    <p>This is your main content. Scroll down to see the video banner fixed at the bottom.</p>
   </div>
 
+  <!-- Fixed Video Footer -->
   <div class="video-footer">
     <video id="footerVideo" autoplay loop playsinline muted>
       <source src="kemalizm.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
+    <button class="enable-sound" onclick="enableSound()">🔊</button>
   </div>
 
-  <button class="enable-sound" onclick="enableSound()">🔊 Enable Sound</button>
-
+  <!-- Script to Enable Sound -->
   <script>
     const video = document.getElementById('footerVideo');
+
     function enableSound() {
       video.muted = false;
       video.play();
     }
 
-    // Browsers require muted autoplay; sound can only be enabled via user action.
+    // Autoplay (muted by default, required by browsers)
     video.muted = true;
     video.play();
   </script>
