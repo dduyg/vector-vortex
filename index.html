@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Typography Grid</title>
+  <title>Typographic Grid</title>
   <style>
     body {
       margin: 0;
@@ -15,40 +15,46 @@
       position: relative;
       width: 100vw;
       height: 100vh;
+      background-image: 
+        linear-gradient(to right, #ccc 1px, transparent 1px); /* vertical solid lines */
+      background-size: 80px 80px;
     }
 
-    /* Horizontal dashed lines */
-    .line {
+    .horizontal-line {
       position: absolute;
+      left: 0;
       width: 100%;
       height: 1px;
-      border-top: 1px dashed #888;
+      border-top: 1px dashed #999;
     }
 
-    /* Line labels */
     .label {
       position: absolute;
-      right: 0;
+      right: 20px;
+      transform: translateY(-50%);
       background: black;
       color: white;
       font-size: 12px;
       font-weight: bold;
       padding: 2px 6px;
-      transform: translateY(-50%);
     }
 
-    /* Specific line positions */
-    .line1 { top: 15%; }
-    .line2 { top: 35%; }
-    .line3 { top: 70%; }
-    .line4 { top: 85%; }
+    .line-710 {
+      top: 100px;
+    }
 
-    .label1 { top: 15%; }
-    .label2 { top: 35%; }
-    .label3 { top: 70%; }
-    .label4 { top: 85%; }
+    .line-530 {
+      top: 200px;
+    }
 
-    /* Typography */
+    .line-0 {
+      top: 360px;
+    }
+
+    .line--150 {
+      top: 460px;
+    }
+
     .text {
       position: absolute;
       left: 100px;
@@ -60,30 +66,26 @@
       align-items: center;
     }
 
-    .dot {
+    .text .dot {
+      font-size: 120px;
       margin-left: 40px;
-      font-size: 140px;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <!-- Horizontal dashed lines -->
-    <div class="line line1"></div>
-    <div class="line line2"></div>
-    <div class="line line3"></div>
-    <div class="line line4"></div>
 
-    <!-- Labels on lines -->
-    <div class="label label1">710</div>
-    <div class="label label2">530</div>
-    <div class="label label3">0</div>
-    <div class="label label4">-150</div>
+    <!-- Dashed horizontal lines with labels -->
+    <div class="horizontal-line line-710"><div class="label">710</div></div>
+    <div class="horizontal-line line-530"><div class="label">530</div></div>
+    <div class="horizontal-line line-0"><div class="label">0</div></div>
+    <div class="horizontal-line line--150"><div class="label">-150</div></div>
 
-    <!-- Typography -->
+    <!-- Large text -->
     <div class="text">
       <span>t</span><span class="dot">.</span>
     </div>
+
   </div>
 </body>
 </html>
