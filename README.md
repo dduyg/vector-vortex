@@ -463,13 +463,11 @@ If the image is used as a background:
 - [ ] Byte Loop Void
 - [ ] Dark Glow Core
 - [ ] Code Warp Grid
-- [ ] Hack Flux Rise
 - [ ] Tech Punk Rise
 - [ ] Data Core Flux
 - [ ] Glow Hack Zone
 - [ ] Code Wire Loop
 - [ ] Grid Fire Edge
-
 
 
 # ⌨️
@@ -532,6 +530,17 @@ padding-bottom: 15px;
 
 ```html
 <h4 class="protect-selected" style="transform:translateX(-100%) translateZ(0)">→</h4>
+```
+
+```css
+:root {
+  --purple: #e8cbf9;
+  --grey: #2b2b2b;
+  --seagreen: #61a69f;
+  --beige: #c6a49b;
+  --lightgrey: #c8c3c2;
+  --lightbeige: #e0c6bf;
+}
 ```
 
 ```
