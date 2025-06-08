@@ -3,55 +3,30 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Typography Grid</title>
+  <title>Typographic Grid</title>
   <style>
     body {
       margin: 0;
       background: white;
-      font-family: sans-serif;
+      font-family: 'Arial', sans-serif;
     }
 
     .container {
       position: relative;
       width: 100vw;
       height: 100vh;
+      display: grid;
+      grid-template-rows: repeat(10, 1fr);
+      grid-template-columns: 1fr;
+      background-image: 
+        linear-gradient(to bottom, #ddd 1px, transparent 1px),
+        linear-gradient(to right, #eee 1px, transparent 1px);
+      background-size: 80px 80px;
     }
 
-    /* Horizontal dashed lines */
-    .line {
-      position: absolute;
-      width: 100%;
-      height: 1px;
-      border-top: 1px dashed #888;
-    }
-
-    /* Line labels */
-    .label {
-      position: absolute;
-      right: 0;
-      background: black;
-      color: white;
-      font-size: 12px;
-      font-weight: bold;
-      padding: 2px 6px;
-      transform: translateY(-50%);
-    }
-
-    /* Specific line positions */
-    .line1 { top: 15%; }
-    .line2 { top: 35%; }
-    .line3 { top: 70%; }
-    .line4 { top: 85%; }
-
-    .label1 { top: 15%; }
-    .label2 { top: 35%; }
-    .label3 { top: 70%; }
-    .label4 { top: 85%; }
-
-    /* Typography */
     .text {
       position: absolute;
-      left: 100px;
+      left: 80px;
       top: 50%;
       transform: translateY(-50%);
       font-size: 220px;
@@ -60,29 +35,42 @@
       align-items: center;
     }
 
-    .dot {
-      margin-left: 40px;
-      font-size: 140px;
+    .text span {
+      margin-right: 40px;
+    }
+
+    .labels {
+      position: absolute;
+      right: 20px;
+      top: 0;
+      bottom: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 60px 0;
+    }
+
+    .label {
+      background: black;
+      color: white;
+      font-size: 12px;
+      padding: 2px 6px;
+      margin: 30px 0;
+      align-self: flex-end;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <!-- Horizontal dashed lines -->
-    <div class="line line1"></div>
-    <div class="line line2"></div>
-    <div class="line line3"></div>
-    <div class="line line4"></div>
-
-    <!-- Labels on lines -->
-    <div class="label label1">710</div>
-    <div class="label label2">530</div>
-    <div class="label label3">0</div>
-    <div class="label label4">-150</div>
-
-    <!-- Typography -->
     <div class="text">
-      <span>t</span><span class="dot">.</span>
+      <span>t</span>.
+    </div>
+
+    <div class="labels">
+      <div class="label">710</div>
+      <div class="label">530</div>
+      <div class="label">0</div>
+      <div class="label">-150</div>
     </div>
   </div>
 </body>
