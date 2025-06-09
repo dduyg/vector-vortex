@@ -3,152 +3,133 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>404 | Glitched in Cyberspace</title>
+  <title>404 | Cyber Coder Not Found</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
   <style>
-    body {
+    * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      background: linear-gradient(135deg, #1a0033, #0d0d2b);
-      font-family: 'Orbitron', sans-serif;
+    }
+
+    body {
+      font-family: 'Press Start 2P', monospace;
+      background: linear-gradient(to bottom, #0f0c29, #302b63, #24243e);
       color: #fff;
       overflow: hidden;
       height: 100vh;
+      position: relative;
+    }
+
+    .grid {
+      background: repeating-linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.1) 0px,
+        rgba(255, 255, 255, 0.1) 1px,
+        transparent 1px,
+        transparent 20px
+      );
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      bottom: 0;
+      z-index: 0;
+    }
+
+    .container {
+      z-index: 2;
+      position: relative;
+      height: 100%;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
-      flex-direction: column;
       text-align: center;
+      padding: 2rem;
     }
 
-    .glitch-text {
-      font-family: 'Press Start 2P', cursive;
+    .glitch {
       font-size: 5rem;
-      color: #ff00ff;
       position: relative;
-      animation: glitch 1.5s infinite;
-      text-shadow: 0 0 5px #ff00ff, 0 0 10px #00ffff;
+      color: #f0f;
+      animation: glitch 1s infinite;
     }
 
-    .glitch-text::before,
-    .glitch-text::after {
-      content: '404';
+    .glitch::before,
+    .glitch::after {
+      content: attr(data-text);
       position: absolute;
-      top: 0;
       left: 0;
+      top: 0;
       width: 100%;
-      color: #00ffff;
-      background: transparent;
       overflow: hidden;
     }
 
-    .glitch-text::before {
-      left: 2px;
-      text-shadow: -2px 0 magenta;
+    .glitch::before {
+      color: cyan;
+      z-index: -1;
       animation: glitchTop 1s infinite linear;
     }
 
-    .glitch-text::after {
-      left: -2px;
-      text-shadow: -2px 0 cyan;
+    .glitch::after {
+      color: magenta;
+      z-index: -2;
       animation: glitchBottom 1s infinite linear;
     }
 
     @keyframes glitch {
-      0% { transform: none; }
-      20% { transform: skew(-5deg); }
-      40% { transform: skew(5deg); }
-      60% { transform: skew(-3deg); }
-      80% { transform: skew(3deg); }
-      100% { transform: none; }
+      0% { transform: translate(0); }
+      20% { transform: translate(-2px, 2px); }
+      40% { transform: translate(-2px, -2px); }
+      60% { transform: translate(2px, 2px); }
+      80% { transform: translate(2px, -2px); }
+      100% { transform: translate(0); }
     }
 
     @keyframes glitchTop {
-      0% { clip-path: inset(0 0 90% 0); }
-      50% { clip-path: inset(30% 0 30% 0); }
-      100% { clip-path: inset(90% 0 0 0); }
+      0% { clip-path: inset(0 0 80% 0); transform: translate(-2px, -2px); }
+      100% { clip-path: inset(0 0 80% 0); transform: translate(2px, 2px); }
     }
 
     @keyframes glitchBottom {
-      0% { clip-path: inset(90% 0 0 0); }
-      50% { clip-path: inset(40% 0 40% 0); }
-      100% { clip-path: inset(0 0 90% 0); }
+      0% { clip-path: inset(20% 0 0 0); transform: translate(2px, 2px); }
+      100% { clip-path: inset(20% 0 0 0); transform: translate(-2px, -2px); }
     }
 
     h2 {
-      font-size: 1.1rem;
-      margin-top: 20px;
-      color: #00ffff;
-      font-family: 'Orbitron', sans-serif;
-      letter-spacing: 2px;
-      text-shadow: 0 0 5px #00ffff;
+      font-size: 1.2rem;
+      margin-top: 1rem;
+      color: #0ff;
     }
 
     p {
-      margin-top: 20px;
-      font-size: 0.95rem;
-      color: #ffffffaa;
-      font-family: monospace;
-      max-width: 600px;
-      line-height: 1.6;
+      margin-top: 1rem;
+      color: #ccc;
     }
 
-    .button {
-      margin-top: 30px;
-      padding: 12px 24px;
-      border: 2px solid #00ffff;
-      color: #00ffff;
-      text-decoration: none;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      border-radius: 6px;
-      font-weight: bold;
+    .btn {
+      margin-top: 2rem;
+      padding: 0.75rem 1.5rem;
+      border: 2px solid #ff00ff;
       background-color: transparent;
-      transition: background 0.3s, color 0.3s;
-      box-shadow: 0 0 10px #00ffff33;
+      color: #ff00ff;
+      text-decoration: none;
+      transition: all 0.3s;
     }
 
-    .button:hover {
-      background-color: #00ffff;
+    .btn:hover {
+      background-color: #ff00ff;
       color: #000;
-      box-shadow: 0 0 20px #00ffffaa;
-    }
-
-    .scanlines {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: repeating-linear-gradient(
-        to bottom,
-        rgba(255, 255, 255, 0.03) 0px,
-        rgba(255, 255, 255, 0.03) 1px,
-        transparent 1px,
-        transparent 4px
-      );
-      z-index: -1;
-      pointer-events: none;
-    }
-
-    .grid-overlay {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 150vw;
-      height: 150vh;
-      background: radial-gradient(#ff00ff22, transparent 70%);
-      transform: translate(-50%, -50%) rotateX(60deg);
-      pointer-events: none;
-      z-index: -2;
     }
   </style>
 </head>
 <body>
-  <div class="glitch-text">404</div>
-  <h2>ACCESS DENIED | NODE NOT FOUND</h2>
-  <p>You’ve wandered too far into cyberspace. The page you're looking for doesn’t exist in this timeline. Patch into the mainframe and try again.</p>
-  <a href="/" class="button">↻ Return to Base</a>
-  <div class="scanlines"></div>
-  <div class="grid-overlay"></div>
+  <div class="grid"></div>
+  <div class="container">
+    <div class="glitch" data-text="404">404</div>
+    <h2>Cyber Coder Not Found</h2>
+    <p>The page you're looking for vanished into the digital void.</p>
+    <a href="/" class="btn">Return to Mainframe</a>
+  </div>
 </body>
 </html>
