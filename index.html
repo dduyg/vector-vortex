@@ -1,142 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>404 | Lost in Cyberspace</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>404 | Glitched in Cyberspace</title>
   <style>
-    * {
+    body {
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+      background: linear-gradient(135deg, #1a0033, #0d0d2b);
       font-family: 'Orbitron', sans-serif;
       color: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
       overflow: hidden;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
       text-align: center;
     }
 
-    .container {
-      z-index: 2;
+    .glitch-text {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 5rem;
+      color: #ff00ff;
+      position: relative;
+      animation: glitch 1.5s infinite;
+      text-shadow: 0 0 5px #ff00ff, 0 0 10px #00ffff;
     }
 
-    h1 {
-      font-size: 8rem;
-      color: #ff00ff;
-      text-shadow: 0 0 15px #ff00ff, 0 0 30px #00ffff;
-      animation: glitch 1.5s infinite;
+    .glitch-text::before,
+    .glitch-text::after {
+      content: '404';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      color: #00ffff;
+      background: transparent;
+      overflow: hidden;
+    }
+
+    .glitch-text::before {
+      left: 2px;
+      text-shadow: -2px 0 magenta;
+      animation: glitchTop 1s infinite linear;
+    }
+
+    .glitch-text::after {
+      left: -2px;
+      text-shadow: -2px 0 cyan;
+      animation: glitchBottom 1s infinite linear;
+    }
+
+    @keyframes glitch {
+      0% { transform: none; }
+      20% { transform: skew(-5deg); }
+      40% { transform: skew(5deg); }
+      60% { transform: skew(-3deg); }
+      80% { transform: skew(3deg); }
+      100% { transform: none; }
+    }
+
+    @keyframes glitchTop {
+      0% { clip-path: inset(0 0 90% 0); }
+      50% { clip-path: inset(30% 0 30% 0); }
+      100% { clip-path: inset(90% 0 0 0); }
+    }
+
+    @keyframes glitchBottom {
+      0% { clip-path: inset(90% 0 0 0); }
+      50% { clip-path: inset(40% 0 40% 0); }
+      100% { clip-path: inset(0 0 90% 0); }
     }
 
     h2 {
-      font-family: 'Press Start 2P', cursive;
-      font-size: 1.2rem;
+      font-size: 1.1rem;
+      margin-top: 20px;
       color: #00ffff;
-      margin-top: 1rem;
+      font-family: 'Orbitron', sans-serif;
+      letter-spacing: 2px;
       text-shadow: 0 0 5px #00ffff;
     }
 
     p {
-      margin-top: 2rem;
-      font-size: 1rem;
-      color: #f8f8f8;
-      opacity: 0.8;
+      margin-top: 20px;
+      font-size: 0.95rem;
+      color: #ffffffaa;
+      font-family: monospace;
+      max-width: 600px;
+      line-height: 1.6;
     }
 
-    a.button {
-      display: inline-block;
-      margin-top: 2rem;
+    .button {
+      margin-top: 30px;
       padding: 12px 24px;
-      color: #0ff;
-      border: 2px solid #0ff;
-      border-radius: 5px;
+      border: 2px solid #00ffff;
+      color: #00ffff;
       text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border-radius: 6px;
       font-weight: bold;
-      text-shadow: 0 0 5px #0ff;
-      transition: all 0.3s ease;
+      background-color: transparent;
+      transition: background 0.3s, color 0.3s;
+      box-shadow: 0 0 10px #00ffff33;
     }
 
-    a.button:hover {
-      background: #0ff;
+    .button:hover {
+      background-color: #00ffff;
       color: #000;
-      box-shadow: 0 0 10px #0ff;
-    }
-
-    /* Glitch effect */
-    @keyframes glitch {
-      0% {
-        text-shadow: 2px 0 #ff00ff, -2px 0 #00ffff;
-      }
-      20% {
-        text-shadow: -2px 0 #ff00ff, 2px 0 #00ffff;
-      }
-      40% {
-        text-shadow: 2px 0 #00ffff, -2px 0 #ff00ff;
-      }
-      60% {
-        text-shadow: -2px 0 #00ffff, 2px 0 #ff00ff;
-      }
-      80% {
-        text-shadow: 2px 0 #ff00ff, -2px 0 #00ffff;
-      }
-      100% {
-        text-shadow: -2px 0 #ff00ff, 2px 0 #00ffff;
-      }
+      box-shadow: 0 0 20px #00ffffaa;
     }
 
     .scanlines {
-      position: absolute;
+      position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
       background: repeating-linear-gradient(
         to bottom,
-        rgba(255, 255, 255, 0.03),
+        rgba(255, 255, 255, 0.03) 0px,
         rgba(255, 255, 255, 0.03) 1px,
         transparent 1px,
-        transparent 3px
+        transparent 4px
       );
-      z-index: 1;
+      z-index: -1;
       pointer-events: none;
     }
 
-    .glow {
+    .grid-overlay {
       position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle, rgba(255,0,255,0.1) 0%, transparent 80%);
-      animation: pulse 5s infinite ease-in-out;
-      z-index: 0;
-    }
-
-    @keyframes pulse {
-      0%, 100% {
-        transform: scale(1);
-      }
-      50% {
-        transform: scale(1.2);
-      }
+      top: 50%;
+      left: 50%;
+      width: 150vw;
+      height: 150vh;
+      background: radial-gradient(#ff00ff22, transparent 70%);
+      transform: translate(-50%, -50%) rotateX(60deg);
+      pointer-events: none;
+      z-index: -2;
     }
   </style>
 </head>
 <body>
-  <div class="glow"></div>
+  <div class="glitch-text">404</div>
+  <h2>ACCESS DENIED | NODE NOT FOUND</h2>
+  <p>You’ve wandered too far into cyberspace. The page you're looking for doesn’t exist in this timeline. Patch into the mainframe and try again.</p>
+  <a href="/" class="button">↻ Return to Base</a>
   <div class="scanlines"></div>
-
-  <div class="container">
-    <h1>404</h1>
-    <h2>ERROR: FILE NOT FOUND</h2>
-    <p>You’ve been jacked out of the matrix. The page you’re looking for doesn’t exist in this reality.</p>
-    <a class="button" href="/">RETURN TO MAINFRAME</a>
-  </div>
+  <div class="grid-overlay"></div>
 </body>
 </html>
