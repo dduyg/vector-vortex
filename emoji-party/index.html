@@ -18,50 +18,48 @@
       height: 100%;
       margin: 0;
       background-repeat: no-repeat;
-      background-attachment: fixed;  
+      background-attachment: fixed;
     }
-    a { color: #0C2D48; }
+    a { color: #0C2D48; }      
       
-      #output {
-        display: inline-block;
-        font-size: calc(16px + 2.5vw);
-        line-height: 1;
-        background-color: #e3fcff;
-        box-shadow: rgba(14, 66, 110, 0.2) 0px 1vh 3vh;
-        border-radius: 3vw;
-        padding: 20px;
-        white-space: nowrap;
-      }
-      
-      label {
-        display: inline-block;
-        font-weight: bold;
-        font-size: 40px;
-        vertical-align: middle;
-      }
-      input {
-        width: 26px;
-        padding: 8px 10px;
-        border: 0;
-        background: rgba(255,255,255,0.5);
-        margin-bottom: 20px;
-      }
-      button {
-        box-sizing: border-box;
-        color: #fff;
-        background: #1CA9C9;
-        font-weight: bold;
-        margin-left: 15px;
-        padding: 8px 10px;
-        border: 0;
-        cursor: pointer;
-        font-family: inherit;
-        font-size: inherit;
-      }
-      
-      @media (max-width: 600px) {
-        label { font-size: 20px; }
-      }    
+    #output {    
+      display: inline-block;
+      font-size: calc(16px + 2.5vw);
+      line-height: 1;
+      background-color: #D4E6DF;
+      box-shadow: rgba(139, 52, 97, 0.3) 0px 1vh 3vh;
+      border-radius: 3vw;
+      padding: 20px;
+      white-space: nowrap;
+    }
+    label {      
+      display: inline-block;
+      font-weight: bold;
+      font-size: 40px;
+      vertical-align: middle; 
+    }     
+    @media (max-width: 600px) {    
+      label { font-size: 20px; }  
+    }      
+    input { 
+      width: 26px;
+      padding: 8px 10px;
+      border: 0;
+      background: rgba(255,255,255,0.5);
+      margin-bottom: 20px;
+    }    
+    button {  
+      box-sizing: border-box;
+      color: #fff;
+      background: #1CA9C9;
+      font-weight: bold;
+      margin-left: 15px;
+      padding: 8px 10px;
+      border: 0;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: inherit;
+    }
   </style>
 </head>
 <body>    
@@ -84,7 +82,7 @@
   <p>swimming with 🐙 by <a href="#">dduyg</a>. see the <a href="#">code</a>.</p>
 
   <script src="polyfill.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/tracery-grammar@0.1.1/dist/tracery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/galaxykate/tracery/js/tracery.min.js"></script>
   <script src="garden.js"></script>
   <script>
     setTimeout(doAnOcean, 200);
