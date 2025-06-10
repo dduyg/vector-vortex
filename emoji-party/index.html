@@ -1,30 +1,26 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>🌊 Ocean Garden 🌊</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <style>
-      html {
-        height: 100%;
-      }
-      body {
-        box-sizing: border-box;
-        text-align: center;
-        font-family: monospace;
-        padding: 40px auto;
-        -webkit-font-smoothing: antialiased;
-        background: linear-gradient(35deg, #00c3ff, #ffff1c 80%); /* ocean blue to sandy yellow */
-        height: 100%;
-        margin: 0;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-      }
-      a:link, a:visited {
-        color: #0C2D48;
-      }
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <title>Ocean Garden</title>  
+  <style>      
+    html { height: 100%; }   
+    body {    
+      box-sizing: border-box;
+      text-align: center;
+      font-family: monospace;
+      padding: 40px auto;
+      -webkit-font-smoothing: antialiased;
+      background: linear-gradient(35deg, #00c3ff, #ffff1c 80%); /* ocean blue to sandy yellow */
+      height: 100%;
+      margin: 0;
+      background-repeat: no-repeat;
+      background-attachment: fixed;  
+    }
+    a { color: #0C2D48; }
       
       #output {
         display: inline-block;
@@ -64,38 +60,34 @@
       }
       
       @media (max-width: 600px) {
-        label {
-          font-size: 20px;
-        }
-      }
-    </style>
-    <script src="polyfill.js"></script>
-    <script src="https://cdn.rawgit.com/galaxykate/tracery/fc98c0bf/js/tracery.min.js"></script>
-  </head>
-  <body>
-    <h1>🌊 Ocean Garden 🌊</h1>
-    <div>
+        label { font-size: 20px; }
+      }    
+  </style>
+</head>
+<body>    
+  <h1>Ocean Garden</h1>  
+  <div>
       <label for="rows">🌊</label>
       <input id="cols" type="number" value="10">
       x
       <input id="rows" type="number" value="10">
       &nbsp;
-      <label for="visitors">🐟</label>
+      <label for="visitors">🧜‍♀️</label>
       <input id="visitors" type="number" value="10">
-      <label for="treasures">💎</label>
+      <label for="treasures">🐚</label>
       <input id="treasures" type="number" value="5">
 
       <button onclick="doAnOcean()">Refresh!</button>
-    </div>
-    <br>
-    <div id="output"></div>
-    <p>
-      swimming with 🐙 by <a href="#">dduyg</a>. see the 
-      <a href="#">code</a>.
-    </p>
-  </body>
+  </div>
+  <br>
+  <div id="output"></div>
+  <p>swimming with 🐙 by <a href="#">dduyg</a>. see the <a href="#">code</a>.</p>
+
+  <script src="polyfill.js"></script>
+  <script src="https://cdn.rawgit.com/galaxykate/tracery/fc98c0bf/js/tracery.min.js"></script>
   <script src="garden.js"></script>
   <script>
     setTimeout(doAnOcean, 200);
   </script>
+</body>
 </html>
