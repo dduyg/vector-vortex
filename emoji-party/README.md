@@ -3,18 +3,14 @@ Generates a random emoji party. Built with [tracery.js](https://github.com/galax
 
 ---
 
-# A Seapunk Emoji Reef Generator
-*AquaSynth* is a playful, seapunk-inspired web toy that lets you generate mesmerizing underwater worlds using only emojis! Customize your ocean grid, populate it with all manner of aquatic creatures, treasures, and shimmering scenery, and watch as your own procedurally generated seascape comes to life.
+Customize your ocean grid, populate it with all manner of aquatic creatures, treasures, and shimmering scenery
 
 ## 🌐 What is AquaSynth?
-AquaSynth is an interactive, browser-based **emoji tilemap generator** that creates colorful, aquatic-themed "reefscapes." Users control the size of the grid and the number of creatures and treasures, and each click produces a new, unique ocean tableau.
+AquaSynth is an interactive, browser-based *emoji tilemap generator* that creates colorful, aquatic-themed "reefscapes." Users control the size of the grid and the number of creatures and treasures, and each click produces a new, unique ocean tableau.
 
 ## ⚓️ How It Works
 1. **Set your parameters**: Choose the grid dimensions, the number of ocean creatures, and the number of treasures.
 2. **Generate your reef**: Click "Refresh!" to create a brand new underwater emoji scene.
-3. **Enjoy and share**: Copy, screenshot, or simply enjoy your one-of-a-kind ocean tableau!
-
-Behind the scenes, AquaSynth uses a random algorithm to fill a grid with background "tiles" (waves, coral, bubbles, etc.), then sprinkles in creatures (octopus, fish, merfolk, etc.) and treasures (anchors, gems, islands, etc.).
 
 ## 🌟 Technical Details
 - **Emoji tilemap**: The grid is a 2D array, each cell visualized as an emoji.
@@ -23,46 +19,52 @@ Behind the scenes, AquaSynth uses a random algorithm to fill a grid with backgro
 
 ---
 
-# 🌊 Seapunk Emoji Reef 🐙
+# 🌊 Emoji Reef 🐙
 customizable underwater emoji tilemap generator!
 
-# What is Seapunk Emoji Reef?
-Seapunk Emoji Reef is an interactive web app that generates a lively underwater "reef" made of emojis. Users can customize the size of the reef and the number of sea creatures and treasures that appear. Each time you refresh, a new unique scene is created, giving you endless oceanic vibes!
-
-## 🐬 Features
-- **Customizable Ocean**: Set the number of rows and columns for your reef.
-- **Marine Visitors**: Choose how many sea creatures (mermaids, dolphins, octopuses, etc.) appear.
-- **Hidden Treasures**: Adjust how many treasures (pearls, ships, islands, jewels, and more) are scattered.
-- **Seapunk Style**: Enjoy a neon-inspired aquatic design for a true seapunk experience.
-- **Procedural Generation**: Every click brings a new, randomly-generated ocean scene.
-
----
-
-## 🏝️ How to Use
-1. **Open the app in your browser.**
-2. **Set your reef size** by adjusting the columns (`x`) and rows.
-3. **Choose your sea creatures** (visitors) and treasures.
-4. **Click "Refresh!"** to generate a new underwater scene.
-5. **Enjoy or screenshot your reef** and share the seapunk love!
-
----
+# What is Emoji Reef?
+Emoji Reef is an interactive web app that generates a lively underwater "reef" made of emojis. Users can customize the size of the reef and the number of sea creatures and treasures that appear. Every click brings a new, randomly-generated ocean scene.
 
 ## 🧜‍♀️ Technical Details
-
-- **Built with:** Vanilla JavaScript, HTML, and CSS
 - **Emoji tilemap:** Uses [Tracery](https://github.com/galaxykate/tracery) for emoji grammar and procedural generation.
 - **Grid visualization:** The reef is a 2D array of emojis, randomly populated according to your settings.
-- **No backend required:** All data is stored in your browser's local storage.
 
----
-
-## 🎨 Seapunk Inspiration
-
-Seapunk Emoji Reef is inspired by the [Seapunk aesthetic](https://en.wikipedia.org/wiki/Seapunk): a blend of neon ocean visuals, cyberpunk vibes, and playful digital art. Enjoy the iridescent waves and pixel seashells as you build your own reef!
-
----
+Enjoy the iridescent waves and pixel seashells as you build your own reef!
 
 ## 🧜 Credits
-- Emojis courtesy of [Unicode](https://unicode.org/emoji/)
 - Procedural grammar by [Tracery](https://github.com/galaxykate/tracery)
-- Oceanic imagination by [@dduyg](https://github.com/dduyg)
+
+---
+
+# 🌊 Emoji Ocean Scene Generator
+
+This is an **interactive emoji ocean scene generator**.  
+It creates a grid-based "ocean" filled with themed emojis, such as sea creatures, boats, treasures, and more.  
+You can control the size of the scene and the number of creatures and treasures, then press “Refresh!” to see a new, randomly generated underwater tableau.
+
+## 🛟 How to use
+1. **Set the Grid Size**
+   - Use the input fields to choose the number of columns (width) and rows (height) of your ocean scene.
+
+2. **Choose Number of Creatures**
+   - Set how many ocean creatures (fish, mermaids, etc.) you want to appear.
+
+3. **Choose Number of Treasures**
+   - Set how many treasures or special items (islands, jewels, etc.) to hide in your ocean.
+
+4. **Generate Ocean Scene**
+   - Click the **Refresh!** button to create your ocean scene.
+   - Each scene is different—try different numbers for new surprises!
+
+---
+
+## 🦑 What do the labels mean?
+
+- **🌊** — Size of your ocean (columns × rows)
+- **🐟** — Number of ocean creatures
+- **💎** — Number of treasures
+
+---
+
+## 📝 Technical Notes!
+- Uses [Tracery](https://github.com/galaxykate/tracery) for easy emoji grammar handling.
