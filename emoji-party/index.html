@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>🎉🎉🎉</title>
+    <title>🌊 Ocean Garden 🌊</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
-
     <style>
       html {
         height: 100%;
@@ -17,22 +16,22 @@
         font-family: monospace;
         padding: 40px auto;
         -webkit-font-smoothing: antialiased;
-        background: linear-gradient(35deg, #ff00cc, #333399); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        background: linear-gradient(35deg, #00c3ff, #ffff1c 80%); /* ocean blue to sandy yellow */
         height: 100%;
         margin: 0;
         background-repeat: no-repeat;
         background-attachment: fixed;
       }
       a:link, a:visited {
-        color: #D4E6DF;
+        color: #0C2D48;
       }
       
       #output {
         display: inline-block;
         font-size: calc(16px + 2.5vw);
         line-height: 1;
-        background-color: #D4E6DF;
-        box-shadow: rgba(139, 52, 97, 0.3) 0px 1vh 3vh;
+        background-color: #e3fcff;
+        box-shadow: rgba(14, 66, 110, 0.2) 0px 1vh 3vh;
         border-radius: 3vw;
         padding: 20px;
         white-space: nowrap;
@@ -54,7 +53,7 @@
       button {
         box-sizing: border-box;
         color: #fff;
-        background: #57A530;
+        background: #1CA9C9;
         font-weight: bold;
         margin-left: 15px;
         padding: 8px 10px;
@@ -69,48 +68,34 @@
           font-size: 20px;
         }
       }
-      
-      @keyframes party {
-        0% {background-position: left top;}
-        100% {background-position: left bottom;}
-      }
-      @-moz-keyframes party {
-        0% {background-position: left top;}
-        100% {background-position: left bottom;}
-      }
-      @-webkit-keyframes party {
-        0% {background-position: left top;}
-        100% {background-position: left bottom;}
-      }
-
     </style>
     <script src="polyfill.js"></script>
     <script src="https://cdn.rawgit.com/galaxykate/tracery/fc98c0bf/js/tracery.min.js"></script>
   </head>
   <body>
-    <h1>🎉🎉🎉</h1>
+    <h1>🌊 Ocean Garden 🌊</h1>
     <div>
-      <label for="rows">🏁</label>
+      <label for="rows">🌊</label>
       <input id="cols" type="number" value="10">
       x
       <input id="rows" type="number" value="10">
       &nbsp;
-      <label for="visitors">👯‍♀️</label>
+      <label for="visitors">🐟</label>
       <input id="visitors" type="number" value="10">
-      <label for="snacks">🎂</label>
-      <input id="snacks" type="number" value="5">
+      <label for="treasures">💎</label>
+      <input id="treasures" type="number" value="5">
 
-      <button onclick="doAGarden()">Refresh!</button>
+      <button onclick="doAnOcean()">Refresh!</button>
     </div>
     <br>
     <div id="output"></div>
     <p>
-      partied with 🐱 by <a href="#">dduyg</a>. see the 
+      swimming with 🐙 by <a href="#">dduyg</a>. see the 
       <a href="#">code</a>.
     </p>
   </body>
   <script src="garden.js"></script>
   <script>
-    setTimeout(doAGarden, 200);
+    setTimeout(doAnOcean, 200);
   </script>
 </html>
