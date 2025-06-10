@@ -300,7 +300,6 @@ If the image is used as a background:
 - [ ]  Luxurious Roman
 - [ ]  Philosopher
 - [ ]  Diplomata SC
-- [ ]  Fascinate Inline
 - [ ]  Montserrat Alternates
 - [ ]  Offside ♡~
 - [ ]  Overlock
@@ -308,6 +307,12 @@ If the image is used as a background:
 - [ ]  Nunito
 - [ ]  Capriola
 - [ ]  Karla
+- [ ]  Savate
+- [ ]  Bitter
+- [ ]  Courgette
+- [ ]  Hubballi
+- [ ]  Signika
+- [ ]  Srisakdi
 - [ ]  SUSE
 - [ ]  Stalinist One
 - [ ]  Baumans
@@ -328,7 +333,6 @@ If the image is used as a background:
 - [ ]  Share
 - [ ]  Kodchasan
 - [ ]  MuseoModerno
-- [ ]  Bruno Ace SC
 - [ ]  Parkinsans
 - [ ]  Sora 🩶
 - [ ]  Reddit Sans Condensed
@@ -348,7 +352,6 @@ If the image is used as a background:
 - [ ]  Encode Sans Condensed
 - [ ]  Mona Sans
 - [ ]  Stick No Bills
-- [ ]  Funnel Sans
 - [ ]  Thasadith
 - [ ]  Fahkwang
 - [ ]  Train One
