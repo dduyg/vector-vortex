@@ -1,127 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>404 | Vaporwave Void</title>
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Manrope:wght@400;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <title>404Found</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    :root {
-      --color-pink: #ff71ce;
-      --color-cyan: #01cdfe;
-      --color-green: #05ffa1;
-      --color-purple: #b967ff;
-      --color-yellow: #fff685;
-      --text-main: #ffffff;
-      --text-subtle: #ffffffbb;
-      --shape-blur: rgba(255, 255, 255, 0.08);
-    }
-
-    * {
+    body {
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
-    }
-    html, body {
-      height: 100%;
-      font-family: 'Manrope', sans-serif;
-      background: linear-gradient(135deg, #ff71ce, #01cdfe, #b967ff);
-      background-size: 600% 600%;
-      animation: backgroundShift 10s ease infinite;   
-      color: var(--text-main);
+      background: linear-gradient(135deg, #ff71ce, #01cdfe, #05ffa1, #b967ff);
+      background-size: 400% 400%;
+      animation: gradientBG 20s ease infinite;
+      font-family: 'Orbitron', sans-serif;
+      color: #fff;
       display: flex;
       justify-content: center;
       align-items: center;
+      height: 100vh;
+      text-align: center;
       overflow: hidden;
     }
-    @keyframes backgroundShift {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    } 
+
+    @keyframes gradientBG {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
 
     .container {
-      text-align: center;
-      padding: 2rem;
-      z-index: 1;
+      max-width: 600px;
     }
 
     h1 {
-      font-family: 'Press Start 2P', monospace;
-      font-size: 5rem;
-      color: var(--color-yellow);
-      text-shadow: 2px 2px 0 #ff00c8, 4px 4px 0 #6c63ff;
+      font-size: 6rem;
+      margin: 0;
+      font-family: 'Press Start 2P', cursive;
+      color: #fffb00;
+      text-shadow: 2px 2px #ff0080;
     }
 
     h2 {
-      font-size: 1.75rem;
-      margin-top: 1.5rem;
-      margin-bottom: 1rem;
+      font-size: 2rem;
+      margin: 20px 0;
+      color: #00ffe7;
+      text-shadow: 1px 1px #ff0080;
     }
 
     p {
-      color: var(--text-subtle);
-      font-size: 1.1rem;
-      margin-bottom: 2rem;
+      font-size: 1.2rem;
+      margin-top: 10px;
+      color: #ffffffcc;
     }
 
     a {
+      color: #ff71ce;
       text-decoration: none;
-      background: var(--color-pink);
-      color: white;
-      padding: 0.75rem 1.5rem;
-      border-radius: 30px;
       font-weight: bold;
+      border: 2px solid #ff71ce;
+      padding: 10px 20px;
+      border-radius: 8px;
+      display: inline-block;
+      margin-top: 30px;
       transition: all 0.3s ease;
-      box-shadow: 0 0 15px #ff71ce88;
     }
 
     a:hover {
-      background: #ff00c8;
-      box-shadow: 0 0 20px #ff00c8cc;
+      background-color: #ff71ce;
+      color: #000;
+      box-shadow: 0 0 10px #fff, 0 0 20px #ff71ce;
     }
 
-    /* Floating shapes for Geometric Air theme */
-    .shape {
+    .grid {
       position: absolute;
-      border-radius: 50%;
-      background: var(--shape-blur);
-      backdrop-filter: blur(4px);
-      animation: float 12s ease-in-out infinite alternate;
+      bottom: 0;
+      width: 100%;
+      height: 200px;
+      background: linear-gradient(to top, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+      background-size: 40px 40px;
       z-index: 0;
-    }
-
-    .shape1 { width: 100px; height: 100px; top: 10%; left: 15%; animation-delay: 0s; }
-    .shape2 { width: 80px; height: 80px; bottom: 20%; right: 10%; animation-delay: 3s; }
-    .shape3 { width: 60px; height: 60px; top: 25%; right: 20%; animation-delay: 6s; }
-    .shape4 { width: 50px; height: 50px; bottom: 15%; left: 25%; animation-delay: 9s; }
-
-    @keyframes float {
-      0% { transform: translateY(0) rotate(0deg); }
-      100% { transform: translateY(-40px) rotate(360deg); }
-    }
-
-    @media (max-width: 600px) {
-      h1 { font-size: 3rem; }
-      h2 { font-size: 1.2rem; }
     }
   </style>
 </head>
 <body>
-
-  <!-- Floating geometric shapes -->
-  <div class="shape shape1"></div>
-  <div class="shape shape2"></div>
-  <div class="shape shape3"></div>
-  <div class="shape shape4"></div>
-
-  <!-- 404 content -->
   <div class="container">
     <h1>404</h1>
-    <h2>Lost in the Vapor</h2>
-    <p>The page you're looking for has drifted into the neon haze.</p>
-    <a href="/">⟵ Return to Reality</a>
+    <h2>Page Not Found</h2>
+    <p>Like, totally lost in cyberspace.</p>
+    <a href="/">Back to Home</a>
   </div>
-
+  <div class="grid"></div>
 </body>
 </html>
