@@ -1,25 +1,36 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
-  <title>Ocean Garden</title>  
-  <style>      
-    html { height: 100%; }   
-    body {    
-      box-sizing: border-box;
-      text-align: center;
-      font-family: monospace;
-      padding: 40px auto;
-      -webkit-font-smoothing: antialiased;
-      background: linear-gradient(35deg, #00c3ff, #ffff1c 80%); /* ocean blue to sandy yellow */
-      height: 100%;
+  <title>🪸 Aquatic Arrays</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syncopate&display=swap" rel="stylesheet">  
+  <style>
+    body {
       margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Syncopate", sans-serif;
+      color: #fff;
+      text-shadow: 2px 2px #000;  
+      -webkit-font-smoothing: antialiased;   
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 100vh;
+      padding: 0 1rem;
+      background-image: url('https://raw.githubusercontent.com/dduyg/LiminalLoop/main/06/oceanscapes.gif');
+      background-size: cover;
+      background-position: center;
       background-repeat: no-repeat;
-      background-attachment: fixed;
-    }
+      text-align: center;
+      overflow: hidden;
+    }   
+    
+
     a { color: #0C2D48; }      
       
     #output {    
@@ -63,7 +74,7 @@
   </style>
 </head>
 <body>    
-  <h1>Ocean Garden</h1>  
+  <h1>Aquatic Arrays</h1>  
   <div>
       <label for="rows">🌊</label>
       <input id="cols" type="number" value="10">
