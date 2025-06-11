@@ -11,8 +11,8 @@
       --bg2: #01cdfe;
       --bg3: #05ffa1;
       --bg4: #b967ff;
-      --text-main: #ffffff;
-      --text-glow: #fffb00;
+      --text: #ffffff;
+      --highlight: #ffff99;
       --btn-bg: #ff71ce;
       --btn-hover: #ff00c8;
       --shape: rgba(255, 255, 255, 0.1);
@@ -30,10 +30,10 @@
       background-size: 400% 400%;
       animation: gradientShift 20s ease infinite;
       font-family: 'Manrope', sans-serif;
-      color: var(--text-main);
       display: flex;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
+      color: var(--text);
       overflow: hidden;
     }
 
@@ -53,35 +53,38 @@
     h1 {
       font-family: 'Press Start 2P', cursive;
       font-size: 5rem;
-      color: var(--text-glow);
+      color: var(--highlight);
       text-shadow: 2px 2px 0 #ff00c8, 4px 4px 0 #6c63ff;
     }
 
     h2 {
-      font-size: 2rem;
-      margin: 1.5rem 0 1rem;
-      color: #ffffffdd;
+      font-size: 1.5rem;
+      margin: 1.5rem 0;
+      color: #ffffffcc;
     }
 
     p {
+      font-size: 1rem;
       color: #eeeeeeaa;
       margin-bottom: 2rem;
     }
 
     a {
+      display: inline-block;
       background: var(--btn-bg);
       color: white;
       text-decoration: none;
       padding: 0.75rem 1.5rem;
       border-radius: 40px;
       font-weight: bold;
+      font-size: 1rem;
       box-shadow: 0 0 12px #ff71ceaa;
-      transition: background 0.3s ease, box-shadow 0.3s ease;
+      transition: all 0.3s ease;
     }
 
     a:hover {
       background: var(--btn-hover);
-      box-shadow: 0 0 18px #ff00c8aa;
+      box-shadow: 0 0 20px #ff00c8cc;
     }
 
     /* Floating geometric shapes */
@@ -89,76 +92,41 @@
       position: absolute;
       border-radius: 50%;
       background: var(--shape);
-      backdrop-filter: blur(2px);
-      animation: float 12s ease-in-out infinite alternate;
+      backdrop-filter: blur(3px);
+      animation: float 14s ease-in-out infinite alternate;
     }
 
-    .shape1 {
-      width: 120px;
-      height: 120px;
-      top: 10%;
-      left: 10%;
-      animation-delay: 0s;
-    }
-
-    .shape2 {
-      width: 80px;
-      height: 80px;
-      bottom: 15%;
-      right: 12%;
-      animation-delay: 3s;
-    }
-
-    .shape3 {
-      width: 60px;
-      height: 60px;
-      top: 30%;
-      right: 18%;
-      animation-delay: 6s;
-    }
-
-    .shape4 {
-      width: 40px;
-      height: 40px;
-      bottom: 10%;
-      left: 25%;
-      animation-delay: 9s;
-    }
+    .shape1 { width: 120px; height: 120px; top: 10%; left: 10%; animation-delay: 0s; }
+    .shape2 { width: 80px; height: 80px; bottom: 15%; right: 12%; animation-delay: 3s; }
+    .shape3 { width: 60px; height: 60px; top: 30%; right: 20%; animation-delay: 6s; }
+    .shape4 { width: 40px; height: 40px; bottom: 10%; left: 25%; animation-delay: 9s; }
 
     @keyframes float {
-      0% { transform: translateY(0px) rotate(0deg); }
+      0% { transform: translateY(0) rotate(0deg); }
       100% { transform: translateY(-40px) rotate(360deg); }
     }
 
     @media (max-width: 600px) {
-      h1 {
-        font-size: 3rem;
-      }
-
-      h2 {
-        font-size: 1.2rem;
-      }
-
-      .shape {
-        display: none;
-      }
+      h1 { font-size: 3rem; }
+      h2 { font-size: 1.2rem; }
+      .shape { display: none; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Floating shapes -->
+  <!-- Floating Shapes -->
   <div class="shape shape1"></div>
   <div class="shape shape2"></div>
   <div class="shape shape3"></div>
   <div class="shape shape4"></div>
 
-  <!-- Main content -->
+  <!-- Main Content -->
   <div class="container">
     <h1>404</h1>
     <h2>You're lost in the vapor</h2>
-    <p>This page doesn't exist. It might have dissolved into the neon air.</p>
-    <a href="/">Back to Home</a>
+    <p>This page has drifted into the neon haze. Let’s take you back.</p>
+    <a href="/">Return Home</a>
   </div>
 
 </body>
