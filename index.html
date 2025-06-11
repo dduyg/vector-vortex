@@ -3,18 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>404 | Lost in the Vapor</title>
+  <title>404 | Vaporwave Void</title>
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Manrope:wght@400;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --pink: #ff71ce;
-      --blue: #01cdfe;
-      --green: #05ffa1;
-      --purple: #b967ff;
-      --yellow: #fff685;
-      --white: #ffffff;
-      --text: #ffffffee;
-      --shape: rgba(255, 255, 255, 0.07);
+      --color-pink: #ff71ce;
+      --color-cyan: #01cdfe;
+      --color-green: #05ffa1;
+      --color-purple: #b967ff;
+      --color-yellow: #fff685;
+      --text-main: #ffffff;
+      --text-subtle: #ffffffbb;
+      --shape-blur: rgba(255, 255, 255, 0.08);
     }
 
     * {
@@ -26,17 +26,17 @@
     html, body {
       height: 100%;
       font-family: 'Manrope', sans-serif;
-      background: linear-gradient(135deg, var(--pink), var(--blue), var(--green), var(--purple));
+      background: linear-gradient(135deg, var(--color-pink), var(--color-cyan), var(--color-green), var(--color-purple));
       background-size: 400% 400%;
-      animation: gradientShift 30s ease infinite;
-      color: var(--text);
+      animation: bgShift 20s ease infinite;
+      color: var(--text-main);
       display: flex;
       justify-content: center;
       align-items: center;
       overflow: hidden;
     }
 
-    @keyframes gradientShift {
+    @keyframes bgShift {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
@@ -45,59 +45,58 @@
     .container {
       text-align: center;
       padding: 2rem;
-      position: relative;
-      z-index: 2;
+      z-index: 1;
     }
 
     h1 {
       font-family: 'Press Start 2P', monospace;
       font-size: 5rem;
-      color: var(--yellow);
+      color: var(--color-yellow);
       text-shadow: 2px 2px 0 #ff00c8, 4px 4px 0 #6c63ff;
     }
 
     h2 {
       font-size: 1.75rem;
-      margin: 1.5rem 0;
-      font-weight: 700;
+      margin-top: 1.5rem;
+      margin-bottom: 1rem;
     }
 
     p {
-      color: #ffffffaa;
-      margin-bottom: 2rem;
+      color: var(--text-subtle);
       font-size: 1.1rem;
+      margin-bottom: 2rem;
     }
 
     a {
       text-decoration: none;
-      background: var(--pink);
+      background: var(--color-pink);
       color: white;
       padding: 0.75rem 1.5rem;
       border-radius: 30px;
       font-weight: bold;
-      transition: background 0.3s ease;
-      box-shadow: 0 0 12px #ff71ceaa;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 15px #ff71ce88;
     }
 
     a:hover {
       background: #ff00c8;
-      box-shadow: 0 0 18px #ff00c8aa;
+      box-shadow: 0 0 20px #ff00c8cc;
     }
 
-    /* Geometric Air Shapes */
+    /* Floating shapes for Geometric Air theme */
     .shape {
       position: absolute;
       border-radius: 50%;
-      background: var(--shape);
-      backdrop-filter: blur(3px);
-      animation: float 14s ease-in-out infinite alternate;
-      z-index: 1;
+      background: var(--shape-blur);
+      backdrop-filter: blur(4px);
+      animation: float 12s ease-in-out infinite alternate;
+      z-index: 0;
     }
 
-    .shape1 { width: 120px; height: 120px; top: 10%; left: 10%; animation-delay: 0s; }
+    .shape1 { width: 100px; height: 100px; top: 10%; left: 15%; animation-delay: 0s; }
     .shape2 { width: 80px; height: 80px; bottom: 20%; right: 10%; animation-delay: 3s; }
-    .shape3 { width: 60px; height: 60px; top: 30%; right: 20%; animation-delay: 6s; }
-    .shape4 { width: 100px; height: 100px; bottom: 10%; left: 25%; animation-delay: 9s; }
+    .shape3 { width: 60px; height: 60px; top: 25%; right: 20%; animation-delay: 6s; }
+    .shape4 { width: 50px; height: 50px; bottom: 15%; left: 25%; animation-delay: 9s; }
 
     @keyframes float {
       0% { transform: translateY(0) rotate(0deg); }
@@ -113,18 +112,18 @@
 </head>
 <body>
 
-  <!-- Geometric Air Floating Shapes -->
+  <!-- Floating geometric shapes -->
   <div class="shape shape1"></div>
   <div class="shape shape2"></div>
   <div class="shape shape3"></div>
   <div class="shape shape4"></div>
 
-  <!-- Main 404 Content -->
+  <!-- 404 content -->
   <div class="container">
     <h1>404</h1>
-    <h2>You've drifted into the vapor</h2>
-    <p>This page has vanished into neon mist. Let's guide you back home.</p>
-    <a href="/">🌐 Return to Reality</a>
+    <h2>Lost in the Vapor</h2>
+    <p>The page you're looking for has drifted into the neon haze.</p>
+    <a href="/">⟵ Return to Reality</a>
   </div>
 
 </body>
