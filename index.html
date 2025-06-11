@@ -6,11 +6,18 @@
 <title>Liminal🪩Loop</title>
 <link href="https://fonts.googleapis.com/css2?family=Spline+Sans+Mono:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
 <style>
+  @font-face {
+   font-family: 'Basteleur Moonlight';
+   src: url('Basteleur-Moonlight.woff2') format('woff2'),
+        url('Basteleur-Moonlight.woff') format('woff');
+   font-weight: normal;
+   font-style: normal;
+  }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body, html {
     height: 100%;
     font-family: "Spline Sans Mono", monospace;
-    color: #05ffa1;
+    color: #01cdfe;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -37,6 +44,7 @@
  
   h1 {
    position: relative;
+   font-family: 'Basteleur Moonlight', serif;
    animation: distortion-wiggle 1.5s infinite;
    color: #b967ff;
   }
@@ -51,7 +59,7 @@
    opacity: 0.7;
   }
   h1::before {
-   color: #ff00ff;
+   color: #05ffa1;
    transform: translate(-2px, 2px);
    animation: slice-top 1s infinite linear alternate-reverse;
   }
@@ -89,7 +97,7 @@
   }
   .code-box p::before { 
    content: "> ";
-   color: #01cdfe; 
+   color: #ff00ff; 
   }
  
   .title {
