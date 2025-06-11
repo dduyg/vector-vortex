@@ -3,173 +3,202 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>404 - Data Not Found</title>
+<title>404 Not Found - Vaporwave</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Press+Start+2P&display=swap');
 
+  /* Vaporwave palette */
   :root {
-    --pink: #ff77ff;
-    --cyan: #00ffff;
-    --purple: #b266ff;
-    --dark-bg: #0d001f;
+    --bg-color: #1a0f3b;
+    --neon-pink: #ff49db;
+    --neon-cyan: #00f0ff;
+    --neon-purple: #8f3cff;
+    --grid-color: rgba(255, 255, 255, 0.1);
+    --text-color: #fff;
+    --shadow-color: #ff49dbcc;
   }
 
-  /* Reset */
   * {
-    margin: 0; padding: 0; box-sizing: border-box;
+    box-sizing: border-box;
   }
+
   body, html {
+    margin: 0; padding: 0;
     height: 100%;
-    background: linear-gradient(135deg, #1a0033, #0d001f);
-    color: var(--pink);
-    font-family: 'VT323', monospace;
+    background: var(--bg-color);
+    font-family: 'Orbitron', monospace, 'Press Start 2P', cursive;
+    color: var(--text-color);
+    overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
-    user-select: none;
-    overflow: hidden;
+    flex-direction: column;
   }
 
-  .container {
-    text-align: center;
-    max-width: 600px;
-    padding: 20px;
+  /* Vaporwave grid background */
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw;
+    height: 100vh;
+    background:
+      linear-gradient(to right, var(--grid-color) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--grid-color) 1px, transparent 1px);
+    background-size: 40px 40px;
+    z-index: 0;
   }
 
-  /* Glitch effect on the big 404 */
-  h1.glitch {
-    font-family: 'Press Start 2P', cursive;
-    font-size: 8vw;
-    color: var(--pink);
+  main {
     position: relative;
-    letter-spacing: 0.1em;
+    text-align: center;
+    z-index: 1;
+    max-width: 600px;
+    padding: 2rem;
+    user-select: none;
+  }
+
+  h1 {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 5rem;
+    letter-spacing: 0.3rem;
+    margin: 0;
+    color: var(--neon-pink);
     text-shadow:
-      0 0 5px var(--pink),
-      0 0 10px var(--pink),
-      0 0 20px var(--cyan),
-      0 0 30px var(--cyan);
+      0 0 10px var(--neon-pink),
+      0 0 20px var(--neon-pink),
+      0 0 40px var(--neon-pink);
+  }
+
+  h2 {
+    font-family: 'Orbitron', monospace;
+    font-size: 1.5rem;
+    margin-top: 0.5rem;
+    color: var(--neon-cyan);
+    text-shadow:
+      0 0 5px var(--neon-cyan),
+      0 0 10px var(--neon-cyan);
+  }
+
+  p {
+    margin: 2rem 0 3rem;
+    font-size: 1rem;
+    color: #ddd;
+    text-shadow: 0 0 5px var(--neon-purple);
+  }
+
+  a {
+    text-decoration: none;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 1rem;
+    padding: 1rem 2rem;
+    background: var(--neon-purple);
+    color: var(--text-color);
+    border-radius: 5px;
+    box-shadow:
+      0 0 10px var(--neon-purple),
+      0 0 20px var(--neon-purple);
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  a:hover, a:focus {
+    background: var(--neon-pink);
+    box-shadow:
+      0 0 20px var(--neon-pink),
+      0 0 40px var(--neon-pink);
+    outline: none;
+  }
+
+  /* Animated grid lines */
+  @keyframes gridMove {
+    0% {
+      background-position: 0 0, 0 0;
+    }
+    100% {
+      background-position: 40px 40px, 40px 40px;
+    }
+  }
+
+  body::before {
+    animation: gridMove 20s linear infinite;
+  }
+
+  /* Retro glitch effect on 404 */
+  h1.glitch {
+    position: relative;
+    color: var(--neon-pink);
   }
   h1.glitch::before,
   h1.glitch::after {
-    content: attr(data-text);
+    content: "404";
     position: absolute;
     left: 0;
     top: 0;
     width: 100%;
-    opacity: 0.8;
+    overflow: hidden;
+    clip: rect(0, 900px, 0, 0);
   }
   h1.glitch::before {
-    animation: glitch1 2s infinite linear alternate-reverse;
-    clip-path: polygon(0 2%, 100% 2%, 100% 15%, 0 15%);
-    color: var(--cyan);
-    z-index: -1;
+    left: 2px;
+    text-shadow: -2px 0 var(--neon-cyan);
+    animation: glitchTop 2s infinite linear alternate-reverse;
   }
   h1.glitch::after {
-    animation: glitch2 3s infinite linear alternate;
-    clip-path: polygon(0 60%, 100% 60%, 100% 75%, 0 75%);
-    color: var(--pink);
-    z-index: -2;
+    left: -2px;
+    text-shadow: -2px 0 var(--neon-purple);
+    animation: glitchBottom 3s infinite linear alternate-reverse;
   }
 
-  @keyframes glitch1 {
-    0% { transform: translate(0); }
-    20% { transform: translate(-3px, -2px); }
-    40% { transform: translate(3px, 2px); }
-    60% { transform: translate(-3px, 2px); }
-    80% { transform: translate(3px, -2px); }
-    100% { transform: translate(0); }
-  }
-  @keyframes glitch2 {
-    0% { transform: translate(0); }
-    20% { transform: translate(2px, 3px); }
-    40% { transform: translate(-2px, -3px); }
-    60% { transform: translate(2px, -3px); }
-    80% { transform: translate(-2px, 3px); }
-    100% { transform: translate(0); }
-  }
-
-  p {
-    font-size: 1.3rem;
-    color: var(--cyan);
-    margin: 10px 0 30px;
-    letter-spacing: 0.12em;
-    text-shadow: 0 0 10px var(--cyan);
-  }
-
-  .data-box {
-    background: linear-gradient(135deg, #220044, #110022);
-    border: 2px solid var(--pink);
-    border-radius: 12px;
-    padding: 20px;
-    font-family: 'VT323', monospace;
-    font-size: 1.1rem;
-    color: #fff;
-    max-height: 220px;
-    overflow-y: auto;
-    box-shadow:
-      0 0 10px var(--pink),
-      0 0 20px var(--cyan);
-    text-align: left;
-    letter-spacing: 0.07em;
-    line-height: 1.4;
-    user-select: text;
-  }
-
-  a.home-btn {
-    margin-top: 30px;
-    display: inline-block;
-    padding: 14px 36px;
-    font-family: 'Press Start 2P', cursive;
-    font-size: 1rem;
-    color: var(--pink);
-    text-decoration: none;
-    border: 2px solid var(--pink);
-    border-radius: 10px;
-    box-shadow:
-      0 0 10px var(--pink),
-      0 0 20px var(--cyan);
-    transition: all 0.3s ease;
-  }
-  a.home-btn:hover {
-    background: var(--pink);
-    color: var(--dark-bg);
-    box-shadow:
-      0 0 25px var(--pink),
-      0 0 50px var(--pink);
-  }
-
-  /* Responsive */
-  @media (max-width: 480px) {
-    h1.glitch {
-      font-size: 16vw;
+  @keyframes glitchTop {
+    0% {
+      clip: rect(0, 900px, 0, 0);
     }
-    p {
-      font-size: 1rem;
+    20% {
+      clip: rect(0, 900px, 40px, 0);
+      transform: translate(-2px, -2px);
+    }
+    40% {
+      clip: rect(10px, 900px, 50px, 0);
+      transform: translate(2px, 2px);
+    }
+    60% {
+      clip: rect(0, 900px, 0, 0);
+      transform: translate(0);
+    }
+    100% {
+      clip: rect(0, 900px, 0, 0);
+      transform: translate(0);
+    }
+  }
+  @keyframes glitchBottom {
+    0% {
+      clip: rect(0, 900px, 0, 0);
+    }
+    25% {
+      clip: rect(40px, 900px, 80px, 0);
+      transform: translate(2px, 2px);
+    }
+    50% {
+      clip: rect(60px, 900px, 90px, 0);
+      transform: translate(-2px, -2px);
+    }
+    75% {
+      clip: rect(0, 900px, 0, 0);
+      transform: translate(0);
+    }
+    100% {
+      clip: rect(0, 900px, 0, 0);
+      transform: translate(0);
     }
   }
 </style>
 </head>
 <body>
-  <main class="container" role="main" aria-label="404 Error Page">
-    <h1 class="glitch" data-text="404">404</h1>
-    <p>DATA NOT FOUND</p>
-    <div class="data-box" aria-live="polite" aria-atomic="true">
-<pre>
-┌────────────── ERROR REPORT ──────────────┐
-│                                          │
-│   CODE: 0xDEADC0DE                       │
-│   STATUS: RESOURCE MISSING               │
-│                                          │
-│   DETAILS:                              │
-│   ─ File: /path/to/requested/data       │
-│   ─ Cache: MISS                          │
-│   ─ Memory: NIL                          │
-│   ─ Ping: FAILED                        │
-│                                          │
-└──────────────────────────────────────────┘
-</pre>
-    </div>
-    <a href="/" class="home-btn" role="button" aria-label="Go back to homepage">↩ RETURN HOME</a>
+  <main>
+    <h1 class="glitch">404</h1>
+    <h2>PAGE NOT FOUND</h2>
+    <p>Sorry, the page you are looking for does not exist.<br />But don't worry, the vaporwave grid will keep you company.</p>
+    <a href="/">Go Back Home</a>
   </main>
 </body>
 </html>
