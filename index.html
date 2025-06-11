@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>404 Not Found</title>
+  <title>404 | Data Not Found</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=VT323&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -12,6 +12,8 @@
       --purple: #b967ff;
       --black: #0d0d0d;
       --green: #00ff9f;
+      --bg1: #2d1e4f;
+      --bg2: #0f051d;
     }
 
     * {
@@ -20,18 +22,35 @@
       box-sizing: border-box;
     }
 
-    body {
+    html, body {
+      height: 100%;
       font-family: 'VT323', monospace;
-      background: linear-gradient(145deg, #0f0c29, #302b63, #24243e);
-      color: var(--pink);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
+      background: linear-gradient(to bottom, var(--bg1), var(--bg2));
+      color: var(--green);
       overflow: hidden;
     }
 
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+      background-size: 40px 40px;
+      z-index: 0;
+    }
+
     .container {
+      position: relative;
+      z-index: 1;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       text-align: center;
       padding: 2rem;
     }
@@ -39,9 +58,9 @@
     .glitch {
       font-family: 'Orbitron', sans-serif;
       font-size: 10vw;
-      position: relative;
       color: var(--blue);
-      animation: flicker 3s infinite;
+      position: relative;
+      animation: glitch 1.5s infinite;
     }
 
     .glitch::before,
@@ -51,111 +70,91 @@
       top: 0;
       left: 0;
       width: 100%;
+      color: var(--blue);
       overflow: hidden;
     }
 
     .glitch::before {
-      left: 2px;
-      text-shadow: -2px 0 var(--pink);
-      animation: glitch-anim 2s infinite linear alternate-reverse;
+      color: var(--pink);
+      z-index: -1;
+      transform: translate(-2px, 2px);
+      opacity: 0.7;
+      animation: glitch-before 1s infinite linear alternate-reverse;
     }
 
     .glitch::after {
-      left: -2px;
-      text-shadow: -2px 0 var(--purple);
-      animation: glitch-anim2 1.5s infinite linear alternate-reverse;
+      color: var(--purple);
+      z-index: -1;
+      transform: translate(2px, -2px);
+      opacity: 0.7;
+      animation: glitch-after 0.8s infinite linear alternate-reverse;
     }
 
-    @keyframes glitch-anim {
-      0% {
-        clip: rect(42px, 9999px, 44px, 0);
-      }
-      25% {
-        clip: rect(85px, 9999px, 56px, 0);
-      }
-      50% {
-        clip: rect(12px, 9999px, 96px, 0);
-      }
-      75% {
-        clip: rect(72px, 9999px, 64px, 0);
-      }
-      100% {
-        clip: rect(5px, 9999px, 40px, 0);
-      }
+    @keyframes glitch {
+      0% { transform: none; }
+      20% { transform: skew(-5deg); }
+      40% { transform: skew(5deg); }
+      60% { transform: translateX(5px); }
+      80% { transform: translateX(-5px); }
+      100% { transform: none; }
     }
 
-    @keyframes glitch-anim2 {
-      0% {
-        clip: rect(62px, 9999px, 34px, 0);
-      }
-      25% {
-        clip: rect(22px, 9999px, 44px, 0);
-      }
-      50% {
-        clip: rect(12px, 9999px, 66px, 0);
-      }
-      75% {
-        clip: rect(42px, 9999px, 24px, 0);
-      }
-      100% {
-        clip: rect(22px, 9999px, 44px, 0);
-      }
+    @keyframes glitch-before {
+      0% { clip-path: inset(0 0 90% 0); }
+      50% { clip-path: inset(40% 0 40% 0); }
+      100% { clip-path: inset(90% 0 0 0); }
     }
 
-    @keyframes flicker {
-      0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
-        opacity: 1;
-      }
-      20%, 24%, 55% {
-        opacity: 0.3;
-      }
+    @keyframes glitch-after {
+      0% { clip-path: inset(90% 0 0 0); }
+      50% { clip-path: inset(30% 0 60% 0); }
+      100% { clip-path: inset(0 0 90% 0); }
     }
 
     .subtitle {
       font-size: 2rem;
-      margin-top: -1rem;
       color: var(--green);
+      margin-top: -1rem;
     }
 
-    .terminal-box {
-      background: rgba(0, 0, 0, 0.6);
-      border: 2px solid var(--pink);
-      border-radius: 12px;
+    .terminal {
+      background-color: rgba(0, 0, 0, 0.7);
+      border: 1px solid var(--pink);
+      border-radius: 10px;
       padding: 1.5rem;
       margin-top: 2rem;
-      text-align: left;
-      color: #00ff9f;
       max-width: 600px;
-      margin-left: auto;
-      margin-right: auto;
-      box-shadow: 0 0 20px var(--blue);
-      font-size: 1.2rem;
+      width: 90%;
+      box-shadow: 0 0 15px var(--purple);
+      font-size: 1.3rem;
+      text-align: left;
     }
 
-    .terminal-box::before {
-      content: ">> coder-terminal";
+    .terminal::before {
+      content: "[ System Terminal ]";
       display: block;
-      color: var(--purple);
       margin-bottom: 1rem;
+      color: var(--pink);
+      font-weight: bold;
     }
 
     .btn {
-      display: inline-block;
       margin-top: 2rem;
-      padding: 0.7rem 2rem;
+      padding: 0.8rem 2rem;
       font-size: 1.2rem;
       background: var(--purple);
       color: #fff;
       border: none;
       border-radius: 8px;
+      cursor: pointer;
       text-decoration: none;
-      transition: 0.3s ease;
-      box-shadow: 0 0 12px var(--purple);
+      transition: all 0.3s ease;
+      box-shadow: 0 0 10px var(--purple);
     }
 
     .btn:hover {
       background: var(--blue);
-      box-shadow: 0 0 20px var(--blue);
+      box-shadow: 0 0 15px var(--blue);
     }
 
     @media (max-width: 600px) {
@@ -163,14 +162,8 @@
         font-size: 16vw;
       }
 
-      .terminal-box {
+      .terminal {
         font-size: 1rem;
-        padding: 1rem;
-      }
-
-      .btn {
-        font-size: 1rem;
-        padding: 0.5rem 1.5rem;
       }
     }
   </style>
@@ -178,12 +171,14 @@
 <body>
   <div class="container">
     <div class="glitch">404</div>
-    <div class="subtitle">Lost in the data stream...</div>
-    <div class="terminal-box">
-      <p><span style="color: var(--pink);">[ERROR]</span> Route not found.</p>
-      <p><span style="color: var(--pink);">[INFO]</span> You might be looking for something that doesn't exist.</p>
-      <p><span style="color: var(--pink);">[HINT]</span> Try going back to the homepage.</p>
+    <div class="subtitle">DATA NOT FOUND</div>
+
+    <div class="terminal">
+      <p><span style="color: var(--pink);">> ERROR:</span> The page you are looking for does not exist in this dimension.</p>
+      <p><span style="color: var(--pink);">> INFO:</span> You may have entered a broken or outdated link.</p>
+      <p><span style="color: var(--pink);">> ACTION:</span> Return to the mainframe to reboot reality.</p>
     </div>
+
     <a href="/" class="btn">Return Home</a>
   </div>
 </body>
