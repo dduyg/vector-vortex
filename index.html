@@ -4,13 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>404 | Page Not Found</title>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700&display=swap" rel="stylesheet">
   <style>
     :root {
+      --background: #f4f8fb;
       --primary: #6c63ff;
-      --bg: #f0f4f8;
       --text: #333;
-      --light: #dfe6ed;
+      --muted: #777;
+      --shape: #e0e7ef;
     }
 
     * {
@@ -21,9 +22,8 @@
 
     html, body {
       height: 100%;
-      font-family: 'Nunito', sans-serif;
-      background: var(--bg);
-      color: var(--text);
+      font-family: 'Manrope', sans-serif;
+      background: var(--background);
       display: flex;
       justify-content: center;
       align-items: center;
@@ -38,31 +38,31 @@
     }
 
     h1 {
-      font-size: 7rem;
+      font-size: 6rem;
       color: var(--primary);
       font-weight: 700;
     }
 
     h2 {
       font-size: 2rem;
-      margin-bottom: 1rem;
-      font-weight: 600;
+      color: var(--text);
+      margin: 1rem 0;
     }
 
     p {
-      font-size: 1rem;
-      color: #666;
+      color: var(--muted);
       margin-bottom: 2rem;
     }
 
     a {
-      text-decoration: none;
-      background: var(--primary);
-      color: #fff;
+      display: inline-block;
       padding: 0.75rem 1.5rem;
+      background: var(--primary);
+      color: white;
+      text-decoration: none;
       border-radius: 30px;
-      font-weight: bold;
-      transition: 0.3s ease;
+      font-weight: 600;
+      transition: background 0.3s ease;
     }
 
     a:hover {
@@ -72,22 +72,21 @@
     /* Floating shapes */
     .shape {
       position: absolute;
+      background: var(--shape);
+      opacity: 0.4;
       border-radius: 50%;
-      background: var(--light);
-      opacity: 0.5;
-      z-index: 0;
-      animation: float 12s ease-in-out infinite alternate;
+      animation: float 10s ease-in-out infinite alternate;
     }
 
-    .circle1 {
-      width: 120px;
-      height: 120px;
+    .shape1 {
+      width: 100px;
+      height: 100px;
       top: 5%;
       left: 10%;
       animation-delay: 0s;
     }
 
-    .circle2 {
+    .shape2 {
       width: 80px;
       height: 80px;
       bottom: 15%;
@@ -95,7 +94,7 @@
       animation-delay: 3s;
     }
 
-    .circle3 {
+    .shape3 {
       width: 60px;
       height: 60px;
       top: 30%;
@@ -103,7 +102,7 @@
       animation-delay: 5s;
     }
 
-    .circle4 {
+    .shape4 {
       width: 40px;
       height: 40px;
       bottom: 10%;
@@ -112,8 +111,8 @@
     }
 
     @keyframes float {
-      0% { transform: translateY(0) rotate(0deg); }
-      100% { transform: translateY(-40px) rotate(45deg); }
+      0% { transform: translateY(0px) rotate(0deg); }
+      100% { transform: translateY(-40px) rotate(30deg); }
     }
 
     @media (max-width: 600px) {
@@ -131,18 +130,18 @@
 </head>
 <body>
 
-  <!-- Floating Circles -->
-  <div class="shape circle1"></div>
-  <div class="shape circle2"></div>
-  <div class="shape circle3"></div>
-  <div class="shape circle4"></div>
+  <!-- Geometric Air floating shapes -->
+  <div class="shape shape1"></div>
+  <div class="shape shape2"></div>
+  <div class="shape shape3"></div>
+  <div class="shape shape4"></div>
 
-  <!-- Main Content -->
+  <!-- Main content -->
   <div class="container">
     <h1>404</h1>
     <h2>Page Not Found</h2>
-    <p>The page you're looking for has drifted away in the breeze.</p>
-    <a href="/">Return Home</a>
+    <p>The page you’re looking for has floated away with the breeze.</p>
+    <a href="/">Back to Home</a>
   </div>
 
 </body>
