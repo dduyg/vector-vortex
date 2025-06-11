@@ -4,15 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>404 | Deep Sea Data Glitch</title>
-  <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
   <style>
-    /* Reset */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     html, body {
       width: 100%;
       height: 100%;
@@ -34,14 +27,12 @@
       text-align: center;
       padding: 2rem;
     }
-
     h1 {
       font-size: 12rem;
       color: #00fff7;
       text-shadow: 0 0 5px #ff00ff, 0 0 10px #00fff7, 0 0 20px #ff00ff;
       animation: glitch 2s infinite;
     }
-
     h2 {
       font-size: 2.5rem;
       margin-top: -1rem;
@@ -61,7 +52,6 @@
       max-width: 90%;
       box-shadow: 0 0 10px #00ffee55;
     }
-
     .code-box p::before {
       content: "> ";
       color: #00fff7;
@@ -77,7 +67,6 @@
       cursor: pointer;
       transition: 0.3s;
     }
-
     .btn:hover {
       background: #00fff733;
       box-shadow: 0 0 15px #00fff7aa;
@@ -95,41 +84,28 @@
     /* Floating bubbles */
     .bubbles {
       position: absolute;
-      top: 0;
-      left: 0;
-      z-index: 1;
       width: 100%;
       height: 100%;
-      pointer-events: none;
+      overflow: hidden;
+      z-index: 0;
     }
-
     .bubble {
       position: absolute;
-      bottom: -50px;
+      bottom: -100px;
+      width: 20px;
+      height: 20px;
       background: rgba(0, 255, 255, 0.3);
       border-radius: 50%;
-      animation: floatUp 12s linear infinite;
+      animation: rise 20s linear infinite;
     }
-
-    @keyframes floatUp {
-      0% {
-        transform: translateY(0) scale(1);
-        opacity: 0;
-      }
-      50% {
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(-120vh) scale(0.3);
-        opacity: 0;
-      }
+    @keyframes rise {
+      0% { transform: translateY(0) scale(1); opacity: 0; }
+      50% { opacity: 1; }
+      100% { transform: translateY(-1200px) scale(0.5); opacity: 0; }
     }
   </style>
 </head>
 <body>
-  <!-- Floating bubbles -->
-  <div class="bubbles" id="bubbles"></div>
-
   <div class="container">
     <h1>404</h1>
     <h2>Lost in the Data Reef</h2>
@@ -146,19 +122,17 @@
     </button>
   </div>
 
-  <!-- Bubble generator script -->
-  <script>
-    const bubbleContainer = document.getElementById('bubbles');
-    for (let i = 0; i < 40; i++) {
-      const bubble = document.createElement('div');
-      const size = Math.random() * 20 + 10;
-      bubble.classList.add('bubble');
-      bubble.style.width = size + 'px';
-      bubble.style.height = size + 'px';
-      bubble.style.left = Math.random() * 100 + '%';
-      bubble.style.animationDuration = (10 + Math.random() * 10) + 's';
-      bubbleContainer.appendChild(bubble);
-    }
-  </script>
+  <div class="bubbles">
+    <script>
+      for (let i = 0; i < 50; i++) {
+        const bubble = document.createElement('div');
+        bubble.className = 'bubble';
+        bubble.style.left = Math.random() * 100 + '%';
+        bubble.style.animationDuration = (10 + Math.random() * 20) + 's';
+        bubble.style.width = bubble.style.height = (5 + Math.random() * 20) + 'px';
+        document.querySelector('.bubbles').appendChild(bubble);
+      }
+    </script>
+  </div>
 </body>
 </html>
