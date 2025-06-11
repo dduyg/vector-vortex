@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LiminalLoop</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body {
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at center, #001f2f 0%, #000814 100%);
+      color: #00fff7;
+      font-family: 'VT323', monospace;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .container {
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+    }
+    h2 {
+      font-size: 2.5rem;
+      margin-top: -1rem;
+      color: #ccfaff;
+      text-shadow: 0 0 4px #00ffff;
+    }
+
+    .code-box {
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid #00fff7;
+      padding: 1.5rem 2rem;
+      border-radius: 10px;
+      margin-top: 2rem;
+      font-size: 1.3rem;
+      color: #b2fff8;
+      text-align: left;
+      max-width: 90%;
+      box-shadow: 0 0 10px #00ffee55;
+    }
+    .code-box p::before {
+      content: "> ";
+      color: #00fff7;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Lost in the Data Reef</h2>
+
+    <div class="code-box">
+      <p>ERROR :: Page not found in this sector</p>
+      <p>QUERY :: /oceanic/net/deepcode/404</p>
+      <p>TRACE :: No digital currents detected</p>
+      <p>FIX :: Return to the main terminal</p>
+    </div>
+
+  </div>
+</body>
+</html>
