@@ -2,135 +2,131 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>404 - Lost in the Data Sea</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>404 | Lost at Sea</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
   <style>
-    * {
+    body {
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
-      font-family: 'Courier New', monospace;
-    }
-
-    body {
-      background: linear-gradient(180deg, #0f1c2f 0%, #0e2e36 100%);
+      background: linear-gradient(180deg, #0f2027, #203a43, #2c5364);
       overflow: hidden;
-      color: #00ffd5;
+      font-family: 'Press Start 2P', cursive;
+      color: #a3f7bf;
+      text-shadow: 0 0 5px #3ef5e8, 0 0 10px #00ffe1;
     }
 
-    .background {
-      position: fixed;
-      width: 100%;
-      height: 100%;
-      background: radial-gradient(circle, rgba(0,255,213,0.1) 0%, transparent 70%), 
-                  repeating-linear-gradient(45deg, #00ffd5 0, #00ffd5 1px, transparent 1px, transparent 20px),
-                  repeating-linear-gradient(-45deg, #ff00ff 0, #ff00ff 1px, transparent 1px, transparent 20px);
-      background-size: cover;
-      z-index: -2;
-      animation: shift 20s linear infinite;
-      opacity: 0.15;
-    }
-
-    @keyframes shift {
-      0% {
-        background-position: 0 0, 0 0, 0 0;
-      }
-      100% {
-        background-position: 1000px 0, 1000px 0, 0 1000px;
-      }
-    }
-
-    .bubbles {
+    .glitch-bg {
       position: absolute;
       width: 100%;
       height: 100%;
-      overflow: hidden;
-      z-index: -1;
+      background: repeating-linear-gradient(
+        to bottom,
+        rgba(0, 255, 200, 0.1) 0px,
+        rgba(0, 255, 200, 0.1) 2px,
+        transparent 2px,
+        transparent 4px
+      );
+      z-index: 0;
+      animation: scanlines 2s infinite linear;
     }
 
-    .bubble {
-      position: absolute;
-      bottom: -100px;
-      width: 40px;
-      height: 40px;
-      background: rgba(0,255,213,0.3);
-      border-radius: 50%;
-      animation: rise 20s linear infinite;
-    }
-
-    @keyframes rise {
-      0% { transform: translateY(0) scale(1); }
-      100% { transform: translateY(-1200px) scale(0.5); }
+    @keyframes scanlines {
+      0% { background-position-y: 0; }
+      100% { background-position-y: 4px; }
     }
 
     .container {
+      z-index: 1;
       position: relative;
-      height: 100vh;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      flex-direction: column;
+      height: 100vh;
       text-align: center;
     }
 
-    .error-code {
-      font-size: 10rem;
-      font-weight: bold;
-      color: #00ffd5;
-      text-shadow: 0 0 10px #ff00ff, 0 0 30px #00ffff;
+    h1 {
+      font-size: 4rem;
+      color: #00ffe1;
       animation: glitch 1.5s infinite;
     }
 
     @keyframes glitch {
-      0% { transform: translate(0); text-shadow: 2px 2px #ff00ff, -2px -2px #00ffff; }
-      20% { transform: translate(1px, -2px); text-shadow: -2px 1px #ff00ff, 1px -2px #00ffff; }
-      40% { transform: translate(-1px, 2px); text-shadow: 1px 2px #ff00ff, -2px 1px #00ffff; }
-      60% { transform: translate(2px, 1px); text-shadow: -1px -2px #ff00ff, 2px 2px #00ffff; }
-      80% { transform: translate(-2px, -1px); text-shadow: 2px -2px #ff00ff, -1px -1px #00ffff; }
-      100% { transform: translate(0); text-shadow: 2px 2px #ff00ff, -2px -2px #00ffff; }
+      0% { transform: translate(0); }
+      20% { transform: translate(-2px, 2px); }
+      40% { transform: translate(2px, -1px); }
+      60% { transform: translate(-1px, 2px); }
+      80% { transform: translate(1px, -2px); }
+      100% { transform: translate(0); }
     }
 
-    .message {
-      font-size: 1.5rem;
-      margin: 1rem 0;
-      color: #a0ffec;
+    p {
+      margin-top: 20px;
+      font-size: 1rem;
+      color: #ffffff;
     }
 
-    .button {
-      padding: 0.75rem 2rem;
-      background: #ff00ff;
-      border: none;
-      color: white;
-      font-weight: bold;
-      font-size: 1.2rem;
-      border-radius: 12px;
-      cursor: pointer;
-      box-shadow: 0 0 10px #ff00ff;
-      transition: background 0.3s, transform 0.2s;
+    .code-bubble {
+      position: absolute;
+      color: rgba(0, 255, 170, 0.2);
+      font-size: 12px;
+      animation: floatCode 15s linear infinite;
     }
 
-    .button:hover {
-      background: #c800c8;
-      transform: scale(1.05);
+    @keyframes floatCode {
+      0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+      10% { opacity: 0.5; }
+      100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+    }
+
+    .seacoral {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 200px;
+      background: url('https://www.svgrepo.com/show/521189/coral.svg') no-repeat center bottom;
+      background-size: contain;
+      opacity: 0.15;
+    }
+
+    a {
+      margin-top: 30px;
+      display: inline-block;
+      color: #3ef5e8;
+      text-decoration: none;
+      border: 2px solid #3ef5e8;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      transition: all 0.2s ease-in-out;
+    }
+
+    a:hover {
+      background-color: #3ef5e822;
     }
   </style>
 </head>
 <body>
-  <div class="background"></div>
-  <div class="bubbles">
-    <!-- Random bubble instances -->
-    <div class="bubble" style="left:10%; animation-duration: 25s;"></div>
-    <div class="bubble" style="left:25%; animation-duration: 18s;"></div>
-    <div class="bubble" style="left:40%; animation-duration: 22s;"></div>
-    <div class="bubble" style="left:60%; animation-duration: 16s;"></div>
-    <div class="bubble" style="left:75%; animation-duration: 28s;"></div>
-    <div class="bubble" style="left:90%; animation-duration: 20s;"></div>
-  </div>
-
+  <div class="glitch-bg"></div>
   <div class="container">
-    <div class="error-code">404</div>
-    <div class="message">You’ve drifted too deep into the data sea.</div>
-    <button class="button" onclick="window.location.href='/'">Swim Back Home</button>
+    <h1>404</h1>
+    <p>You've drifted too deep into cyberspace.</p>
+    <a href="/">Swim back home</a>
   </div>
+  <div class="seacoral"></div>
+
+  <!-- Code bubbles -->
+  <script>
+    const characters = ['{', '}', 'void', 'null', '0x404', 'printf', '🐚', '<div>', '</>', '¯\\_(ツ)_/¯'];
+    for (let i = 0; i < 40; i++) {
+      const bubble = document.createElement('div');
+      bubble.className = 'code-bubble';
+      bubble.textContent = characters[Math.floor(Math.random() * characters.length)];
+      bubble.style.left = Math.random() * 100 + 'vw';
+      bubble.style.animationDuration = (10 + Math.random() * 10) + 's';
+      document.body.appendChild(bubble);
+    }
+  </script>
 </body>
 </html>
