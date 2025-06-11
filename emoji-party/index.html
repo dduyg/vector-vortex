@@ -14,20 +14,26 @@
       box-sizing: border-box;
       color: #ddd;
       font-family: monospace;
-      padding: 40px auto;
       -webkit-font-smoothing: antialiased;   
       height: 100%;
       background-image: url('https://raw.githubusercontent.com/dduyg/LiminalLoop/main/06/oceanscapes.gif');
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
-      text-align: center;
       overflow: hidden;
-    }   
+    }
+
+    main {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 100vh;
+      text-align: center;
+    }
 
     h1 {
-      font-family: "Syncopate", sans-serif;   
-      text-shadow: 2px 2px #000;  
+      font-family: "Syncopate", sans-serif;    
     }
     a { color: #0C2D48; }      
       
@@ -35,7 +41,7 @@
       display: inline-block;
       font-size: calc(16px + 2.5vw);
       line-height: 1;
-      background-color: #D4E6DF;
+      background-color: transparent;
       box-shadow: rgba(139, 52, 97, 0.3) 0px 1vh 3vh;
       border-radius: 3vw;
       padding: 20px;
@@ -71,7 +77,8 @@
     }
   </style>
 </head>
-<body>    
+<body>
+<main>
   <h1>Aquatic Arrays</h1>  
   <div>
       <label for="rows">🌊</label>
@@ -89,7 +96,8 @@
   <br>
   <div id="output"></div>
   <p>swimming with 🐙 by <a href="#">dduyg</a>. see the <a href="#">code</a>.</p>
-
+</main>
+  
   <script src="polyfill.js"></script>
   <script src="https://cdn.jsdelivr.net/gh/galaxykate/tracery@fc98c0bf/js/tracery.min.js"></script>
   <script src="oceanscapes.js"></script>
