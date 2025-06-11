@@ -1,5 +1,5 @@
 ## <samp>Aquatic Arrays</samp>🪸🧜‍♀️
-[Generates](https://dduyg.github.io/emoji-ocean) grid-based "oceanscapes". The oceanscape is a 2D array of aquatic emojis, randomly populated according to your settings.
+[Generates](https://dduyg.github.io/aquatic-arrays/) grid-based "oceanscapes". The oceanscape is a 2D array of aquatic emojis, randomly populated according to your settings.
 
 <br>
 
