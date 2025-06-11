@@ -1,90 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>404 - Lost in the Data Reef</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>404 | Lost in the Data Reef</title>
   <style>
-    body {
-      margin: 0;
-      background: linear-gradient(145deg, #0ff0fc, #8ef0d3, #5dfdcf);
-      font-family: 'Press Start 2P', monospace;
-      color: #0f0f0f;
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #00ffd0, #8a2be2, #00bfff);
+      background-size: 600% 600%;
+      animation: oceanFlow 15s ease infinite;
+      font-family: 'VT323', monospace;
+      color: #00ffee;
       overflow: hidden;
-      animation: flicker 5s infinite alternate;
     }
 
-    @keyframes flicker {
-      0% { filter: brightness(1); }
-      100% { filter: brightness(1.05); }
+    @keyframes oceanFlow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
-    .glitch {
-      font-size: 4rem;
-      position: relative;
-      color: #00fff7;
-      text-shadow: 
-        2px 2px 0 #ff00ff,
-        -2px -2px 0 #00ffea,
-        1px 1px 0 #ff00ff;
-      animation: glitchy 1s infinite;
-    }
-
-    @keyframes glitchy {
-      0% { transform: translate(0, 0); }
-      20% { transform: translate(-2px, 2px); }
-      40% { transform: translate(2px, -2px); }
-      60% { transform: translate(-2px, -2px); }
-      80% { transform: translate(2px, 2px); }
-      100% { transform: translate(0, 0); }
-    }
-
-    .container {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      text-align: center;
-    }
-
-    .message {
-      font-size: 1.25rem;
-      margin-top: 1rem;
-      color: #000;
-      background: rgba(255, 255, 255, 0.2);
-      padding: 1rem 2rem;
-      border: 2px dashed #00ffee;
-      border-radius: 8px;
-      box-shadow: 0 0 10px #00ffff;
-      backdrop-filter: blur(2px);
-    }
-
-    .button {
-      margin-top: 2rem;
-      padding: 0.75rem 1.5rem;
-      font-size: 1rem;
-      border: 2px solid #00ffea;
-      background: #0ff0fc;
-      color: #000;
-      text-decoration: none;
-      border-radius: 5px;
-      box-shadow: 0 0 10px #00ffee;
-      transition: all 0.3s ease;
-    }
-
-    .button:hover {
-      background: #00ffee;
-      box-shadow: 0 0 20px #ff00ff;
-      color: #000;
-    }
-
-    .bg-art {
+    .bubbles {
       position: absolute;
-      bottom: 10px;
-      left: 10px;
-      width: 100px;
-      opacity: 0.5;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 0;
     }
 
     .bubble {
@@ -92,40 +36,129 @@
       bottom: -100px;
       width: 20px;
       height: 20px;
-      background: rgba(255, 255, 255, 0.6);
+      background: rgba(0, 255, 255, 0.3);
       border-radius: 50%;
-      animation: rise 10s infinite;
+      animation: rise 20s linear infinite;
     }
 
-    .bubble:nth-child(1) { left: 20%; animation-delay: 0s; }
-    .bubble:nth-child(2) { left: 40%; animation-delay: 2s; }
-    .bubble:nth-child(3) { left: 60%; animation-delay: 4s; }
-    .bubble:nth-child(4) { left: 80%; animation-delay: 1s; }
-
     @keyframes rise {
-      0% { transform: translateY(0); opacity: 0.6; }
-      100% { transform: translateY(-120vh); opacity: 0; }
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-1200px) scale(0.5);
+        opacity: 0;
+      }
+    }
+
+    .glitch {
+      font-size: 10rem;
+      color: #00ffee;
+      text-shadow:
+        2px 0 magenta,
+        -2px 0 cyan;
+      position: relative;
+      animation: glitchAnim 2s infinite;
+    }
+
+    @keyframes glitchAnim {
+      0% {
+        transform: translate(0, 0);
+      }
+      20% {
+        transform: translate(-2px, 2px);
+      }
+      40% {
+        transform: translate(-2px, -2px);
+      }
+      60% {
+        transform: translate(2px, 2px);
+      }
+      80% {
+        transform: translate(2px, -2px);
+      }
+      100% {
+        transform: translate(0, 0);
+      }
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-top: 1rem;
+      color: #ffffffcc;
+    }
+
+    .matrix-code {
+      font-size: 1.2rem;
+      color: #aaffee;
+      background: rgba(0, 0, 0, 0.3);
+      padding: 1rem 2rem;
+      border: 1px solid #00ffee66;
+      margin-top: 2rem;
+      border-radius: 8px;
+      max-width: 80ch;
+      line-height: 1.4;
+      box-shadow: 0 0 10px #00ffee55;
+    }
+
+    .home-button {
+      margin-top: 2rem;
+      padding: 0.8rem 2rem;
+      font-size: 1.5rem;
+      background: none;
+      border: 2px solid #00ffee;
+      color: #00ffee;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .home-button:hover {
+      background: #00ffee22;
+      box-shadow: 0 0 15px #00ffeeaa;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="glitch">404</div>
-    <div class="message">
-      You’ve drifted off the data reef.<br>
-      The page you're surfing doesn’t exist.
-    </div>
-    <a href="/" class="button">↩ Return to Home</a>
+  <div class="bubbles">
+    <!-- Generate bubbles -->
+    <script>
+      for (let i = 0; i < 50; i++) {
+        const bubble = document.createElement('div');
+        bubble.className = 'bubble';
+        bubble.style.left = Math.random() * 100 + '%';
+        bubble.style.animationDuration = (10 + Math.random() * 20) + 's';
+        bubble.style.width = bubble.style.height = (5 + Math.random() * 20) + 'px';
+        document.querySelector('.bubbles').appendChild(bubble);
+      }
+    </script>
   </div>
 
-  <!-- Decorative Bubbles -->
-  <div class="bubble"></div>
-  <div class="bubble"></div>
-  <div class="bubble"></div>
-  <div class="bubble"></div>
-
-  <!-- Optional pixel-art sea creature -->
-  <img class="bg-art" src="https://upload.wikimedia.org/wikipedia/commons/6/6d/Octopus_icon.svg" alt="Seapunk Octopus">
-
+  <div class="container">
+    <div class="glitch">404</div>
+    <h2>Lost in the Data Reef</h2>
+    <div class="matrix-code">
+      <p>> ERROR :: File not found</p>
+      <p>> SIGNAL LOST :: Deep sea node unreachable</p>
+      <p>> TRACE PATH :: /void/abyss/null</p>
+      <p>> SUGGESTION :: Swim back to the mainframe</p>
+    </div>
+    <button class="home-button" onclick="location.href='/'">↳ Return to Mainframe</button>
+  </div>
 </body>
 </html>
