@@ -2,131 +2,189 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>404 | Lost at Sea</title>
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>404 Not Found</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=VT323&display=swap" rel="stylesheet">
   <style>
-    body {
+    :root {
+      --pink: #ff71ce;
+      --blue: #01cdfe;
+      --purple: #b967ff;
+      --black: #0d0d0d;
+      --green: #00ff9f;
+    }
+
+    * {
       margin: 0;
       padding: 0;
-      background: linear-gradient(180deg, #0f2027, #203a43, #2c5364);
-      overflow: hidden;
-      font-family: 'Press Start 2P', cursive;
-      color: #a3f7bf;
-      text-shadow: 0 0 5px #3ef5e8, 0 0 10px #00ffe1;
+      box-sizing: border-box;
     }
 
-    .glitch-bg {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background: repeating-linear-gradient(
-        to bottom,
-        rgba(0, 255, 200, 0.1) 0px,
-        rgba(0, 255, 200, 0.1) 2px,
-        transparent 2px,
-        transparent 4px
-      );
-      z-index: 0;
-      animation: scanlines 2s infinite linear;
-    }
-
-    @keyframes scanlines {
-      0% { background-position-y: 0; }
-      100% { background-position-y: 4px; }
-    }
-
-    .container {
-      z-index: 1;
-      position: relative;
+    body {
+      font-family: 'VT323', monospace;
+      background: linear-gradient(145deg, #0f0c29, #302b63, #24243e);
+      color: var(--pink);
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
       height: 100vh;
+      overflow: hidden;
+    }
+
+    .container {
       text-align: center;
+      padding: 2rem;
     }
 
-    h1 {
-      font-size: 4rem;
-      color: #00ffe1;
-      animation: glitch 1.5s infinite;
+    .glitch {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 10vw;
+      position: relative;
+      color: var(--blue);
+      animation: flicker 3s infinite;
     }
 
-    @keyframes glitch {
-      0% { transform: translate(0); }
-      20% { transform: translate(-2px, 2px); }
-      40% { transform: translate(2px, -1px); }
-      60% { transform: translate(-1px, 2px); }
-      80% { transform: translate(1px, -2px); }
-      100% { transform: translate(0); }
-    }
-
-    p {
-      margin-top: 20px;
-      font-size: 1rem;
-      color: #ffffff;
-    }
-
-    .code-bubble {
+    .glitch::before,
+    .glitch::after {
+      content: "404";
       position: absolute;
-      color: rgba(0, 255, 170, 0.2);
-      font-size: 12px;
-      animation: floatCode 15s linear infinite;
-    }
-
-    @keyframes floatCode {
-      0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
-      10% { opacity: 0.5; }
-      100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
-    }
-
-    .seacoral {
-      position: absolute;
-      bottom: 0;
+      top: 0;
+      left: 0;
       width: 100%;
-      height: 200px;
-      background: url('https://www.svgrepo.com/show/521189/coral.svg') no-repeat center bottom;
-      background-size: contain;
-      opacity: 0.15;
+      overflow: hidden;
     }
 
-    a {
-      margin-top: 30px;
+    .glitch::before {
+      left: 2px;
+      text-shadow: -2px 0 var(--pink);
+      animation: glitch-anim 2s infinite linear alternate-reverse;
+    }
+
+    .glitch::after {
+      left: -2px;
+      text-shadow: -2px 0 var(--purple);
+      animation: glitch-anim2 1.5s infinite linear alternate-reverse;
+    }
+
+    @keyframes glitch-anim {
+      0% {
+        clip: rect(42px, 9999px, 44px, 0);
+      }
+      25% {
+        clip: rect(85px, 9999px, 56px, 0);
+      }
+      50% {
+        clip: rect(12px, 9999px, 96px, 0);
+      }
+      75% {
+        clip: rect(72px, 9999px, 64px, 0);
+      }
+      100% {
+        clip: rect(5px, 9999px, 40px, 0);
+      }
+    }
+
+    @keyframes glitch-anim2 {
+      0% {
+        clip: rect(62px, 9999px, 34px, 0);
+      }
+      25% {
+        clip: rect(22px, 9999px, 44px, 0);
+      }
+      50% {
+        clip: rect(12px, 9999px, 66px, 0);
+      }
+      75% {
+        clip: rect(42px, 9999px, 24px, 0);
+      }
+      100% {
+        clip: rect(22px, 9999px, 44px, 0);
+      }
+    }
+
+    @keyframes flicker {
+      0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+        opacity: 1;
+      }
+      20%, 24%, 55% {
+        opacity: 0.3;
+      }
+    }
+
+    .subtitle {
+      font-size: 2rem;
+      margin-top: -1rem;
+      color: var(--green);
+    }
+
+    .terminal-box {
+      background: rgba(0, 0, 0, 0.6);
+      border: 2px solid var(--pink);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-top: 2rem;
+      text-align: left;
+      color: #00ff9f;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      box-shadow: 0 0 20px var(--blue);
+      font-size: 1.2rem;
+    }
+
+    .terminal-box::before {
+      content: ">> coder-terminal";
+      display: block;
+      color: var(--purple);
+      margin-bottom: 1rem;
+    }
+
+    .btn {
       display: inline-block;
-      color: #3ef5e8;
-      text-decoration: none;
-      border: 2px solid #3ef5e8;
-      padding: 0.5rem 1rem;
+      margin-top: 2rem;
+      padding: 0.7rem 2rem;
+      font-size: 1.2rem;
+      background: var(--purple);
+      color: #fff;
+      border: none;
       border-radius: 8px;
-      transition: all 0.2s ease-in-out;
+      text-decoration: none;
+      transition: 0.3s ease;
+      box-shadow: 0 0 12px var(--purple);
     }
 
-    a:hover {
-      background-color: #3ef5e822;
+    .btn:hover {
+      background: var(--blue);
+      box-shadow: 0 0 20px var(--blue);
+    }
+
+    @media (max-width: 600px) {
+      .glitch {
+        font-size: 16vw;
+      }
+
+      .terminal-box {
+        font-size: 1rem;
+        padding: 1rem;
+      }
+
+      .btn {
+        font-size: 1rem;
+        padding: 0.5rem 1.5rem;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="glitch-bg"></div>
   <div class="container">
-    <h1>404</h1>
-    <p>You've drifted too deep into cyberspace.</p>
-    <a href="/">Swim back home</a>
+    <div class="glitch">404</div>
+    <div class="subtitle">Lost in the data stream...</div>
+    <div class="terminal-box">
+      <p><span style="color: var(--pink);">[ERROR]</span> Route not found.</p>
+      <p><span style="color: var(--pink);">[INFO]</span> You might be looking for something that doesn't exist.</p>
+      <p><span style="color: var(--pink);">[HINT]</span> Try going back to the homepage.</p>
+    </div>
+    <a href="/" class="btn">Return Home</a>
   </div>
-  <div class="seacoral"></div>
-
-  <!-- Code bubbles -->
-  <script>
-    const characters = ['{', '}', 'void', 'null', '0x404', 'printf', '🐚', '<div>', '</>', '¯\\_(ツ)_/¯'];
-    for (let i = 0; i < 40; i++) {
-      const bubble = document.createElement('div');
-      bubble.className = 'code-bubble';
-      bubble.textContent = characters[Math.floor(Math.random() * characters.length)];
-      bubble.style.left = Math.random() * 100 + 'vw';
-      bubble.style.animationDuration = (10 + Math.random() * 10) + 's';
-      document.body.appendChild(bubble);
-    }
-  </script>
 </body>
 </html>
