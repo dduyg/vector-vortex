@@ -3,136 +3,134 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>404 | Deep Sea Data Glitch</title>
+  <title>404 - Lost in the Data Sea</title>
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html, body {
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Courier New', monospace;
+    }
+
+    body {
+      background: linear-gradient(180deg, #0f1c2f 0%, #0e2e36 100%);
+      overflow: hidden;
+      color: #00ffd5;
+    }
+
+    .background {
+      position: fixed;
       width: 100%;
       height: 100%;
-      background: radial-gradient(circle at center, #001f2f 0%, #000814 100%);
-      color: #00fff7;
-      font-family: 'VT323', monospace;
-      overflow: hidden;
-      position: relative;
+      background: radial-gradient(circle, rgba(0,255,213,0.1) 0%, transparent 70%), 
+                  repeating-linear-gradient(45deg, #00ffd5 0, #00ffd5 1px, transparent 1px, transparent 20px),
+                  repeating-linear-gradient(-45deg, #ff00ff 0, #ff00ff 1px, transparent 1px, transparent 20px);
+      background-size: cover;
+      z-index: -2;
+      animation: shift 20s linear infinite;
+      opacity: 0.15;
     }
 
-    .container {
-      position: relative;
-      z-index: 2;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 2rem;
-    }
-    h1 {
-      font-size: 12rem;
-      color: #00fff7;
-      text-shadow: 0 0 5px #ff00ff, 0 0 10px #00fff7, 0 0 20px #ff00ff;
-      animation: glitch 2s infinite;
-    }
-    h2 {
-      font-size: 2.5rem;
-      margin-top: -1rem;
-      color: #ccfaff;
-      text-shadow: 0 0 4px #00ffff;
+    @keyframes shift {
+      0% {
+        background-position: 0 0, 0 0, 0 0;
+      }
+      100% {
+        background-position: 1000px 0, 1000px 0, 0 1000px;
+      }
     }
 
-    .code-box {
-      background: rgba(0, 0, 0, 0.4);
-      border: 1px solid #00fff7;
-      padding: 1.5rem 2rem;
-      border-radius: 10px;
-      margin-top: 2rem;
-      font-size: 1.3rem;
-      color: #b2fff8;
-      text-align: left;
-      max-width: 90%;
-      box-shadow: 0 0 10px #00ffee55;
-    }
-    .code-box p::before {
-      content: "> ";
-      color: #00fff7;
-    }
-
-    .btn {
-      margin-top: 2rem;
-      font-size: 1.5rem;
-      padding: 0.8rem 2rem;
-      border: 2px solid #00fff7;
-      color: #00fff7;
-      background: transparent;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-    .btn:hover {
-      background: #00fff733;
-      box-shadow: 0 0 15px #00fff7aa;
-    }
-
-    @keyframes glitch {
-      0% { transform: translate(0); }
-      20% { transform: translate(-2px, 2px); }
-      40% { transform: translate(2px, -2px); }
-      60% { transform: translate(-1px, 1px); }
-      80% { transform: translate(1px, -1px); }
-      100% { transform: translate(0); }
-    }
-
-    /* Floating bubbles */
     .bubbles {
       position: absolute;
       width: 100%;
       height: 100%;
       overflow: hidden;
-      z-index: 0;
+      z-index: -1;
     }
+
     .bubble {
       position: absolute;
       bottom: -100px;
-      width: 20px;
-      height: 20px;
-      background: rgba(0, 255, 255, 0.3);
+      width: 40px;
+      height: 40px;
+      background: rgba(0,255,213,0.3);
       border-radius: 50%;
       animation: rise 20s linear infinite;
     }
+
     @keyframes rise {
-      0% { transform: translateY(0) scale(1); opacity: 0; }
-      50% { opacity: 1; }
-      100% { transform: translateY(-1200px) scale(0.5); opacity: 0; }
+      0% { transform: translateY(0) scale(1); }
+      100% { transform: translateY(-1200px) scale(0.5); }
+    }
+
+    .container {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .error-code {
+      font-size: 10rem;
+      font-weight: bold;
+      color: #00ffd5;
+      text-shadow: 0 0 10px #ff00ff, 0 0 30px #00ffff;
+      animation: glitch 1.5s infinite;
+    }
+
+    @keyframes glitch {
+      0% { transform: translate(0); text-shadow: 2px 2px #ff00ff, -2px -2px #00ffff; }
+      20% { transform: translate(1px, -2px); text-shadow: -2px 1px #ff00ff, 1px -2px #00ffff; }
+      40% { transform: translate(-1px, 2px); text-shadow: 1px 2px #ff00ff, -2px 1px #00ffff; }
+      60% { transform: translate(2px, 1px); text-shadow: -1px -2px #ff00ff, 2px 2px #00ffff; }
+      80% { transform: translate(-2px, -1px); text-shadow: 2px -2px #ff00ff, -1px -1px #00ffff; }
+      100% { transform: translate(0); text-shadow: 2px 2px #ff00ff, -2px -2px #00ffff; }
+    }
+
+    .message {
+      font-size: 1.5rem;
+      margin: 1rem 0;
+      color: #a0ffec;
+    }
+
+    .button {
+      padding: 0.75rem 2rem;
+      background: #ff00ff;
+      border: none;
+      color: white;
+      font-weight: bold;
+      font-size: 1.2rem;
+      border-radius: 12px;
+      cursor: pointer;
+      box-shadow: 0 0 10px #ff00ff;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .button:hover {
+      background: #c800c8;
+      transform: scale(1.05);
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>404</h1>
-    <h2>Lost in the Data Reef</h2>
-
-    <div class="code-box">
-      <p>ERROR :: Page not found in this sector</p>
-      <p>QUERY :: /oceanic/net/deepcode/404</p>
-      <p>TRACE :: No digital currents detected</p>
-      <p>FIX :: Return to the main terminal</p>
-    </div>
-
-    <button class="btn" onclick="window.location.href='/'">
-      ↩ Return to Mainframe
-    </button>
+  <div class="background"></div>
+  <div class="bubbles">
+    <!-- Random bubble instances -->
+    <div class="bubble" style="left:10%; animation-duration: 25s;"></div>
+    <div class="bubble" style="left:25%; animation-duration: 18s;"></div>
+    <div class="bubble" style="left:40%; animation-duration: 22s;"></div>
+    <div class="bubble" style="left:60%; animation-duration: 16s;"></div>
+    <div class="bubble" style="left:75%; animation-duration: 28s;"></div>
+    <div class="bubble" style="left:90%; animation-duration: 20s;"></div>
   </div>
 
-  <div class="bubbles">
-    <script>
-      for (let i = 0; i < 50; i++) {
-        const bubble = document.createElement('div');
-        bubble.className = 'bubble';
-        bubble.style.left = Math.random() * 100 + '%';
-        bubble.style.animationDuration = (10 + Math.random() * 20) + 's';
-        bubble.style.width = bubble.style.height = (5 + Math.random() * 20) + 'px';
-        document.querySelector('.bubbles').appendChild(bubble);
-      }
-    </script>
+  <div class="container">
+    <div class="error-code">404</div>
+    <div class="message">You’ve drifted too deep into the data sea.</div>
+    <button class="button" onclick="window.location.href='/'">Swim Back Home</button>
   </div>
 </body>
 </html>
