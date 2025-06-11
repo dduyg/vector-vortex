@@ -3,15 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>404 | Page Not Found</title>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700&display=swap" rel="stylesheet">
+  <title>404 | Lost in the Vapor</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Manrope:wght@400;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --background: #f4f8fb;
-      --primary: #6c63ff;
-      --text: #333;
-      --muted: #777;
-      --shape: #e0e7ef;
+      --bg1: #ff71ce;
+      --bg2: #01cdfe;
+      --bg3: #05ffa1;
+      --bg4: #b967ff;
+      --text-main: #ffffff;
+      --text-glow: #fffb00;
+      --btn-bg: #ff71ce;
+      --btn-hover: #ff00c8;
+      --shape: rgba(255, 255, 255, 0.1);
     }
 
     * {
@@ -22,12 +26,21 @@
 
     html, body {
       height: 100%;
+      background: linear-gradient(135deg, var(--bg1), var(--bg2), var(--bg3), var(--bg4));
+      background-size: 400% 400%;
+      animation: gradientShift 20s ease infinite;
       font-family: 'Manrope', sans-serif;
-      background: var(--background);
+      color: var(--text-main);
       display: flex;
       justify-content: center;
       align-items: center;
       overflow: hidden;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
     .container {
@@ -38,50 +51,52 @@
     }
 
     h1 {
-      font-size: 6rem;
-      color: var(--primary);
-      font-weight: 700;
+      font-family: 'Press Start 2P', cursive;
+      font-size: 5rem;
+      color: var(--text-glow);
+      text-shadow: 2px 2px 0 #ff00c8, 4px 4px 0 #6c63ff;
     }
 
     h2 {
       font-size: 2rem;
-      color: var(--text);
-      margin: 1rem 0;
+      margin: 1.5rem 0 1rem;
+      color: #ffffffdd;
     }
 
     p {
-      color: var(--muted);
+      color: #eeeeeeaa;
       margin-bottom: 2rem;
     }
 
     a {
-      display: inline-block;
-      padding: 0.75rem 1.5rem;
-      background: var(--primary);
+      background: var(--btn-bg);
       color: white;
       text-decoration: none;
-      border-radius: 30px;
-      font-weight: 600;
-      transition: background 0.3s ease;
+      padding: 0.75rem 1.5rem;
+      border-radius: 40px;
+      font-weight: bold;
+      box-shadow: 0 0 12px #ff71ceaa;
+      transition: background 0.3s ease, box-shadow 0.3s ease;
     }
 
     a:hover {
-      background: #574b90;
+      background: var(--btn-hover);
+      box-shadow: 0 0 18px #ff00c8aa;
     }
 
-    /* Floating shapes */
+    /* Floating geometric shapes */
     .shape {
       position: absolute;
-      background: var(--shape);
-      opacity: 0.4;
       border-radius: 50%;
-      animation: float 10s ease-in-out infinite alternate;
+      background: var(--shape);
+      backdrop-filter: blur(2px);
+      animation: float 12s ease-in-out infinite alternate;
     }
 
     .shape1 {
-      width: 100px;
-      height: 100px;
-      top: 5%;
+      width: 120px;
+      height: 120px;
+      top: 10%;
       left: 10%;
       animation-delay: 0s;
     }
@@ -90,7 +105,7 @@
       width: 80px;
       height: 80px;
       bottom: 15%;
-      right: 15%;
+      right: 12%;
       animation-delay: 3s;
     }
 
@@ -98,30 +113,32 @@
       width: 60px;
       height: 60px;
       top: 30%;
-      right: 20%;
-      animation-delay: 5s;
+      right: 18%;
+      animation-delay: 6s;
     }
 
     .shape4 {
       width: 40px;
       height: 40px;
       bottom: 10%;
-      left: 20%;
-      animation-delay: 7s;
+      left: 25%;
+      animation-delay: 9s;
     }
 
     @keyframes float {
       0% { transform: translateY(0px) rotate(0deg); }
-      100% { transform: translateY(-40px) rotate(30deg); }
+      100% { transform: translateY(-40px) rotate(360deg); }
     }
 
     @media (max-width: 600px) {
       h1 {
-        font-size: 4rem;
+        font-size: 3rem;
       }
+
       h2 {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
       }
+
       .shape {
         display: none;
       }
@@ -130,7 +147,7 @@
 </head>
 <body>
 
-  <!-- Geometric Air floating shapes -->
+  <!-- Floating shapes -->
   <div class="shape shape1"></div>
   <div class="shape shape2"></div>
   <div class="shape shape3"></div>
@@ -139,8 +156,8 @@
   <!-- Main content -->
   <div class="container">
     <h1>404</h1>
-    <h2>Page Not Found</h2>
-    <p>The page you’re looking for has floated away with the breeze.</p>
+    <h2>You're lost in the vapor</h2>
+    <p>This page doesn't exist. It might have dissolved into the neon air.</p>
     <a href="/">Back to Home</a>
   </div>
 
