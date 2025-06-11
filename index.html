@@ -11,16 +11,9 @@
       height: 100%;
       background: linear-gradient(135deg, #00ffd0, #8a2be2, #00bfff);
       background-size: 600% 600%;
-      animation: oceanFlow 15s ease infinite;
       font-family: 'VT323', monospace;
       color: #00ffee;
       overflow: hidden;
-    }
-
-    @keyframes oceanFlow {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
     }
 
     .bubbles {
@@ -30,7 +23,6 @@
       overflow: hidden;
       z-index: 0;
     }
-
     .bubble {
       position: absolute;
       bottom: -100px;
@@ -40,97 +32,10 @@
       border-radius: 50%;
       animation: rise 20s linear infinite;
     }
-
     @keyframes rise {
-      0% {
-        transform: translateY(0) scale(1);
-        opacity: 0;
-      }
-      50% {
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(-1200px) scale(0.5);
-        opacity: 0;
-      }
-    }
-
-    .glitch {
-      font-size: 10rem;
-      color: #00ffee;
-      text-shadow:
-        2px 0 magenta,
-        -2px 0 cyan;
-      position: relative;
-      animation: glitchAnim 2s infinite;
-    }
-
-    @keyframes glitchAnim {
-      0% {
-        transform: translate(0, 0);
-      }
-      20% {
-        transform: translate(-2px, 2px);
-      }
-      40% {
-        transform: translate(-2px, -2px);
-      }
-      60% {
-        transform: translate(2px, 2px);
-      }
-      80% {
-        transform: translate(2px, -2px);
-      }
-      100% {
-        transform: translate(0, 0);
-      }
-    }
-
-    .container {
-      position: relative;
-      z-index: 1;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 2rem;
-    }
-
-    h2 {
-      font-size: 2rem;
-      margin-top: 1rem;
-      color: #ffffffcc;
-    }
-
-    .matrix-code {
-      font-size: 1.2rem;
-      color: #aaffee;
-      background: rgba(0, 0, 0, 0.3);
-      padding: 1rem 2rem;
-      border: 1px solid #00ffee66;
-      margin-top: 2rem;
-      border-radius: 8px;
-      max-width: 80ch;
-      line-height: 1.4;
-      box-shadow: 0 0 10px #00ffee55;
-    }
-
-    .home-button {
-      margin-top: 2rem;
-      padding: 0.8rem 2rem;
-      font-size: 1.5rem;
-      background: none;
-      border: 2px solid #00ffee;
-      color: #00ffee;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    .home-button:hover {
-      background: #00ffee22;
-      box-shadow: 0 0 15px #00ffeeaa;
+      0% { transform: translateY(0) scale(1); opacity: 0; }
+      50% { opacity: 1; }
+      100% { transform: translateY(-1200px) scale(0.5); opacity: 0; }
     }
   </style>
 </head>
@@ -149,16 +54,5 @@
     </script>
   </div>
 
-  <div class="container">
-    <div class="glitch">404</div>
-    <h2>Lost in the Data Reef</h2>
-    <div class="matrix-code">
-      <p>> ERROR :: File not found</p>
-      <p>> SIGNAL LOST :: Deep sea node unreachable</p>
-      <p>> TRACE PATH :: /void/abyss/null</p>
-      <p>> SUGGESTION :: Swim back to the mainframe</p>
-    </div>
-    <button class="home-button" onclick="location.href='/'">↳ Return to Mainframe</button>
-  </div>
 </body>
 </html>
