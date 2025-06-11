@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>404 Not Found - Vaporwave</title>
+<title>LiminalLoop</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body, html {
@@ -24,7 +24,7 @@
     top: 0; left: 0;
     width: 100vw;
     height: 100vh;
-    background: linear-gradient(to right, rgba(255, 255, 255, 0.4) 1px, transparent 1px), linear-gradient(to bottom, rgba(255, 255, 255, 0.4) 1px, transparent 1px);
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.3) 1px, transparent 1px), linear-gradient(to bottom, rgba(255, 255, 255, 0.3) 1px, transparent 1px);
     background-size: 40px 40px;
     z-index: 1;
     animation: gridMove 20s linear infinite;
@@ -35,8 +35,7 @@
   }
 
   h1.glitch { position: relative; }
-  h1.glitch::before,
-  h1.glitch::after {
+  h1::before, h1::after {
     content: "404";
     position: absolute;
     left: 0;
@@ -47,7 +46,6 @@
   }
   h1.glitch::before { left: 2px; animation: glitchTop 2s infinite linear alternate-reverse; }
   h1.glitch::after { left: -2px; animation: glitchBottom 3s infinite linear alternate-reverse; }
-
   @keyframes glitchTop {
     0% { clip: rect(0, 900px, 0, 0); }
     20% { clip: rect(0, 900px, 40px, 0); transform: translate(-2px, -2px); }
