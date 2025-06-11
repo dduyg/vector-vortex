@@ -322,7 +322,6 @@ If the image is used as a background:
 - [ ]  Sixtyfour
 - [ ]  Michroma
 - [ ]  Pixelify Sans
-- [ ]  Limelight
 - [ ]  Plaster
 - [ ]  Fira Sans
 - [ ]  Rethink Sans
@@ -439,7 +438,6 @@ If the image is used as a background:
 | <img src="https://img.shields.io/badge/■F20145-F20145?style=for-the-badge"/> | <img src="https://img.shields.io/badge/■1B0027-1B0027?style=for-the-badge"/> |
 
 - [x] Syncing data under coral-coded skies.
-- [ ] Aquatic Arrays
 - [ ] Binary Tsunami
 - [ ] Digital Sea Breeze
 - [ ] Digital Tidebreaker
@@ -467,7 +465,6 @@ If the image is used as a background:
 - [ ] Dark Glow Core
 - [ ] Code Warp Grid
 - [ ] Tech Punk Rise
-- [ ] Data Core Flux
 - [ ] Glow Hack Zone
 - [ ] Code Wire Loop
 - [ ] Grid Fire Edge
