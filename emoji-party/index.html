@@ -8,9 +8,11 @@
   <title>🪸 Aquatic Arrays</title>
   <link href="https://fonts.googleapis.com/css2?family=Syncopate&display=swap" rel="stylesheet">  
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; outline: none; -webkit-tap-highlight-color: transparent; }
+    * { outline: none; -webkit-tap-highlight-color: transparent; }
     html { height: 100%; }   
     body {
+      margin: 0;
+      box-sizing: border-box;
       color: #B2BEC3;
       font-family: monospace;
       line-height: 1.8;
@@ -46,9 +48,10 @@
     h1 {
       font-size: 1.7rem;  
       font-family: "Syncopate", sans-serif;
+      text-shadow: 2px 2px rgba(0, 0, 0, 0.6);
     }
-    a { color: #00FFF7; }      
-      
+    a { color: #00FFF7; }
+    
     #output {    
       display: inline-block;
       font-size: calc(16px + 2.5vw);
@@ -74,14 +77,16 @@
       border: 0;
       background: rgba(255,255,255,0.5);
       margin-bottom: 20px;
-    }    
+    }
     button {
       width: 48px;
-      height: 48px; 
-      padding: 10px; 
+      height: 48px;
+      box-sizing: border-box;
+      margin-left: 15px;
+      padding: 8px 10px; 
       background: transparent; 
-      border: 3px solid #00FFF7;
-      border-radius: 8px;
+      border: 2px dotted #00FFF7;
+      border-radius: 50%;
       cursor: pointer;
     }
     button svg {
