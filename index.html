@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>LiminalLoop</title>
+<title>Liminal🪩Loop</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body, html {
@@ -34,8 +34,14 @@
     100% { background-position: 40px 40px, 40px 40px; }
   }
 
-  h1 { position: relative; }
-  h1::before, h1::after {
+  h2 {
+   position: relative;     
+   font-size: 2.5rem;
+   margin-top: -1rem;
+   color: #ccfaff;
+   text-shadow: 0 0 4px #00ffff;   
+  }
+  h2::before, h2::after {
     content: "Geometric Air";
     position: absolute;
     left: 0;
@@ -44,8 +50,8 @@
     overflow: hidden;
     clip: rect(0, 900px, 0, 0);
   }
-  h1::before { left: 2px; animation: glitchTop 2s infinite linear alternate-reverse; }
-  h1::after { left: -2px; animation: glitchBottom 3s infinite linear alternate-reverse; }
+  h2::before { left: 2px; animation: glitchTop 2s infinite linear alternate-reverse; }
+  h2::after { left: -2px; animation: glitchBottom 3s infinite linear alternate-reverse; }
   @keyframes glitchTop {
     0% { clip: rect(0, 900px, 0, 0); }
     20% { clip: rect(0, 900px, 40px, 0); transform: translate(-2px, -2px); }
@@ -60,9 +66,32 @@
     75% { clip: rect(0, 900px, 0, 0); transform: translate(0); }
     100% { clip: rect(0, 900px, 0, 0); transform: translate(0); }
   }
-</style>
+
+    .code-box {
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid #00fff7;
+      padding: 1.5rem 2rem;
+      border-radius: 10px;
+      margin-top: 2rem;
+      font-size: 1.3rem;
+      color: #b2fff8;
+      text-align: left;
+      max-width: 90%;
+      box-shadow: 0 0 10px #00ffee55;
+    }
+    .code-box p::before {
+      content: "> ";
+      color: #00fff7;
+    }
+  </style>
 </head>
-<body>
-    <h1>Geometric Air</h1>
+<body>    
+  <h2>Geometric Air</h2>
+  <div class="code-box">   
+    <p>ERROR :: page not found in this sector</p>
+    <p>QUERY :: /oceanic/net/code/404</p>
+    <p>TRACE :: no digital currents detected</p>
+    <p>FIX :: return to the main terminal</p> 
+  </div>
 </body>
 </html>
