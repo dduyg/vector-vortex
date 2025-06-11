@@ -1,19 +1,6 @@
 # 🪸 Emoji Reef 🐙
-Generates a random emoji party. 
-
-
-Generates a grid-based "oceanscapes" filled with aquatic emojis, distributed randomly.
-
- randomly-generated ocean scene.
-
-It visually represents an underwater grid using emojis for creatures, treasures, and different sea elements. The grid is randomly populated each time, so every refresh creates a unique ocean scene.
-
-# visualizing arrays, randomness, or 
-
-- *Grid visualization:* The oceanscape is a 2D array of emojis, randomly populated according to your settings.
-- *Emoji tilemap*: The grid is a 2D array, each cell visualized as an emoji.
-
-[Live Demo](https://dduyg.github.io/tomagotchi/emoji-party/index.html)
+Generates grid-based "oceanscapes". The oceanscape is a 2D array of aquatic emojis, randomly populated according to your settings.
+> [Live Demo](https://dduyg.github.io/tomagotchi/emoji-party/index.html)
 
 ## 🛟 How It Works
 - Set your ocean's size using the input boxes labeled with 🌊 to set the number of columns and rows (e.g., 10 x 10).
