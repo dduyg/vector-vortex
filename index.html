@@ -13,56 +13,70 @@
       color: #00fff7;
       font-family: 'VT323', monospace;
       overflow: hidden;
-      position: relative;
-    }
-
-    .container {
-      position: relative;
-      z-index: 2;
-      height: 100%;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      text-align: center;
       padding: 2rem;
     }
-    h2 {
-      font-size: 2.5rem;
-      margin-top: -1rem;
-      color: #ccfaff;
-      text-shadow: 0 0 4px #00ffff;
+    
+    .glitch {
+      font-size: 10vw;
+      color: blue;
+      position: relative;
+      animation: glitch 1.5s infinite;
     }
-
-    .code-box {
-      background: rgba(0, 0, 0, 0.4);
-      border: 1px solid #00fff7;
-      padding: 1.5rem 2rem;
-      border-radius: 10px;
-      margin-top: 2rem;
-      font-size: 1.3rem;
-      color: #b2fff8;
-      text-align: left;
-      max-width: 90%;
-      box-shadow: 0 0 10px #00ffee55;
+    .glitch::before, .glitch::after {
+      content: "404";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      color: blue;
+      overflow: hidden;
     }
-    .code-box p::before {
-      content: "> ";
-      color: #00fff7;
+    .glitch::before {
+      color: pink;
+      z-index: -1;
+      transform: translate(-2px, 2px);
+      opacity: 0.7;
+      animation: glitch-before 1s infinite linear alternate-reverse;
+    }
+    .glitch::after {
+      color: purple;
+      z-index: -1;
+      transform: translate(2px, -2px);
+      opacity: 0.7;
+      animation: glitch-after 0.8s infinite linear alternate-reverse;
+    }
+    @keyframes glitch {
+      0% { transform: none; }
+      20% { transform: skew(-5deg); }
+      40% { transform: skew(5deg); }
+      60% { transform: translateX(5px); }
+      80% { transform: translateX(-5px); }
+      100% { transform: none; }
+    }
+    @keyframes glitch-before {
+      0% { clip-path: inset(0 0 90% 0); }
+      50% { clip-path: inset(40% 0 40% 0); }
+      100% { clip-path: inset(90% 0 0 0); }
+    }
+    @keyframes glitch-after {
+      0% { clip-path: inset(90% 0 0 0); }
+      50% { clip-path: inset(30% 0 60% 0); }
+      100% { clip-path: inset(0 0 90% 0); }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h2>Lost in the Data Reef</h2>
-
-    <div class="code-box">
-      <p>ERROR :: Page not found in this sector</p>
-      <p>QUERY :: /oceanic/net/deepcode/404</p>
+  <div class="glitch">404</div>
+                           
+  <div class="code-box">
+      <p>ERROR :: Lost in the Data Reef</p>
+      <p>QUERY :: /oceanic/net/404</p>
       <p>TRACE :: No digital currents detected</p>
-      <p>FIX :: Return to the main terminal</p>
-    </div>
-
+      <p>FIX   :: Return to the main terminal</p>
   </div>
 </body>
 </html>
