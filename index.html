@@ -1,185 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>404 | Data Not Found</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=VT323&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --pink: #ff71ce;
-      --blue: #01cdfe;
-      --purple: #b967ff;
-      --black: #0d0d0d;
-      --green: #00ff9f;
-      --bg1: #2d1e4f;
-      --bg2: #0f051d;
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>404 - Data Not Found</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+  :root {
+    --pink: #ff77ff;
+    --cyan: #00ffff;
+    --purple: #b266ff;
+    --dark-bg: #0d001f;
+  }
 
-    html, body {
-      height: 100%;
-      font-family: 'VT323', monospace;
-      background: linear-gradient(to bottom, var(--bg1), var(--bg2));
-      color: var(--green);
-      overflow: hidden;
-    }
+  /* Reset */
+  * {
+    margin: 0; padding: 0; box-sizing: border-box;
+  }
+  body, html {
+    height: 100%;
+    background: linear-gradient(135deg, #1a0033, #0d001f);
+    color: var(--pink);
+    font-family: 'VT323', monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+    overflow: hidden;
+  }
 
-    body::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-image: linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
-                        linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
-      background-size: 40px 40px;
-      z-index: 0;
-    }
+  .container {
+    text-align: center;
+    max-width: 600px;
+    padding: 20px;
+  }
 
-    .container {
-      position: relative;
-      z-index: 1;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 2rem;
-    }
+  /* Glitch effect on the big 404 */
+  h1.glitch {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 8vw;
+    color: var(--pink);
+    position: relative;
+    letter-spacing: 0.1em;
+    text-shadow:
+      0 0 5px var(--pink),
+      0 0 10px var(--pink),
+      0 0 20px var(--cyan),
+      0 0 30px var(--cyan);
+  }
+  h1.glitch::before,
+  h1.glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    opacity: 0.8;
+  }
+  h1.glitch::before {
+    animation: glitch1 2s infinite linear alternate-reverse;
+    clip-path: polygon(0 2%, 100% 2%, 100% 15%, 0 15%);
+    color: var(--cyan);
+    z-index: -1;
+  }
+  h1.glitch::after {
+    animation: glitch2 3s infinite linear alternate;
+    clip-path: polygon(0 60%, 100% 60%, 100% 75%, 0 75%);
+    color: var(--pink);
+    z-index: -2;
+  }
 
-    .glitch {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 10vw;
-      color: var(--blue);
-      position: relative;
-      animation: glitch 1.5s infinite;
-    }
+  @keyframes glitch1 {
+    0% { transform: translate(0); }
+    20% { transform: translate(-3px, -2px); }
+    40% { transform: translate(3px, 2px); }
+    60% { transform: translate(-3px, 2px); }
+    80% { transform: translate(3px, -2px); }
+    100% { transform: translate(0); }
+  }
+  @keyframes glitch2 {
+    0% { transform: translate(0); }
+    20% { transform: translate(2px, 3px); }
+    40% { transform: translate(-2px, -3px); }
+    60% { transform: translate(2px, -3px); }
+    80% { transform: translate(-2px, 3px); }
+    100% { transform: translate(0); }
+  }
 
-    .glitch::before,
-    .glitch::after {
-      content: "404";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      color: var(--blue);
-      overflow: hidden;
-    }
+  p {
+    font-size: 1.3rem;
+    color: var(--cyan);
+    margin: 10px 0 30px;
+    letter-spacing: 0.12em;
+    text-shadow: 0 0 10px var(--cyan);
+  }
 
-    .glitch::before {
-      color: var(--pink);
-      z-index: -1;
-      transform: translate(-2px, 2px);
-      opacity: 0.7;
-      animation: glitch-before 1s infinite linear alternate-reverse;
-    }
+  .data-box {
+    background: linear-gradient(135deg, #220044, #110022);
+    border: 2px solid var(--pink);
+    border-radius: 12px;
+    padding: 20px;
+    font-family: 'VT323', monospace;
+    font-size: 1.1rem;
+    color: #fff;
+    max-height: 220px;
+    overflow-y: auto;
+    box-shadow:
+      0 0 10px var(--pink),
+      0 0 20px var(--cyan);
+    text-align: left;
+    letter-spacing: 0.07em;
+    line-height: 1.4;
+    user-select: text;
+  }
 
-    .glitch::after {
-      color: var(--purple);
-      z-index: -1;
-      transform: translate(2px, -2px);
-      opacity: 0.7;
-      animation: glitch-after 0.8s infinite linear alternate-reverse;
-    }
+  a.home-btn {
+    margin-top: 30px;
+    display: inline-block;
+    padding: 14px 36px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1rem;
+    color: var(--pink);
+    text-decoration: none;
+    border: 2px solid var(--pink);
+    border-radius: 10px;
+    box-shadow:
+      0 0 10px var(--pink),
+      0 0 20px var(--cyan);
+    transition: all 0.3s ease;
+  }
+  a.home-btn:hover {
+    background: var(--pink);
+    color: var(--dark-bg);
+    box-shadow:
+      0 0 25px var(--pink),
+      0 0 50px var(--pink);
+  }
 
-    @keyframes glitch {
-      0% { transform: none; }
-      20% { transform: skew(-5deg); }
-      40% { transform: skew(5deg); }
-      60% { transform: translateX(5px); }
-      80% { transform: translateX(-5px); }
-      100% { transform: none; }
+  /* Responsive */
+  @media (max-width: 480px) {
+    h1.glitch {
+      font-size: 16vw;
     }
-
-    @keyframes glitch-before {
-      0% { clip-path: inset(0 0 90% 0); }
-      50% { clip-path: inset(40% 0 40% 0); }
-      100% { clip-path: inset(90% 0 0 0); }
+    p {
+      font-size: 1rem;
     }
-
-    @keyframes glitch-after {
-      0% { clip-path: inset(90% 0 0 0); }
-      50% { clip-path: inset(30% 0 60% 0); }
-      100% { clip-path: inset(0 0 90% 0); }
-    }
-
-    .subtitle {
-      font-size: 2rem;
-      color: var(--green);
-      margin-top: -1rem;
-    }
-
-    .terminal {
-      background-color: rgba(0, 0, 0, 0.7);
-      border: 1px solid var(--pink);
-      border-radius: 10px;
-      padding: 1.5rem;
-      margin-top: 2rem;
-      max-width: 600px;
-      width: 90%;
-      box-shadow: 0 0 15px var(--purple);
-      font-size: 1.3rem;
-      text-align: left;
-    }
-
-    .terminal::before {
-      content: "[ System Terminal ]";
-      display: block;
-      margin-bottom: 1rem;
-      color: var(--pink);
-      font-weight: bold;
-    }
-
-    .btn {
-      margin-top: 2rem;
-      padding: 0.8rem 2rem;
-      font-size: 1.2rem;
-      background: var(--purple);
-      color: #fff;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      box-shadow: 0 0 10px var(--purple);
-    }
-
-    .btn:hover {
-      background: var(--blue);
-      box-shadow: 0 0 15px var(--blue);
-    }
-
-    @media (max-width: 600px) {
-      .glitch {
-        font-size: 16vw;
-      }
-
-      .terminal {
-        font-size: 1rem;
-      }
-    }
-  </style>
+  }
+</style>
 </head>
 <body>
-  <div class="container">
-    <div class="glitch">404</div>
-    <div class="subtitle">DATA NOT FOUND</div>
-
-    <div class="terminal">
-      <p><span style="color: var(--pink);">> ERROR:</span> The page you are looking for does not exist in this dimension.</p>
-      <p><span style="color: var(--pink);">> INFO:</span> You may have entered a broken or outdated link.</p>
-      <p><span style="color: var(--pink);">> ACTION:</span> Return to the mainframe to reboot reality.</p>
+  <main class="container" role="main" aria-label="404 Error Page">
+    <h1 class="glitch" data-text="404">404</h1>
+    <p>DATA NOT FOUND</p>
+    <div class="data-box" aria-live="polite" aria-atomic="true">
+<pre>
+┌────────────── ERROR REPORT ──────────────┐
+│                                          │
+│   CODE: 0xDEADC0DE                       │
+│   STATUS: RESOURCE MISSING               │
+│                                          │
+│   DETAILS:                              │
+│   ─ File: /path/to/requested/data       │
+│   ─ Cache: MISS                          │
+│   ─ Memory: NIL                          │
+│   ─ Ping: FAILED                        │
+│                                          │
+└──────────────────────────────────────────┘
+</pre>
     </div>
-
-    <a href="/" class="btn">Return Home</a>
-  </div>
+    <a href="/" class="home-btn" role="button" aria-label="Go back to homepage">↩ RETURN HOME</a>
+  </main>
 </body>
 </html>
