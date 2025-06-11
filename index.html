@@ -7,9 +7,7 @@
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Press+Start+2P&display=swap');
 
-  /* Vaporwave palette */
   :root {
-    --bg-color: #1a0f3b;
     --neon-pink: #ff49db;
     --neon-cyan: #00f0ff;
     --neon-purple: #8f3cff;
@@ -25,7 +23,6 @@
   body, html {
     margin: 0; padding: 0;
     height: 100%;
-    background: var(--bg-color);
     font-family: 'Orbitron', monospace, 'Press Start 2P', cursive;
     color: var(--text-color);
     overflow: hidden;
@@ -33,9 +30,23 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    position: relative;
+    background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1920&q=80') no-repeat center center fixed;
+    background-size: cover;
   }
 
-  /* Vaporwave grid background */
+  /* Dark overlay so text is visible */
+  body::after {
+    content: "";
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(26, 15, 59, 0.75);
+    z-index: 0;
+  }
+
+  /* Vaporwave grid overlay */
   body::before {
     content: "";
     position: fixed;
@@ -46,13 +57,14 @@
       linear-gradient(to right, var(--grid-color) 1px, transparent 1px),
       linear-gradient(to bottom, var(--grid-color) 1px, transparent 1px);
     background-size: 40px 40px;
-    z-index: 0;
+    z-index: 1;
+    animation: gridMove 20s linear infinite;
   }
 
   main {
     position: relative;
     text-align: center;
-    z-index: 1;
+    z-index: 2;
     max-width: 600px;
     padding: 2rem;
     user-select: none;
@@ -109,7 +121,6 @@
     outline: none;
   }
 
-  /* Animated grid lines */
   @keyframes gridMove {
     0% {
       background-position: 0 0, 0 0;
@@ -119,11 +130,7 @@
     }
   }
 
-  body::before {
-    animation: gridMove 20s linear infinite;
-  }
-
-  /* Retro glitch effect on 404 */
+  /* Glitch effect on 404 */
   h1.glitch {
     position: relative;
     color: var(--neon-pink);
