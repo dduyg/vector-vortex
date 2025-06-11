@@ -2,15 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>404 - Page Not Found</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>404 | Page Not Found</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg-color: #f9fafc;
-      --text-color: #333;
-      --accent-color: #6c63ff;
-      --light-gray: #e3e7ed;
+      --primary: #6c63ff;
+      --bg: #f0f4f8;
+      --text: #333;
+      --light: #dfe6ed;
     }
 
     * {
@@ -21,9 +21,9 @@
 
     html, body {
       height: 100%;
-      font-family: 'Quicksand', sans-serif;
-      background-color: var(--bg-color);
-      color: var(--text-color);
+      font-family: 'Nunito', sans-serif;
+      background: var(--bg);
+      color: var(--text);
       display: flex;
       justify-content: center;
       align-items: center;
@@ -33,112 +33,117 @@
     .container {
       text-align: center;
       padding: 2rem;
+      position: relative;
       z-index: 1;
     }
 
     h1 {
-      font-size: 8rem;
+      font-size: 7rem;
+      color: var(--primary);
       font-weight: 700;
-      color: var(--accent-color);
     }
 
     h2 {
       font-size: 2rem;
-      margin-top: 10px;
-      color: #444;
+      margin-bottom: 1rem;
+      font-weight: 600;
     }
 
     p {
-      margin-top: 10px;
-      font-size: 1.1rem;
+      font-size: 1rem;
       color: #666;
+      margin-bottom: 2rem;
     }
 
     a {
-      margin-top: 25px;
-      display: inline-block;
-      padding: 12px 24px;
-      background-color: var(--accent-color);
-      color: white;
       text-decoration: none;
-      border-radius: 8px;
-      font-weight: 600;
-      transition: background-color 0.3s ease;
+      background: var(--primary);
+      color: #fff;
+      padding: 0.75rem 1.5rem;
+      border-radius: 30px;
+      font-weight: bold;
+      transition: 0.3s ease;
     }
 
     a:hover {
-      background-color: #574b90;
+      background: #574b90;
     }
 
-    /* Floating geometric shapes */
+    /* Floating shapes */
     .shape {
       position: absolute;
       border-radius: 50%;
-      background-color: var(--light-gray);
-      opacity: 0.4;
-      animation: float 10s ease-in-out infinite alternate;
+      background: var(--light);
+      opacity: 0.5;
+      z-index: 0;
+      animation: float 12s ease-in-out infinite alternate;
     }
 
-    .shape1 {
+    .circle1 {
       width: 120px;
       height: 120px;
-      top: 10%;
-      left: 15%;
+      top: 5%;
+      left: 10%;
       animation-delay: 0s;
     }
 
-    .shape2 {
+    .circle2 {
       width: 80px;
       height: 80px;
-      bottom: 20%;
-      right: 20%;
-      animation-delay: 2s;
+      bottom: 15%;
+      right: 15%;
+      animation-delay: 3s;
     }
 
-    .shape3 {
+    .circle3 {
       width: 60px;
       height: 60px;
       top: 30%;
-      right: 10%;
-      animation-delay: 4s;
+      right: 20%;
+      animation-delay: 5s;
     }
 
-    .shape4 {
+    .circle4 {
       width: 40px;
       height: 40px;
       bottom: 10%;
-      left: 25%;
-      animation-delay: 6s;
+      left: 20%;
+      animation-delay: 7s;
     }
 
     @keyframes float {
-      0% { transform: translateY(0px) rotate(0deg); }
-      100% { transform: translateY(-30px) rotate(20deg); }
+      0% { transform: translateY(0) rotate(0deg); }
+      100% { transform: translateY(-40px) rotate(45deg); }
     }
 
     @media (max-width: 600px) {
       h1 {
-        font-size: 5rem;
+        font-size: 4rem;
       }
       h2 {
         font-size: 1.5rem;
+      }
+      .shape {
+        display: none;
       }
     }
   </style>
 </head>
 <body>
-  <!-- Floating Shapes -->
-  <div class="shape shape1"></div>
-  <div class="shape shape2"></div>
-  <div class="shape shape3"></div>
-  <div class="shape shape4"></div>
+
+  <!-- Floating Circles -->
+  <div class="shape circle1"></div>
+  <div class="shape circle2"></div>
+  <div class="shape circle3"></div>
+  <div class="shape circle4"></div>
 
   <!-- Main Content -->
   <div class="container">
     <h1>404</h1>
-    <h2>Oops! Page not found</h2>
-    <p>We couldn't find the page you were looking for. It might have floated away.</p>
-    <a href="/">Go Back Home</a>
+    <h2>Page Not Found</h2>
+    <p>The page you're looking for has drifted away in the breeze.</p>
+    <a href="/">Return Home</a>
   </div>
+
 </body>
 </html>
