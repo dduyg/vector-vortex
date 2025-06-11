@@ -7,15 +7,14 @@
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Manrope:wght@400;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg1: #ff71ce;
-      --bg2: #01cdfe;
-      --bg3: #05ffa1;
-      --bg4: #b967ff;
-      --text: #ffffff;
-      --highlight: #ffff99;
-      --btn-bg: #ff71ce;
-      --btn-hover: #ff00c8;
-      --shape: rgba(255, 255, 255, 0.1);
+      --pink: #ff71ce;
+      --blue: #01cdfe;
+      --green: #05ffa1;
+      --purple: #b967ff;
+      --yellow: #fff685;
+      --white: #ffffff;
+      --text: #ffffffee;
+      --shape: rgba(255, 255, 255, 0.07);
     }
 
     * {
@@ -26,14 +25,14 @@
 
     html, body {
       height: 100%;
-      background: linear-gradient(135deg, var(--bg1), var(--bg2), var(--bg3), var(--bg4));
-      background-size: 400% 400%;
-      animation: gradientShift 20s ease infinite;
       font-family: 'Manrope', sans-serif;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      background: linear-gradient(135deg, var(--pink), var(--blue), var(--green), var(--purple));
+      background-size: 400% 400%;
+      animation: gradientShift 30s ease infinite;
       color: var(--text);
+      display: flex;
+      justify-content: center;
+      align-items: center;
       overflow: hidden;
     }
 
@@ -47,59 +46,58 @@
       text-align: center;
       padding: 2rem;
       position: relative;
-      z-index: 1;
+      z-index: 2;
     }
 
     h1 {
-      font-family: 'Press Start 2P', cursive;
+      font-family: 'Press Start 2P', monospace;
       font-size: 5rem;
-      color: var(--highlight);
+      color: var(--yellow);
       text-shadow: 2px 2px 0 #ff00c8, 4px 4px 0 #6c63ff;
     }
 
     h2 {
-      font-size: 1.5rem;
+      font-size: 1.75rem;
       margin: 1.5rem 0;
-      color: #ffffffcc;
+      font-weight: 700;
     }
 
     p {
-      font-size: 1rem;
-      color: #eeeeeeaa;
+      color: #ffffffaa;
       margin-bottom: 2rem;
+      font-size: 1.1rem;
     }
 
     a {
-      display: inline-block;
-      background: var(--btn-bg);
-      color: white;
       text-decoration: none;
+      background: var(--pink);
+      color: white;
       padding: 0.75rem 1.5rem;
-      border-radius: 40px;
+      border-radius: 30px;
       font-weight: bold;
-      font-size: 1rem;
+      transition: background 0.3s ease;
       box-shadow: 0 0 12px #ff71ceaa;
-      transition: all 0.3s ease;
     }
 
     a:hover {
-      background: var(--btn-hover);
-      box-shadow: 0 0 20px #ff00c8cc;
+      background: #ff00c8;
+      box-shadow: 0 0 18px #ff00c8aa;
     }
 
-    /* Floating geometric shapes */
+    /* Geometric Air Shapes */
     .shape {
       position: absolute;
       border-radius: 50%;
       background: var(--shape);
       backdrop-filter: blur(3px);
       animation: float 14s ease-in-out infinite alternate;
+      z-index: 1;
     }
 
     .shape1 { width: 120px; height: 120px; top: 10%; left: 10%; animation-delay: 0s; }
-    .shape2 { width: 80px; height: 80px; bottom: 15%; right: 12%; animation-delay: 3s; }
+    .shape2 { width: 80px; height: 80px; bottom: 20%; right: 10%; animation-delay: 3s; }
     .shape3 { width: 60px; height: 60px; top: 30%; right: 20%; animation-delay: 6s; }
-    .shape4 { width: 40px; height: 40px; bottom: 10%; left: 25%; animation-delay: 9s; }
+    .shape4 { width: 100px; height: 100px; bottom: 10%; left: 25%; animation-delay: 9s; }
 
     @keyframes float {
       0% { transform: translateY(0) rotate(0deg); }
@@ -115,18 +113,18 @@
 </head>
 <body>
 
-  <!-- Floating Shapes -->
+  <!-- Geometric Air Floating Shapes -->
   <div class="shape shape1"></div>
   <div class="shape shape2"></div>
   <div class="shape shape3"></div>
   <div class="shape shape4"></div>
 
-  <!-- Main Content -->
+  <!-- Main 404 Content -->
   <div class="container">
     <h1>404</h1>
-    <h2>You're lost in the vapor</h2>
-    <p>This page has drifted into the neon haze. Let’s take you back.</p>
-    <a href="/">Return Home</a>
+    <h2>You've drifted into the vapor</h2>
+    <p>This page has vanished into neon mist. Let's guide you back home.</p>
+    <a href="/">🌐 Return to Reality</a>
   </div>
 
 </body>
