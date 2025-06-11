@@ -3,10 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>404 Not Found - Vaporwave</title>
+<title>LiminalLoop</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Press+Start+2P&display=swap');
-
   /* Vaporwave palette */
   :root {
     --bg-color: #1a0f3b;
@@ -42,9 +40,7 @@
     top: 0; left: 0;
     width: 100vw;
     height: 100vh;
-    background:
-      linear-gradient(to right, var(--grid-color) 1px, transparent 1px),
-      linear-gradient(to bottom, var(--grid-color) 1px, transparent 1px);
+    background: linear-gradient(to right, var(--grid-color) 1px, transparent 1px), linear-gradient(to bottom, var(--grid-color) 1px, transparent 1px);
     background-size: 40px 40px;
     z-index: 0;
   }
@@ -63,50 +59,6 @@
     font-size: 5rem;
     letter-spacing: 0.3rem;
     margin: 0;
-    color: var(--neon-pink);
-    text-shadow:
-      0 0 10px var(--neon-pink),
-      0 0 20px var(--neon-pink),
-      0 0 40px var(--neon-pink);
-  }
-
-  h2 {
-    font-family: 'Orbitron', monospace;
-    font-size: 1.5rem;
-    margin-top: 0.5rem;
-    color: var(--neon-cyan);
-    text-shadow:
-      0 0 5px var(--neon-cyan),
-      0 0 10px var(--neon-cyan);
-  }
-
-  p {
-    margin: 2rem 0 3rem;
-    font-size: 1rem;
-    color: #ddd;
-    text-shadow: 0 0 5px var(--neon-purple);
-  }
-
-  a {
-    text-decoration: none;
-    font-family: 'Press Start 2P', monospace;
-    font-size: 1rem;
-    padding: 1rem 2rem;
-    background: var(--neon-purple);
-    color: var(--text-color);
-    border-radius: 5px;
-    box-shadow:
-      0 0 10px var(--neon-purple),
-      0 0 20px var(--neon-purple);
-    transition: background 0.3s ease, box-shadow 0.3s ease;
-  }
-
-  a:hover, a:focus {
-    background: var(--neon-pink);
-    box-shadow:
-      0 0 20px var(--neon-pink),
-      0 0 40px var(--neon-pink);
-    outline: none;
   }
 
   /* Animated grid lines */
@@ -120,7 +72,7 @@
   }
 
   body::before {
-    animation: gridMove 20s linear infinite;
+    animation: gridMove 10s linear infinite;
   }
 
   /* Retro glitch effect on 404 */
@@ -140,12 +92,10 @@
   }
   h1.glitch::before {
     left: 2px;
-    text-shadow: -2px 0 var(--neon-cyan);
     animation: glitchTop 2s infinite linear alternate-reverse;
   }
   h1.glitch::after {
     left: -2px;
-    text-shadow: -2px 0 var(--neon-purple);
     animation: glitchBottom 3s infinite linear alternate-reverse;
   }
 
@@ -196,9 +146,6 @@
 <body>
   <main>
     <h1 class="glitch">404</h1>
-    <h2>PAGE NOT FOUND</h2>
-    <p>Sorry, the page you are looking for does not exist.<br />But don't worry, the vaporwave grid will keep you company.</p>
-    <a href="/">Go Back Home</a>
   </main>
 </body>
 </html>
