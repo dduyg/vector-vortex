@@ -15,7 +15,7 @@
       margin: 0;
       box-sizing: border-box;
       font-family: "Space Mono", monospace;
-      color: #D06E4B;
+      color: #B2BEC3;
       line-height: 1.8;
       -webkit-font-smoothing: antialiased;   
       height: 100%;
@@ -54,8 +54,19 @@
     a { 
       color: inherit;        
       text-decoration: none;
-      cursor: pointer;      
+      cursor: pointer;
+      background: linear-gradient(to bottom, aqua 0%, aqua 100%);
+      background-position: 0 100%;
+      background-repeat: repeat-x;
+      background-size: 2px 2px;
     }
+    a:hover {
+      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg id='squiggle-link' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:ev='http://www.w3.org/2001/xml-events' viewBox='0 0 20 4'%3E%3Cstyle type='text/css'%3E.squiggle{animation:shift .3s linear infinite;}@keyframes shift {from {transform:translateX(0);}to {transform:translateX(-20px);}}%3C/style%3E%3Cpath fill='none' stroke='%23fff8dc' stroke-width='2' class='squiggle' d='M0,3.5 c 5,0,5,-3,10,-3 s 5,3,10,3 c 5,0,5,-3,10,-3 s 5,3,10,3'/%3E%3C/svg%3E");
+      background-position: 0 100%;
+      background-size: auto 4px;
+      background-repeat: repeat-x;
+      text-decoration: none;
+    } 
     
     #output {    
       display: inline-block;
@@ -91,7 +102,7 @@
       margin: auto;
       padding: 8px 10px; 
       background: transparent; 
-      border: 4px dotted #D06E4B;
+      border: 4px dotted #B2BEC3;
       border-radius: 50%;
       cursor: pointer;
     }
@@ -100,7 +111,7 @@
       height: 100%;
     }
     button:hover {
-      border-color: #B2BEC3;
+      border-color: aqua;
       transition: border-color 0.5s ease;
     }
 
@@ -108,7 +119,7 @@
       padding: 10px 0 3rem;
       text-transform: uppercase;
       font-size: 0.85rem;
-      text-shadow: 2px 2px rgba(0, 0, 0, 0.2);
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
     }
   </style>
 </head>
@@ -126,7 +137,7 @@
       <label for="treasures">🐚</label>
       <input id="treasures" type="number" value="5">
     
-      <button onclick="doAnOcean()"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 3V9M3 9H9M3 9C5.32744 6.91141 7.48287 4.54676 10.7453 4.08779C12.6777 3.81593 14.6461 4.17941 16.3539 5.12343C18.0617 6.06746 19.4164 7.54091 20.2139 9.32177M21 21V15M21 15H15M21 15C18.6725 17.0886 16.5171 19.4532 13.2546 19.9122C11.3223 20.1841 9.35388 19.8206 7.64607 18.8766C5.93826 17.9325 4.58353 16.4591 3.78601 14.6782" stroke="#D06E4B" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <button onclick="doAnOcean()"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 3V9M3 9H9M3 9C5.32744 6.91141 7.48287 4.54676 10.7453 4.08779C12.6777 3.81593 14.6461 4.17941 16.3539 5.12343C18.0617 6.06746 19.4164 7.54091 20.2139 9.32177M21 21V15M21 15H15M21 15C18.6725 17.0886 16.5171 19.4532 13.2546 19.9122C11.3223 20.1841 9.35388 19.8206 7.64607 18.8766C5.93826 17.9325 4.58353 16.4591 3.78601 14.6782" stroke="#B2BEC3" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
   </div>
   <br>
   <div id="output"></div>
