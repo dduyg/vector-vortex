@@ -18,7 +18,12 @@
       color: black;
       line-height: 1.8;
       -webkit-font-smoothing: antialiased;   
-      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      height: 100vh;
       background-image: url('https://raw.githubusercontent.com/dduyg/LiminalLoop/main/06/oceanscapes.gif');
       background-size: cover;
       background-position: center;
@@ -32,18 +37,6 @@
       background: rgba(0, 0, 0, 0.2);
       backdrop-filter: blur(2px);
       z-index: 0;
-    }
-    main, main * {
-      position: relative; 
-      z-index: 1;
-    }
-    main {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      height: 100%;
-      text-align: center;
     }
 
     h1 {
