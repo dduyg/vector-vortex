@@ -105,14 +105,21 @@
       border: 4px dotted #B2BEC3;
       border-radius: 50%;
       cursor: pointer;
+
+      backface-visibility: hidden; 
+      transform: translateZ(0);  
+      transition: transform .25s ease-out;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
     button svg {
       width: 100%;
       height: 100%;
     }
-    button:hover {
-      border-color: aqua;
-      transition: border-color 0.5s ease;
+    button:hover, button:focus {    
+      transform: scale(1.05);
+    }
+    button:active {   
+      transform: scale(.9);    
     }
 
     main p {
