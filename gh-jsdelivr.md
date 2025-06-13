@@ -12,7 +12,7 @@ https://cdn.jsdelivr.net/gh/<username>/<repo>@<branch-or-commit>/<path/to/file>
 - `@<branch>` (like `@main`) is optional; it defaults to the default branch.
 - `@<commit>` is recommended for production use to avoid surprises when files change.
 
-## ✅ SUse jsDelivr with GitHub
+## ✅ Usage Examples
 
 ### 🟨 JavaScript File
 GitHub Path:
