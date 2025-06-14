@@ -1,4 +1,4 @@
-Making music with magenta.js
+Machine Learning Maestro: Compose with Magenta.js
 =================
 
 [Magenta.js](https://magenta.tensorflow.org/) is a JavaScript library that helps you generate art and 
