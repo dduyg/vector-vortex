@@ -1,4 +1,4 @@
-// ------- Konva.js canvas setup ---------
+// ------ Konva.js canvas setup ---------
 const width = Math.min(window.innerWidth - 40, 700);
 const height = Math.min(window.innerHeight - 160, 500);
 
@@ -20,7 +20,6 @@ const COLORS = [
   "#FF9800", "#FF5722", "#795548", "#9E9E9E"
 ];
 
-// ------- UI Setup ---------
 function setupColors() {
   const picker = document.getElementById('color-picker');
   picker.innerHTML = '';
@@ -38,9 +37,20 @@ function setupColors() {
 }
 setupColors();
 
-// ------- SketchRNN Model Setup ---------
+// --------- SketchRNN Model Setup -----------
 const MODELS = [
-  'bird', 'ant','ambulance','angel','alarm_clock','antyoga','backpack','barn','basket','bear','bee','beeflower','bicycle','book','brain','bridge','bulldozer','bus','butterfly','cactus','calendar','castle','cat','catbus','catpig','chair','couch','crab','crabchair','crabrabbitfacepig','dog','dogbunny','dolphin','duck','elephant','elephantpig','face','fan','firetruck','flamingo','flower','floweryoga','frog','frogsofa','garden','hedgehog','horse','horsecat','horsedog','hotairballoon','jackolantern','lion','lionsheep','lollipop','mermaid','monapassport','monster','mosquito','octopus','owl','paintbrush','paintbrushbench','palm_tree','parrot','passport','pig','pigsheep','pineapple','pool','postcard','rabbit','rabbitpig','radio','radioface','rain','rhinoceros','rifle','rollercoaster','sandwich','scorpion','sea_turtle','sheep','skull','snail','snowflake','speedboat','spider','squirrel','steak','stove','strawberry','swan','swing','table','the_mona_lisa','tiger','toothbrush','toothbrushbench','tractor','trombone','truck','whale','windmill','yoga'
+  'bird', 'cat', 'face', 'flower', 'owl', 'rabbit', 'star', 'tree', 'alarm_clock', 'ambulance', 'angel',
+  'ant', 'antyoga', 'backpack', 'barn', 'basket', 'bear', 'bee', 'beeflower', 'bicycle', 'book', 'brain',
+  'bridge', 'bulldozer', 'bus', 'butterfly', 'cactus', 'calendar', 'castle', 'catbus', 'catpig', 'chair',
+  'couch', 'crab', 'crabchair', 'crabrabbitfacepig', 'dog', 'dogbunny', 'dolphin', 'duck', 'elephant',
+  'elephantpig', 'fan', 'firetruck', 'flamingo', 'floweryoga', 'frog', 'frogsofa', 'garden', 'hedgehog',
+  'horse', 'horsecat', 'horsedog', 'hotairballoon', 'jackolantern', 'lion', 'lionsheep', 'lollipop',
+  'mermaid', 'monapassport', 'monster', 'mosquito', 'octopus', 'paintbrush', 'paintbrushbench', 'palm_tree',
+  'parrot', 'passport', 'pig', 'pigsheep', 'pineapple', 'pool', 'postcard', 'rabbitpig', 'radio', 'radioface',
+  'rain', 'rhinoceros', 'rifle', 'rollercoaster', 'sandwich', 'scorpion', 'sea_turtle', 'sheep', 'skull',
+  'snail', 'snowflake', 'speedboat', 'spider', 'squirrel', 'steak', 'stove', 'strawberry', 'swan', 'swing',
+  'table', 'the_mona_lisa', 'tiger', 'toothbrush', 'toothbrushbench', 'tractor', 'trombone', 'truck', 'whale',
+  'windmill', 'yoga'
 ];
 const modelSelect = document.getElementById('model-select');
 MODELS.forEach((m, i) => {
@@ -49,9 +59,8 @@ MODELS.forEach((m, i) => {
   opt.textContent = m;
   modelSelect.appendChild(opt);
 });
-let model = null;
-let modelLoaded = false;
 let sketchRNNModel = null;
+let modelLoaded = false;
 let lastStrokePoints = []; // For feeding to SketchRNN
 
 function loadModel(selectedModel) {
@@ -66,19 +75,20 @@ function loadModel(selectedModel) {
 loadModel(modelSelect.value);
 modelSelect.onchange = () => loadModel(modelSelect.value);
 
-// ------- Konva Drawing logic ---------
+// ----------- Konva Drawing logic -----------
 stage.on('mousedown touchstart', function (e) {
+  const pos = stage.getPointerPosition();
   currentLine = new Konva.Line({
     stroke: currentColor,
     strokeWidth: 3,
-    points: [stage.getPointerPosition().x, stage.getPointerPosition().y],
+    points: [pos.x, pos.y],
     lineCap: 'round',
     lineJoin: 'round',
     globalCompositeOperation: 'source-over'
   });
   layer.add(currentLine);
   userLines.push(currentLine);
-  lastStrokePoints = [[stage.getPointerPosition().x, stage.getPointerPosition().y]];
+  lastStrokePoints = [[pos.x, pos.y]];
   layer.draw();
 });
 stage.on('mousemove touchmove', function (e) {
@@ -94,7 +104,7 @@ stage.on('mouseup touchend', function (e) {
   layer.batchDraw();
 });
 
-// ------- Toolbar Buttons ---------
+// ----------- Toolbar Buttons -----------
 document.getElementById('clear-btn').onclick = () => {
   userLines.forEach(l => l.destroy());
   modelLines.forEach(l => l.destroy());
@@ -126,10 +136,11 @@ document.getElementById('magic-btn').onclick = async () => {
   let prevPen = pen;
   let dx = 0, dy = 0;
 
-  // Draw what the model predicts
-  let generatedLinePoints = [x, y];
+  // Remove previous model lines
   modelLines.forEach(l => l.destroy());
   modelLines = [];
+
+  // Draw what the model predicts
   for (let i = 0; i < 70; i++) { // up to 70 steps
     state = sketchRNNModel.update([dx, dy, ...pen], state);
     const pdf = sketchRNNModel.getPDF(state, 0.1);
@@ -137,7 +148,6 @@ document.getElementById('magic-btn').onclick = async () => {
     if (pen[2] === 1) break; // pen_end
     if (prevPen[0] === 1) { // pen_down
       // draw
-      generatedLinePoints.push(x + dx, y + dy);
       const modelLine = new Konva.Line({
         stroke: "#008ee3",
         strokeWidth: 2,
@@ -149,9 +159,12 @@ document.getElementById('magic-btn').onclick = async () => {
       });
       layer.add(modelLine);
       modelLines.push(modelLine);
+      x += dx;
+      y += dy;
+    } else {
+      x += dx;
+      y += dy;
     }
-    x += dx;
-    y += dy;
     prevPen = pen;
   }
   layer.draw();
