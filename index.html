@@ -7,59 +7,43 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
-
-    :root {
-      --neon-green: #39ff14;
-      --neon-blue: #00ffff;
-      --neon-pink: #ff2cc3;
-      --dark-bg: #0a0a0a;
-    }
-
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-
     body {
-      background-color: var(--dark-bg);
-      color: var(--neon-green);
+      background-color: #0a0a0a;
+      color: #39ff14;
+      line-height: 1.4;
       font-family: 'Share Tech Mono', monospace;
       padding: 0 1rem;
     }
-
     header {
       text-align: center;
       padding: 2rem 0;
     }
-
     header h1 {
       font-size: 2.5rem;
-      color: var(--neon-pink);
-      text-shadow: 0 0 10px var(--neon-pink);
     }
-
     nav {
       display: flex;
       justify-content: center;
       gap: 2rem;
       padding: 1rem 0;
-      border-top: 1px solid var(--neon-green);
-      border-bottom: 1px solid var(--neon-green);
+      border-top: 1px solid;
+      border-bottom: 1px solid;
     }
-
     nav a {
-      color: var(--neon-blue);
+      color: #00ffff;
       text-decoration: none;
       font-weight: bold;
     }
-
     section {
       max-width: 1000px;
       margin: auto;
       padding: 2rem 0;
     }
-
     .filter-buttons {
       display: flex;
       flex-wrap: wrap;
@@ -67,73 +51,60 @@
       gap: 1rem;
       margin: 2rem 0;
     }
-
     .filter-buttons button {
       background: transparent;
-      border: 1px solid var(--neon-green);
-      color: var(--neon-green);
+      border: 1px solid;
+      color: #39ff14;
       padding: 0.5rem 1rem;
       cursor: pointer;
       transition: all 0.3s ease;
     }
-
     .filter-buttons button:hover {
-      background: var(--neon-green);
+      background: #39ff14;
       color: black;
     }
-
     .projects {
       display: flex;
       flex-wrap: wrap;
       gap: 1.5rem;
       justify-content: center;
     }
-
     .card {
       background: #111;
-      border: 1px solid var(--neon-blue);
+      border: 1px solid;
       padding: 1rem;
       width: 280px;
-      box-shadow: 0 0 15px var(--neon-blue);
       transition: transform 0.3s;
     }
-
     .card:hover {
       transform: scale(1.03);
     }
-
     .card h3 {
-      color: var(--neon-pink);
+      color: #00ffff;
     }
-
     .card p {
       margin: 0.5rem 0;
     }
-
     .skills ul {
       margin-left: 1.5rem;
     }
-
     .contact a {
-      color: var(--neon-green);
+      color: #00ffff;
       margin-right: 1rem;
       font-size: 1.3rem;
     }
-
     footer {
       text-align: center;
       padding: 2rem 0;
       font-size: 0.8rem;
-      border-top: 1px solid var(--neon-green);
+      border-top: 1px solid;
     }
-
     .hidden {
       display: none;
     }
   </style>
 </head>
 <body>
-
   <header>
     <h1>&lt;/CyberCoder&gt;</h1>
     <p>Data Science Portfolio</p>
