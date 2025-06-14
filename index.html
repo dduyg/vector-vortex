@@ -3,83 +3,71 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>CyberCoder | Data Science Portfolio</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <title>LiminalLoop</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
-
-    :root {
-      --neon-green: #39ff14;
-      --neon-blue: #00ffff;
-      --neon-pink: #ff2cc3;
-      --dark-bg: #0a0a0a;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
     body {
-      background-color: var(--dark-bg);
-      color: var(--neon-green);
-      font-family: 'Share Tech Mono', monospace;
-      padding: 0 1rem;
+      margin: 0;
+      font-family: 'Courier New', monospace;
+      background-color: #0d0d0d;
+      color: #39ff14;
     }
 
     header {
       text-align: center;
-      padding: 2rem 0;
+      padding: 2rem;
+      border-bottom: 1px solid #39ff14;
     }
 
-    header h1 {
-      font-size: 2.5rem;
-      color: var(--neon-pink);
-      text-shadow: 0 0 10px var(--neon-pink);
+    h1 {
+      font-size: 3rem;
+      color: #39ff14;
+      text-shadow: 0 0 10px #39ff14;
     }
 
     nav {
       display: flex;
       justify-content: center;
       gap: 2rem;
-      padding: 1rem 0;
-      border-top: 1px solid var(--neon-green);
-      border-bottom: 1px solid var(--neon-green);
+      margin: 1rem 0;
     }
 
     nav a {
-      color: var(--neon-blue);
+      color: #39ff14;
       text-decoration: none;
       font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #00ffff;
     }
 
     section {
+      padding: 2rem;
       max-width: 1000px;
       margin: auto;
-      padding: 2rem 0;
     }
 
-    .filter-buttons {
+    .filter-btns {
       display: flex;
-      flex-wrap: wrap;
       justify-content: center;
       gap: 1rem;
-      margin: 2rem 0;
+      margin-bottom: 2rem;
     }
 
-    .filter-buttons button {
-      background: transparent;
-      border: 1px solid var(--neon-green);
-      color: var(--neon-green);
+    .filter-btns button {
+      background: none;
+      border: 1px solid #39ff14;
+      color: #39ff14;
       padding: 0.5rem 1rem;
       cursor: pointer;
-      transition: all 0.3s ease;
+      transition: all 0.3s;
     }
 
-    .filter-buttons button:hover {
-      background: var(--neon-green);
-      color: black;
+    .filter-btns button:hover {
+      background-color: #39ff14;
+      color: #000;
     }
 
     .projects {
@@ -90,139 +78,159 @@
     }
 
     .card {
-      background: #111;
-      border: 1px solid var(--neon-blue);
+      background-color: #111;
+      border: 1px solid #39ff14;
       padding: 1rem;
       width: 280px;
-      box-shadow: 0 0 15px var(--neon-blue);
+      box-shadow: 0 0 10px #39ff14;
       transition: transform 0.3s;
     }
 
     .card:hover {
-      transform: scale(1.03);
+      transform: scale(1.05);
     }
 
     .card h3 {
-      color: var(--neon-pink);
+      margin-top: 0;
+      color: #00ffff;
     }
 
     .card p {
-      margin: 0.5rem 0;
+      font-size: 0.95rem;
+    }
+
+    .skills {
+      background-color: #111;
+      border-left: 4px solid #39ff14;
+      padding: 1rem;
+      margin-top: 2rem;
     }
 
     .skills ul {
-      margin-left: 1.5rem;
+      list-style-type: square;
+      margin-left: 1rem;
+    }
+
+    .contact {
+      text-align: center;
+      padding: 2rem;
     }
 
     .contact a {
-      color: var(--neon-green);
-      margin-right: 1rem;
-      font-size: 1.3rem;
+      color: #00ffff;
+      margin: 0 1rem;
+      font-size: 1.2rem;
     }
 
     footer {
       text-align: center;
-      padding: 2rem 0;
-      font-size: 0.8rem;
-      border-top: 1px solid var(--neon-green);
+      border-top: 1px solid #39ff14;
+      padding: 1rem;
+      margin-top: 3rem;
+      font-size: 0.9rem;
     }
 
-    .hidden {
+    /* Hidden cards */
+    .card.hidden {
       display: none;
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>&lt;/CyberCoder&gt;</h1>
-    <p>Data Science Portfolio</p>
-  </header>
+<header>
+  <h1>&lt;/CyberCoder&gt;</h1>
+  <p>Data Science Portfolio of Your Name</p>
+</header>
 
-  <nav>
-    <a href="#about">About</a>
-    <a href="#projects">Projects</a>
-    <a href="#skills">Skills</a>
-    <a href="#contact">Contact</a>
-  </nav>
+<nav>
+  <a href="#about">About</a>
+  <a href="#projects">Projects</a>
+  <a href="#skills">Skills</a>
+  <a href="#contact">Contact</a>
+</nav>
 
-  <section id="about">
-    <h2>👤 About Me</h2>
-    <p>I’m a data scientist and cyberenthusiast blending machine learning with futuristic interfaces. My work spans NLP, CV, and intelligent dashboards — all with a neon edge.</p>
-  </section>
+<section id="about">
+  <h2>👤 About Me</h2>
+  <p>I’m a data scientist with a passion for building intelligent systems and uncovering patterns hidden in data. I specialize in Python, machine learning, and model deployment. Welcome to my cyber-themed portfolio.</p>
+</section>
 
-  <section id="projects">
-    <h2>💾 Projects</h2>
+<section id="projects">
+  <h2>🧠 Projects</h2>
 
-    <div class="filter-buttons">
-      <button onclick="filterProjects('all')">All</button>
-      <button onclick="filterProjects('ml')">ML</button>
-      <button onclick="filterProjects('nlp')">NLP</button>
-      <button onclick="filterProjects('cv')">CV</button>
-      <button onclick="filterProjects('viz')">Viz</button>
+  <div class="filter-btns">
+    <button onclick="filterProjects('all')">All</button>
+    <button onclick="filterProjects('nlp')">NLP</button>
+    <button onclick="filterProjects('cv')">Computer Vision</button>
+    <button onclick="filterProjects('ml')">ML</button>
+    <button onclick="filterProjects('viz')">Visualization</button>
+  </div>
+
+  <div class="projects">
+    <div class="card ml" data-category="ml">
+      <h3>Churn Prediction</h3>
+      <p>Used scikit-learn to predict telecom churn with 87% accuracy. Deployed via Streamlit.</p>
+      <a href="https://github.com/yourusername/churn-prediction" target="_blank">View Code</a>
     </div>
 
-    <div class="projects">
-      <div class="card ml" data-category="ml">
-        <h3>Loan Default Predictor</h3>
-        <p>XGBoost model that predicts loan default risk. Deployed using Flask and Docker.</p>
-        <a href="https://github.com/yourusername/loan-default" target="_blank">View on GitHub</a>
-      </div>
-
-      <div class="card nlp" data-category="nlp">
-        <h3>Sentiment Analyzer</h3>
-        <p>Python app using spaCy and VADER to analyze customer sentiment in reviews.</p>
-        <a href="https://github.com/yourusername/sentiment-nlp" target="_blank">View on GitHub</a>
-      </div>
-
-      <div class="card cv" data-category="cv">
-        <h3>Face Mask Detector</h3>
-        <p>YOLOv5 + OpenCV to detect face masks in real-time webcam feeds.</p>
-        <a href="https://github.com/yourusername/face-mask-cv" target="_blank">View on GitHub</a>
-      </div>
-
-      <div class="card viz" data-category="viz">
-        <h3>COVID-19 Dashboard</h3>
-        <p>Interactive Plotly dashboard showing cases & vaccination stats with filters.</p>
-        <a href="https://github.com/yourusername/covid-dashboard" target="_blank">View on GitHub</a>
-      </div>
+    <div class="card nlp" data-category="nlp">
+      <h3>Twitter Sentiment</h3>
+      <p>NLP pipeline for sentiment analysis using NLTK and VADER on live Twitter data.</p>
+      <a href="https://github.com/yourusername/twitter-nlp" target="_blank">View Code</a>
     </div>
-  </section>
 
-  <section id="skills">
-    <h2>🛠 Skills</h2>
-    <div class="skills">
-      <ul>
-        <li><strong>Languages:</strong> Python, R, SQL</li>
-        <li><strong>Libraries:</strong> pandas, scikit-learn, TensorFlow, PyTorch, spaCy</li>
-        <li><strong>Tools:</strong> Jupyter, Git, Docker, Streamlit</li>
-        <li><strong>Concepts:</strong> Machine Learning, NLP, Computer Vision, Dashboards</li>
-      </ul>
+    <div class="card cv" data-category="cv">
+      <h3>Face Mask Detector</h3>
+      <p>Computer vision model using OpenCV and TensorFlow to detect mask compliance.</p>
+      <a href="https://github.com/yourusername/mask-detector" target="_blank">View Code</a>
     </div>
-  </section>
 
-  <section id="contact">
-    <h2>📬 Contact</h2>
-    <p>Feel free to reach out via:</p>
-    <div class="contact">
-      <a href="mailto:your.email@example.com"><i class="fas fa-envelope"></i></a>
-      <a href="https://github.com/yourusername" target="_blank"><i class="fab fa-github"></i></a>
-      <a href="https://linkedin.com/in/yourprofile" target="_blank"><i class="fab fa-linkedin"></i></a>
+    <div class="card viz" data-category="viz">
+      <h3>COVID-19 Dashboard</h3>
+      <p>Interactive Plotly dashboard visualizing global COVID-19 trends.</p>
+      <a href="https://github.com/yourusername/covid-dashboard" target="_blank">View Code</a>
     </div>
-  </section>
 
-  <footer>
-    <p>© 2025 Your Name | CyberCoder Portfolio</p>
-  </footer>
+    <div class="card ml" data-category="ml">
+      <h3>Loan Default Classifier</h3>
+      <p>XGBoost model to predict loan defaults. Data preprocessing pipeline in pandas.</p>
+      <a href="https://github.com/yourusername/loan-default" target="_blank">View Code</a>
+    </div>
+  </div>
+</section>
 
-  <script>
-    function filterProjects(category) {
-      const cards = document.querySelectorAll(".card");
-      cards.forEach(card => {
-        const match = card.classList.contains(category) || category === "all";
-        card.classList.toggle("hidden", !match);
-      });
-    }
-  </script>
+<section id="skills">
+  <h2>🛠 Skills</h2>
+  <div class="skills">
+    <ul>
+      <li><strong>Languages:</strong> Python, R, SQL</li>
+      <li><strong>Libraries:</strong> pandas, NumPy, scikit-learn, TensorFlow, Keras, spaCy</li>
+      <li><strong>Tools:</strong> Git, Docker, Streamlit, Jupyter</li>
+      <li><strong>Concepts:</strong> Machine Learning, Deep Learning, NLP, Data Viz</li>
+    </ul>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <h2>📬 Contact</h2>
+  <p>Let’s connect on the grid:</p>
+  <a href="mailto:your.email@example.com"><i class="fas fa-envelope"></i></a>
+  <a href="https://github.com/yourusername" target="_blank"><i class="fab fa-github"></i></a>
+  <a href="https://linkedin.com/in/yourprofile" target="_blank"><i class="fab fa-linkedin"></i></a>
+</section>
+
+<footer>
+  <p>© 2025 Your Name — Cyber-themed portfolio built with HTML/CSS/JS</p>
+</footer>
+
+<script>
+  function filterProjects(category) {
+    const cards = document.querySelectorAll(".card");
+    cards.forEach(card => {
+      const isMatch = category === "all" || card.classList.contains(category);
+      card.classList.toggle("hidden", !isMatch);
+    });
+  }
+</script>
 </body>
 </html>
