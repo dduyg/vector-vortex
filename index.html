@@ -7,61 +7,64 @@
   <style>
     body {
       margin: 0;
-      font-family: 'Orbitron', monospace;
-      background: linear-gradient(135deg, #1a002b, #3d0066, #290033);
-      color: #fff;
+      padding: 0;
+      font-family: 'Share Tech Mono', monospace;
+      background: linear-gradient(135deg, #240046, #5f0f40, #231942, #3c096c);
       background-size: 400% 400%;
-      animation: gradientShift 20s ease infinite;
+      animation: vaporwave 15s ease infinite;
+      color: #fff;
     }
 
-    @keyframes gradientShift {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+    @keyframes vaporwave {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
     }
 
     header {
       text-align: center;
-      padding: 3rem 1rem;
+      padding: 3rem 1rem 2rem;
     }
 
     header h1 {
-      font-size: 2.8rem;
-      color: #ff00cc;
-      text-shadow: 0 0 10px #ff00cc;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 3rem;
+      color: #ff00ff;
+      text-shadow: 0 0 12px #ff00ff;
     }
 
     header p {
       color: #00ffff;
+      font-size: 1.1rem;
       margin-top: 0.5rem;
     }
 
-    .buttons {
+    .filters {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 0.5rem;
-      margin: 1rem auto 2rem;
+      margin: 2rem auto;
     }
 
-    .buttons button {
-      background: none;
-      border: 2px solid #ff00cc;
-      color: #ff00cc;
+    .filters button {
+      background: transparent;
+      border: 2px solid #ff00ff;
+      color: #ff00ff;
+      border-radius: 999px;
       padding: 0.5rem 1rem;
-      border-radius: 9999px;
       cursor: pointer;
-      transition: all 0.3s;
+      transition: 0.3s;
       font-size: 0.9rem;
     }
 
-    .buttons button:hover,
-    .buttons button.active {
-      background-color: #ff00cc;
+    .filters button.active,
+    .filters button:hover {
+      background-color: #ff00ff;
       color: #000;
     }
 
-    .grid {
+    .projects {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 1.5rem;
@@ -84,7 +87,7 @@
     }
 
     .card h3 {
-      color: #ff00cc;
+      color: #ff00ff;
       font-size: 1.2rem;
       margin-bottom: 0.5rem;
     }
@@ -113,17 +116,18 @@
   </style>
 </head>
 <body>
+
   <header>
-    <h1>CyberCoder: Data Scientist</h1>
-    <p>Machine Learning • Deep Learning • NLP • Data Viz • Web Scraping</p>
+    <h1>CyberCoder Portfolio</h1>
+    <p>Data Scientist • Machine Learning • Deep Learning • NLP • Analytics</p>
   </header>
 
-  <div class="buttons" id="filter-buttons"></div>
+  <div class="filters" id="filter-buttons"></div>
 
-  <section class="grid" id="project-grid"></section>
+  <section class="projects" id="project-grid"></section>
 
   <footer>
-    🚀 Portfolio by CyberCoder | Hosted on GitHub Pages | Theme: Vaporwave 💾
+    🔮 Built by CyberCoder | Vaporwave Portfolio | GitHub Pages Ready 🚀
   </footer>
 
   <script>
@@ -132,37 +136,43 @@
       {
         title: "Customer Churn Prediction",
         category: "Machine Learning",
-        description: "Used logistic regression and random forests to predict churn with 86% accuracy.",
+        description: "Used logistic regression and XGBoost to predict telecom customer churn.",
         link: "https://github.com/yourusername/churn-prediction"
       },
       {
-        title: "Image Classifier (CNN)",
+        title: "Convolutional Neural Networks",
         category: "Deep Learning",
-        description: "Built a CNN in TensorFlow to classify 10 animal species.",
-        link: "https://github.com/yourusername/image-classifier"
+        description: "Built a CNN using TensorFlow/Keras to classify images with 90% accuracy.",
+        link: "https://github.com/yourusername/cnn-classifier"
       },
       {
-        title: "Real-Time Twitter Sentiment Analysis",
+        title: "Sentiment Analysis with Transformers",
         category: "NLP",
-        description: "Streamed Twitter data and analyzed sentiment using Vader and transformers.",
-        link: "https://github.com/yourusername/twitter-sentiment"
+        description: "Analyzed Twitter sentiment using HuggingFace BERT models.",
+        link: "https://github.com/yourusername/bert-sentiment"
       },
       {
-        title: "Covid-19 Dashboard",
+        title: "COVID-19 Data Dashboard",
         category: "Data Viz",
-        description: "Interactive dashboard with Plotly and Dash for global Covid-19 data.",
+        description: "Created a Plotly dashboard showing real-time global COVID-19 data.",
         link: "https://github.com/yourusername/covid-dashboard"
       },
       {
-        title: "E-Commerce Web Scraper",
+        title: "Amazon Price Tracker",
         category: "Web Scraping",
-        description: "Scraped thousands of product listings using Scrapy and BeautifulSoup.",
-        link: "https://github.com/yourusername/ecommerce-scraper"
+        description: "Scraped product prices from Amazon and sent alerts via email.",
+        link: "https://github.com/yourusername/amazon-price-tracker"
+      },
+      {
+        title: "Movie Review Classifier",
+        category: "NLP",
+        description: "Classified IMDB movie reviews using LSTM and word embeddings.",
+        link: "https://github.com/yourusername/movie-review-nlp"
       }
     ];
 
     const buttonsContainer = document.getElementById("filter-buttons");
-    const projectGrid = document.getElementById("project-grid");
+    const grid = document.getElementById("project-grid");
     let currentCategory = "All";
 
     function renderButtons() {
@@ -181,7 +191,7 @@
     }
 
     function renderProjects() {
-      projectGrid.innerHTML = "";
+      grid.innerHTML = "";
       const filtered = currentCategory === "All"
         ? projects
         : projects.filter(p => p.category === currentCategory);
@@ -191,9 +201,9 @@
         card.innerHTML = `
           <h3>${project.title}</h3>
           <p>${project.description}</p>
-          <a href="${project.link}" target="_blank">View Project →</a>
+          <a href="${project.link}" target="_blank">🔗 View Project</a>
         `;
-        projectGrid.appendChild(card);
+        grid.appendChild(card);
       });
     }
 
