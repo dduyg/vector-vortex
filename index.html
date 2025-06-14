@@ -6,18 +6,22 @@
   <title>LiminalLoop</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      background-color: #0a0a0a;
-      color: #39ff14;
-      line-height: 1.4;
-      font-family: 'Share Tech Mono', monospace;
+      margin: 0;
       padding: 0 1rem;
+      font-family: 'Share Tech Mono', monospace;
+      background: linear-gradient(135deg, #240046, #5f0f40, #231942, #3c096c);
+      background-size: 400% 400%;
+      animation: vaporwave 15s ease infinite;
+      color: #00ffff;
     }
+    @keyframes vaporwave {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+
     header {
       text-align: center;
       padding: 2rem 0;
@@ -34,7 +38,7 @@
       border-bottom: 1px solid;
     }
     nav a {
-      color: #00ffff;
+      color: #eee;
       text-decoration: none;
       font-weight: bold;
     }
@@ -78,14 +82,8 @@
     .card:hover {
       transform: scale(1.03);
     }
-    .card h3 {
-      color: #00ffff;
-    }
     .card p {
       margin: 0.5rem 0;
-    }
-    .skills ul {
-      margin-left: 1.5rem;
     }
     .contact a {
       color: #00ffff;
@@ -116,11 +114,6 @@
     <a href="#contact">Contact</a>
   </nav>
 
-  <section id="about">
-    <h2>👤 About Me</h2>
-    <p>I'm a data scientist blending machine learning with vaporwave aesthetics. From NLP to computer vision, I build intelligent systems that glow in the dark.</p>
-  </section>
-
   <section id="projects">
     <h2>💾 Projects</h2>
     <div class="filter-buttons">
@@ -135,7 +128,6 @@
       <div class="card ml" data-category="ml">
         <h3>Loan Default Predictor</h3>
         <p>XGBoost model that predicts loan default risk. Deployed using Flask and Docker.</p>
-        <a href="https://github.com/yourusername/loan-default" target="_blank">View on GitHub</a>
       </div>
 
       <div class="card nlp" data-category="nlp">
@@ -144,38 +136,11 @@
         <a href="https://github.com/yourusername/sentiment-nlp" target="_blank">View on GitHub</a>
       </div>
 
-      <div class="card nlp" data-category="nlp">
-        <h3>Reddit Sentiment Analyzer</h3>
-        <p>Used spaCy + Transformers to analyze sentiment across subreddits. Plotted with seaborn.</p>
-        <a href="https://github.com/yourusername/reddit-nlp" target="_blank">View Code</a>
-      </div>
-
-      <div class="card cv" data-category="cv">
-        <h3>Object Detection in Night Images</h3>
-        <p>Trained YOLOv5 model to detect objects in low-light vaporwave aesthetic photos.</p>
-        <a href="https://github.com/yourusername/night-vision" target="_blank">View Code</a>
-      </div>
-
       <div class="card viz" data-category="viz">
         <h3>Retro Climate Dashboard</h3>
         <p>Interactive Plotly dashboard showing 80s-style animated climate trends.</p>
         <a href="https://github.com/yourusername/climate-viz" target="_blank">View Code</a>
       </div>
-    </div>
-  </section>
-
-  <section id="skills">
-    <h2>🛠 Skills</h2>
-    <div class="skills">
-      <ul>
-        <li><strong>Languages:</strong> Python, R, SQL</li>
-        <li><strong>Libraries:</strong> pandas, scikit-learn, TensorFlow, PyTorch, spaCy</li>
-        <li><strong>Tools:</strong> Jupyter, Git, Docker, Streamlit</li>
-        <li><strong>Concepts:</strong> Machine Learning, NLP, Computer Vision, Dashboards</li>
-        <li><strong>ML:</strong> scikit-learn, XGBoost, TensorFlow, PyTorch</li>
-        <li><strong>NLP:</strong> spaCy, Hugging Face Transformers</li>
-        <li><strong>CV:</strong> OpenCV, YOLOv5, PIL</li>
-      </ul>
     </div>
   </section>
 
