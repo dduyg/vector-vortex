@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Liminal🪩Loop</title>
+  <style>
+  body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  background: #f5f5f5;
+  color: #333;
+}
+
+header {
+  background: #1e293b;
+  color: white;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+nav {
+  margin-top: 1rem;
+}
+
+nav button {
+  margin: 0 0.5rem;
+  padding: 0.5rem 1rem;
+  background: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+nav button:hover {
+  background: #2563eb;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+}
+
+.card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>My Data Science Portfolio</h1>
+    <nav>
+      <button onclick="filterProjects('all')">All</button>
+      <button onclick="filterProjects('nlp')">NLP</button>
+      <button onclick="filterProjects('cv')">Computer Vision</button>
+      <button onclick="filterProjects('ml')">Machine Learning</button>
+    </nav>
+  </header>
+
+  <main class="grid">
+    <div class="card" data-category="nlp">
+      <h2>Text Sentiment Analyzer</h2>
+      <p>Analyzed product reviews using NLP techniques and a BERT model.</p>
+    </div>
+
+    <div class="card" data-category="cv">
+      <h2>Image Classifier</h2>
+      <p>Built a CNN to classify wildlife images with 92% accuracy.</p>
+    </div>
+
+    <div class="card" data-category="ml">
+      <h2>Churn Prediction</h2>
+      <p>Predicted customer churn using random forest and SHAP values.</p>
+    </div>
+
+    <div class="card" data-category="nlp">
+      <h2>Topic Modeling</h2>
+      <p>Used LDA and BERTopic on Twitter data for topic discovery.</p>
+    </div>
+
+    <div class="card" data-category="ml">
+      <h2>Price Forecasting</h2>
+      <p>Forecasted stock prices using LSTM and ARIMA models.</p>
+    </div>
+
+    <div class="card" data-category="cv">
+      <h2>Object Detection</h2>
+      <p>YOLOv5-based model detecting objects in real-time videos.</p>
+    </div>
+  </main>
+
+  <script>
+    function filterProjects(category) {
+      const cards = document.querySelectorAll('.card');
+      cards.forEach(card => {
+        if (category === 'all' || card.dataset.category === category) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+  </script>
+</body>
+</html>
