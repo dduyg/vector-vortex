@@ -3,87 +3,111 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>LiminalLoop</title>
+  <title>CyberCoder | Vaporwave Portfolio</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Press+Start+2P&display=swap');
+
+    :root {
+      --neon-pink: #ff3cac;
+      --neon-purple: #784ba0;
+      --neon-blue: #2b86c5;
+      --bg: #0f0c29;
+      --text: #f1f1f1;
+    }
+
     body {
       margin: 0;
-      font-family: 'Courier New', monospace;
-      background-color: #0d0d0d;
-      color: #39ff14;
+      font-family: 'Orbitron', sans-serif;
+      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+      color: var(--text);
+      overflow-x: hidden;
     }
 
     header {
       text-align: center;
-      padding: 2rem;
-      border-bottom: 1px solid #39ff14;
+      padding: 3rem 1rem;
+      background: linear-gradient(to right, var(--neon-pink), var(--neon-purple), var(--neon-blue));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
-    h1 {
-      font-size: 3rem;
-      color: #39ff14;
-      text-shadow: 0 0 10px #39ff14;
+    header h1 {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 2.5rem;
+      text-shadow: 0 0 10px var(--neon-blue);
     }
 
     nav {
       display: flex;
       justify-content: center;
       gap: 2rem;
-      margin: 1rem 0;
+      margin-bottom: 2rem;
+      font-size: 1.1rem;
     }
 
     nav a {
-      color: #39ff14;
       text-decoration: none;
-      font-weight: bold;
-      transition: color 0.3s;
+      color: var(--neon-pink);
+      transition: color 0.3s ease;
     }
 
     nav a:hover {
-      color: #00ffff;
+      color: var(--neon-blue);
     }
 
     section {
-      padding: 2rem;
       max-width: 1000px;
       margin: auto;
+      padding: 2rem;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 1.8rem;
+      color: var(--neon-pink);
     }
 
     .filter-btns {
       display: flex;
       justify-content: center;
       gap: 1rem;
-      margin-bottom: 2rem;
+      margin: 1.5rem 0;
+      flex-wrap: wrap;
     }
 
     .filter-btns button {
       background: none;
-      border: 1px solid #39ff14;
-      color: #39ff14;
+      border: 1px solid var(--neon-pink);
+      color: var(--neon-pink);
       padding: 0.5rem 1rem;
       cursor: pointer;
-      transition: all 0.3s;
+      font-family: 'Orbitron', sans-serif;
+      text-transform: uppercase;
+      transition: all 0.3s ease;
     }
 
     .filter-btns button:hover {
-      background-color: #39ff14;
+      background-color: var(--neon-pink);
       color: #000;
     }
 
     .projects {
       display: flex;
       flex-wrap: wrap;
-      gap: 1.5rem;
+      gap: 2rem;
       justify-content: center;
     }
 
     .card {
-      background-color: #111;
-      border: 1px solid #39ff14;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--neon-pink);
+      border-radius: 8px;
       padding: 1rem;
       width: 280px;
-      box-shadow: 0 0 10px #39ff14;
-      transition: transform 0.3s;
+      box-shadow: 0 0 20px var(--neon-blue);
+      backdrop-filter: blur(5px);
+      transition: transform 0.3s ease;
     }
 
     .card:hover {
@@ -91,47 +115,39 @@
     }
 
     .card h3 {
-      margin-top: 0;
-      color: #00ffff;
-    }
-
-    .card p {
-      font-size: 0.95rem;
-    }
-
-    .skills {
-      background-color: #111;
-      border-left: 4px solid #39ff14;
-      padding: 1rem;
-      margin-top: 2rem;
+      color: var(--neon-blue);
     }
 
     .skills ul {
       list-style-type: square;
-      margin-left: 1rem;
+      margin-left: 1.5rem;
     }
 
     .contact {
       text-align: center;
-      padding: 2rem;
+      margin-top: 3rem;
     }
 
     .contact a {
-      color: #00ffff;
       margin: 0 1rem;
-      font-size: 1.2rem;
+      font-size: 1.5rem;
+      color: var(--neon-purple);
+      transition: color 0.3s ease;
+    }
+
+    .contact a:hover {
+      color: var(--neon-blue);
     }
 
     footer {
       text-align: center;
-      border-top: 1px solid #39ff14;
       padding: 1rem;
-      margin-top: 3rem;
       font-size: 0.9rem;
+      color: var(--neon-pink);
+      margin-top: 2rem;
     }
 
-    /* Hidden cards */
-    .card.hidden {
+    .hidden {
       display: none;
     }
   </style>
@@ -152,11 +168,11 @@
 
 <section id="about">
   <h2>👤 About Me</h2>
-  <p>I’m a data scientist with a passion for building intelligent systems and uncovering patterns hidden in data. I specialize in Python, machine learning, and model deployment. Welcome to my cyber-themed portfolio.</p>
+  <p style="text-align:center;">I'm a data scientist blending machine learning with vaporwave aesthetics. From NLP to computer vision, I build intelligent systems that glow in the dark.</p>
 </section>
 
 <section id="projects">
-  <h2>🧠 Projects</h2>
+  <h2>💾 Projects</h2>
 
   <div class="filter-btns">
     <button onclick="filterProjects('all')">All</button>
@@ -168,33 +184,27 @@
 
   <div class="projects">
     <div class="card ml" data-category="ml">
-      <h3>Churn Prediction</h3>
-      <p>Used scikit-learn to predict telecom churn with 87% accuracy. Deployed via Streamlit.</p>
-      <a href="https://github.com/yourusername/churn-prediction" target="_blank">View Code</a>
+      <h3>Loan Default Predictor</h3>
+      <p>XGBoost model to classify risky loans using credit history data. Deployed via Flask.</p>
+      <a href="https://github.com/yourusername/loan-predictor" target="_blank">View Code</a>
     </div>
 
     <div class="card nlp" data-category="nlp">
-      <h3>Twitter Sentiment</h3>
-      <p>NLP pipeline for sentiment analysis using NLTK and VADER on live Twitter data.</p>
-      <a href="https://github.com/yourusername/twitter-nlp" target="_blank">View Code</a>
+      <h3>Reddit Sentiment Analyzer</h3>
+      <p>Used spaCy + Transformers to analyze sentiment across subreddits. Plotted with seaborn.</p>
+      <a href="https://github.com/yourusername/reddit-nlp" target="_blank">View Code</a>
     </div>
 
     <div class="card cv" data-category="cv">
-      <h3>Face Mask Detector</h3>
-      <p>Computer vision model using OpenCV and TensorFlow to detect mask compliance.</p>
-      <a href="https://github.com/yourusername/mask-detector" target="_blank">View Code</a>
+      <h3>Object Detection in Night Images</h3>
+      <p>Trained YOLOv5 model to detect objects in low-light vaporwave aesthetic photos.</p>
+      <a href="https://github.com/yourusername/night-vision" target="_blank">View Code</a>
     </div>
 
     <div class="card viz" data-category="viz">
-      <h3>COVID-19 Dashboard</h3>
-      <p>Interactive Plotly dashboard visualizing global COVID-19 trends.</p>
-      <a href="https://github.com/yourusername/covid-dashboard" target="_blank">View Code</a>
-    </div>
-
-    <div class="card ml" data-category="ml">
-      <h3>Loan Default Classifier</h3>
-      <p>XGBoost model to predict loan defaults. Data preprocessing pipeline in pandas.</p>
-      <a href="https://github.com/yourusername/loan-default" target="_blank">View Code</a>
+      <h3>Retro Climate Dashboard</h3>
+      <p>Interactive Plotly dashboard showing 80s-style animated climate trends.</p>
+      <a href="https://github.com/yourusername/climate-viz" target="_blank">View Code</a>
     </div>
   </div>
 </section>
@@ -203,24 +213,25 @@
   <h2>🛠 Skills</h2>
   <div class="skills">
     <ul>
-      <li><strong>Languages:</strong> Python, R, SQL</li>
-      <li><strong>Libraries:</strong> pandas, NumPy, scikit-learn, TensorFlow, Keras, spaCy</li>
-      <li><strong>Tools:</strong> Git, Docker, Streamlit, Jupyter</li>
-      <li><strong>Concepts:</strong> Machine Learning, Deep Learning, NLP, Data Viz</li>
+      <li><strong>Languages:</strong> Python, SQL, R</li>
+      <li><strong>ML:</strong> scikit-learn, XGBoost, TensorFlow, PyTorch</li>
+      <li><strong>NLP:</strong> spaCy, Hugging Face Transformers</li>
+      <li><strong>CV:</strong> OpenCV, YOLOv5, PIL</li>
+      <li><strong>Tools:</strong> Jupyter, Git, Docker, Streamlit</li>
     </ul>
   </div>
 </section>
 
 <section id="contact" class="contact">
   <h2>📬 Contact</h2>
-  <p>Let’s connect on the grid:</p>
+  <p>Let's connect through the data ether:</p>
   <a href="mailto:your.email@example.com"><i class="fas fa-envelope"></i></a>
   <a href="https://github.com/yourusername" target="_blank"><i class="fab fa-github"></i></a>
   <a href="https://linkedin.com/in/yourprofile" target="_blank"><i class="fab fa-linkedin"></i></a>
 </section>
 
 <footer>
-  <p>© 2025 Your Name — Cyber-themed portfolio built with HTML/CSS/JS</p>
+  <p>© 2025 Your Name — CyberVapor Portfolio</p>
 </footer>
 
 <script>
