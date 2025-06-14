@@ -41,11 +41,12 @@
       background: none;
       border: none;
       font-size: 1.3rem;
+      color: #eee;
       cursor: pointer;
       transition: all 0.3s ease;
     }
     nav button:hover {
-      text-decoration: underline;
+      color: #00ffff;
     }
     section {
       max-width: 1000px;
@@ -54,15 +55,14 @@
     }
     #projects {
       display: flex;
-      flex-wrap: wrap;
+      overflow-x: auto;
       gap: 1.5rem;
-      justify-content: center;
+      align-items: center;
     }
     .card {
-      background: #111;
-      border: 1px solid;
+      border: 1px dashed;
       padding: 1rem;
-      width: 280px;
+      height: 200px;
       transition: transform 0.3s;
     }
     .card:hover {
@@ -94,9 +94,10 @@
     <button onclick="filterProjects('nlp')"><i class="fas fa-server"></i></button>
     <button onclick="filterProjects('cv')"><i class="fas fa-chart-simple"></i></button>
     <button onclick="filterProjects('viz')"><i class="fas fa-floppy-disk"></i></button>
+    <button onclick="filterProjects('viz')"><i class="fas fa-hand-holding-heart"></i></button>
   </nav>
-
-   <section id="projects">
+   
+  <section id="projects">
       <div class="card ml" data-category="ml">
         <h3>Loan Default Predictor</h3>
         <p>XGBoost model that predicts loan default risk. Deployed using Flask and Docker.</p>
@@ -104,14 +105,12 @@
 
       <div class="card nlp" data-category="nlp">
         <h3>Sentiment Analyzer</h3>
-        <p>Python app using spaCy and VADER to analyze customer sentiment in reviews.</p>
-        <a href="https://github.com/yourusername/sentiment-nlp" target="_blank">View on GitHub</a>
+        <p>Python app using sp on GitHub</p>
       </div>
 
       <div class="card viz" data-category="viz">
         <h3>Retro Climate Dashboard</h3>
         <p>Interactive Plotly dashboard showing 80s-style animated climate trends.</p>
-        <a href="https://github.com/yourusername/climate-viz" target="_blank">View Code</a>
       </div>
   </section>
 
