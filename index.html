@@ -36,37 +36,23 @@
       padding: 1rem 0;
       border-top: 1px solid;
       border-bottom: 1px solid;
+    }  
+    nav button {
+      background: none;
+      border: none;
+      font-size: 1.3rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
     }
-    nav a {
-      color: #eee;
-      text-decoration: none;
-      font-weight: bold;
+    nav button:hover {
+      text-decoration: underline;
     }
     section {
       max-width: 1000px;
       margin: auto;
       padding: 2rem 0;
     }
-    .filter-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1rem;
-      margin: 2rem 0;
-    }
-    .filter-buttons button {
-      background: transparent;
-      border: 1px solid;
-      color: #39ff14;
-      padding: 0.5rem 1rem;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-    .filter-buttons button:hover {
-      background: #39ff14;
-      color: black;
-    }
-    .projects {
+    #projects {
       display: flex;
       flex-wrap: wrap;
       gap: 1.5rem;
@@ -84,11 +70,6 @@
     }
     .card p {
       margin: 0.5rem 0;
-    }
-    .contact a {
-      color: #00ffff;
-      margin-right: 1rem;
-      font-size: 1.3rem;
     }
     footer {
       text-align: center;
@@ -108,23 +89,14 @@
   </header>
 
   <nav>
-    <a href="#about">About</a>
-    <a href="#projects">Projects</a>
-    <a href="#skills">Skills</a>
-    <a href="#contact">Contact</a>
+    <button onclick="filterProjects('all')">All</button>
+    <button onclick="filterProjects('ml')"><i class="fas fa-database"></i></button>
+    <button onclick="filterProjects('nlp')"><i class="fas fa-server"></i></button>
+    <button onclick="filterProjects('cv')"><i class="fas fa-chart-simple"></i></button>
+    <button onclick="filterProjects('viz')"><i class="fas fa-floppy-disk"></i></button>
   </nav>
 
-  <section id="projects">
-    <h2>💾 Projects</h2>
-    <div class="filter-buttons">
-      <button onclick="filterProjects('all')">All</button>
-      <button onclick="filterProjects('ml')">ML</button>
-      <button onclick="filterProjects('nlp')">NLP</button>
-      <button onclick="filterProjects('cv')">CV</button>
-      <button onclick="filterProjects('viz')">Viz</button>
-    </div>
-
-    <div class="projects">
+   <section id="projects">
       <div class="card ml" data-category="ml">
         <h3>Loan Default Predictor</h3>
         <p>XGBoost model that predicts loan default risk. Deployed using Flask and Docker.</p>
@@ -141,17 +113,6 @@
         <p>Interactive Plotly dashboard showing 80s-style animated climate trends.</p>
         <a href="https://github.com/yourusername/climate-viz" target="_blank">View Code</a>
       </div>
-    </div>
-  </section>
-
-  <section id="contact">
-    <h2>📬 Contact</h2>
-    <p>Let's connect through the data ether:</p>
-    <div class="contact">
-      <a href="#"><i class="fas fa-envelope"></i></a>
-      <a href="#"><i class="fab fa-github"></i></a>
-      <a href="#"><i class="fab fa-linkedin"></i></a>
-    </div>
   </section>
 
   <footer>
