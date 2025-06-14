@@ -3,212 +3,204 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>CyberCoder</title>
+  <title>LiminalLoop</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
-    body {
+    * {
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background-color: #0a0a0a;
+      color: #39ff14;
+      line-height: 1.4;
       font-family: 'Share Tech Mono', monospace;
-      background: linear-gradient(135deg, #240046, #5f0f40, #231942, #3c096c);
-      background-size: 400% 400%;
-      animation: vaporwave 15s ease infinite;
-      color: #fff;
+      padding: 0 1rem;
     }
-
-    @keyframes vaporwave {
-      0% {background-position: 0% 50%;}
-      50% {background-position: 100% 50%;}
-      100% {background-position: 0% 50%;}
-    }
-
     header {
       text-align: center;
-      padding: 3rem 1rem 2rem;
+      padding: 2rem 0;
     }
-
     header h1 {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 3rem;
-      color: #ff00ff;
-      text-shadow: 0 0 12px #ff00ff;
+      font-size: 2.5rem;
     }
-
-    header p {
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 1rem 0;
+      border-top: 1px solid;
+      border-bottom: 1px solid;
+    }
+    nav a {
       color: #00ffff;
-      font-size: 1.1rem;
-      margin-top: 0.5rem;
+      text-decoration: none;
+      font-weight: bold;
     }
-
-    .filters {
+    section {
+      max-width: 1000px;
+      margin: auto;
+      padding: 2rem 0;
+    }
+    .filter-buttons {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 0.5rem;
-      margin: 2rem auto;
+      gap: 1rem;
+      margin: 2rem 0;
     }
-
-    .filters button {
+    .filter-buttons button {
       background: transparent;
-      border: 2px solid #ff00ff;
-      color: #ff00ff;
-      border-radius: 999px;
+      border: 1px solid;
+      color: #39ff14;
       padding: 0.5rem 1rem;
       cursor: pointer;
-      transition: 0.3s;
-      font-size: 0.9rem;
+      transition: all 0.3s ease;
     }
-
-    .filters button.active,
-    .filters button:hover {
-      background-color: #ff00ff;
-      color: #000;
+    .filter-buttons button:hover {
+      background: #39ff14;
+      color: black;
     }
-
     .projects {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      display: flex;
+      flex-wrap: wrap;
       gap: 1.5rem;
-      padding: 0 2rem 4rem;
-      max-width: 1200px;
-      margin: 0 auto;
+      justify-content: center;
     }
-
     .card {
-      background-color: rgba(0, 0, 0, 0.6);
-      border: 1px solid #00ffff;
-      border-radius: 1rem;
-      padding: 1.5rem;
-      box-shadow: 0 0 12px #00ffff;
-      transition: transform 0.3s ease;
+      background: #111;
+      border: 1px solid;
+      padding: 1rem;
+      width: 280px;
+      transition: transform 0.3s;
     }
-
     .card:hover {
       transform: scale(1.03);
     }
-
     .card h3 {
-      color: #ff00ff;
-      font-size: 1.2rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .card p {
-      font-size: 0.9rem;
-      color: #eee;
-      margin-bottom: 1rem;
-    }
-
-    .card a {
       color: #00ffff;
-      text-decoration: none;
     }
-
-    .card a:hover {
-      text-decoration: underline;
+    .card p {
+      margin: 0.5rem 0;
     }
-
+    .skills ul {
+      margin-left: 1.5rem;
+    }
+    .contact a {
+      color: #00ffff;
+      margin-right: 1rem;
+      font-size: 1.3rem;
+    }
     footer {
       text-align: center;
+      padding: 2rem 0;
       font-size: 0.8rem;
-      padding: 2rem 1rem;
-      color: #999;
+      border-top: 1px solid;
+    }
+    .hidden {
+      display: none;
     }
   </style>
 </head>
 <body>
-
   <header>
-    <h1>CyberCoder Portfolio</h1>
-    <p>Data Scientist • Machine Learning • Deep Learning • NLP • Analytics</p>
+    <h1>&lt;/CyberCoder&gt;</h1>
+    <p>Data Science Portfolio</p>
   </header>
 
-  <div class="filters" id="filter-buttons"></div>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+  </nav>
 
-  <section class="projects" id="project-grid"></section>
+  <section id="about">
+    <h2>👤 About Me</h2>
+    <p>I'm a data scientist blending machine learning with vaporwave aesthetics. From NLP to computer vision, I build intelligent systems that glow in the dark.</p>
+  </section>
+
+  <section id="projects">
+    <h2>💾 Projects</h2>
+    <div class="filter-buttons">
+      <button onclick="filterProjects('all')">All</button>
+      <button onclick="filterProjects('ml')">ML</button>
+      <button onclick="filterProjects('nlp')">NLP</button>
+      <button onclick="filterProjects('cv')">CV</button>
+      <button onclick="filterProjects('viz')">Viz</button>
+    </div>
+
+    <div class="projects">
+      <div class="card ml" data-category="ml">
+        <h3>Loan Default Predictor</h3>
+        <p>XGBoost model that predicts loan default risk. Deployed using Flask and Docker.</p>
+        <a href="https://github.com/yourusername/loan-default" target="_blank">View on GitHub</a>
+      </div>
+
+      <div class="card nlp" data-category="nlp">
+        <h3>Sentiment Analyzer</h3>
+        <p>Python app using spaCy and VADER to analyze customer sentiment in reviews.</p>
+        <a href="https://github.com/yourusername/sentiment-nlp" target="_blank">View on GitHub</a>
+      </div>
+
+      <div class="card nlp" data-category="nlp">
+        <h3>Reddit Sentiment Analyzer</h3>
+        <p>Used spaCy + Transformers to analyze sentiment across subreddits. Plotted with seaborn.</p>
+        <a href="https://github.com/yourusername/reddit-nlp" target="_blank">View Code</a>
+      </div>
+
+      <div class="card cv" data-category="cv">
+        <h3>Object Detection in Night Images</h3>
+        <p>Trained YOLOv5 model to detect objects in low-light vaporwave aesthetic photos.</p>
+        <a href="https://github.com/yourusername/night-vision" target="_blank">View Code</a>
+      </div>
+
+      <div class="card viz" data-category="viz">
+        <h3>Retro Climate Dashboard</h3>
+        <p>Interactive Plotly dashboard showing 80s-style animated climate trends.</p>
+        <a href="https://github.com/yourusername/climate-viz" target="_blank">View Code</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2>🛠 Skills</h2>
+    <div class="skills">
+      <ul>
+        <li><strong>Languages:</strong> Python, R, SQL</li>
+        <li><strong>Libraries:</strong> pandas, scikit-learn, TensorFlow, PyTorch, spaCy</li>
+        <li><strong>Tools:</strong> Jupyter, Git, Docker, Streamlit</li>
+        <li><strong>Concepts:</strong> Machine Learning, NLP, Computer Vision, Dashboards</li>
+        <li><strong>ML:</strong> scikit-learn, XGBoost, TensorFlow, PyTorch</li>
+        <li><strong>NLP:</strong> spaCy, Hugging Face Transformers</li>
+        <li><strong>CV:</strong> OpenCV, YOLOv5, PIL</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>📬 Contact</h2>
+    <p>Let's connect through the data ether:</p>
+    <div class="contact">
+      <a href="#"><i class="fas fa-envelope"></i></a>
+      <a href="#"><i class="fab fa-github"></i></a>
+      <a href="#"><i class="fab fa-linkedin"></i></a>
+    </div>
+  </section>
 
   <footer>
-    🔮 Built by CyberCoder | Vaporwave Portfolio | GitHub Pages Ready 🚀
+    <p>© 2025 Your Name | CyberCoder Portfolio</p>
   </footer>
 
   <script>
-    const categories = ["All", "Machine Learning", "Deep Learning", "NLP", "Data Viz", "Web Scraping"];
-    const projects = [
-      {
-        title: "Customer Churn Prediction",
-        category: "Machine Learning",
-        description: "Used logistic regression and XGBoost to predict telecom customer churn.",
-        link: "https://github.com/yourusername/churn-prediction"
-      },
-      {
-        title: "Convolutional Neural Networks",
-        category: "Deep Learning",
-        description: "Built a CNN using TensorFlow/Keras to classify images with 90% accuracy.",
-        link: "https://github.com/yourusername/cnn-classifier"
-      },
-      {
-        title: "Sentiment Analysis with Transformers",
-        category: "NLP",
-        description: "Analyzed Twitter sentiment using HuggingFace BERT models.",
-        link: "https://github.com/yourusername/bert-sentiment"
-      },
-      {
-        title: "COVID-19 Data Dashboard",
-        category: "Data Viz",
-        description: "Created a Plotly dashboard showing real-time global COVID-19 data.",
-        link: "https://github.com/yourusername/covid-dashboard"
-      },
-      {
-        title: "Amazon Price Tracker",
-        category: "Web Scraping",
-        description: "Scraped product prices from Amazon and sent alerts via email.",
-        link: "https://github.com/yourusername/amazon-price-tracker"
-      },
-      {
-        title: "Movie Review Classifier",
-        category: "NLP",
-        description: "Classified IMDB movie reviews using LSTM and word embeddings.",
-        link: "https://github.com/yourusername/movie-review-nlp"
-      }
-    ];
-
-    const buttonsContainer = document.getElementById("filter-buttons");
-    const grid = document.getElementById("project-grid");
-    let currentCategory = "All";
-
-    function renderButtons() {
-      buttonsContainer.innerHTML = "";
-      categories.forEach(cat => {
-        const btn = document.createElement("button");
-        btn.innerText = cat;
-        btn.classList.toggle("active", cat === currentCategory);
-        btn.onclick = () => {
-          currentCategory = cat;
-          renderButtons();
-          renderProjects();
-        };
-        buttonsContainer.appendChild(btn);
+    function filterProjects(category) {
+      const cards = document.querySelectorAll(".card");
+      cards.forEach(card => {
+        const match = card.classList.contains(category) || category === "all";
+        card.classList.toggle("hidden", !match);
       });
     }
-
-    function renderProjects() {
-      grid.innerHTML = "";
-      const filtered = currentCategory === "All"
-        ? projects
-        : projects.filter(p => p.category === currentCategory);
-      filtered.forEach(project => {
-        const card = document.createElement("div");
-        card.className = "card";
-        card.innerHTML = `
-          <h3>${project.title}</h3>
-          <p>${project.description}</p>
-          <a href="${project.link}" target="_blank">🔗 View Project</a>
-        `;
-        grid.appendChild(card);
-      });
-    }
-
-    renderButtons();
-    renderProjects();
   </script>
 </body>
 </html>
