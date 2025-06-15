@@ -14,7 +14,6 @@
       background: #5f0f40;
       color: #00ffff;
     }
-
     header {
       text-align: center;
       padding: 2rem 0;
@@ -34,12 +33,12 @@
       background: none;
       border: none;
       font-size: 1.3rem;
-      color: #eee;
+      color: #00ffff;
       cursor: pointer;
       transition: all 0.3s ease;
     }
     nav button:hover {
-      color: #00ffff;
+      color: #eee;
     }
     section {
       max-width: 1000px;
@@ -49,6 +48,7 @@
     #projects {
       display: flex;
       gap: 1.5rem;
+      padding: 0 2rem;
       align-items: center;
       overflow-x: auto;
       overflow-y: hidden;
@@ -61,12 +61,11 @@
     .card {
       border: 2px dashed;
       padding: 1rem;
-      height: 150px;
+      width: 100px;
+      height: 120px;
       transition: transform 0.3s;
     }
-    .card:hover {
-      transform: scale(1.03);
-    }
+    .card:hover { transform: scale(1.03); }
     footer {
       text-align: center;
       padding: 2rem 0;
@@ -86,25 +85,25 @@
 
   <nav>
     <button onclick="filterProjects('all')">All</button>
-    <button onclick="filterProjects('ml')"><i class="fas fa-database"></i></button>
-    <button onclick="filterProjects('nlp')"><i class="fas fa-server"></i></button>
-    <button onclick="filterProjects('cv')"><i class="fas fa-chart-simple"></i></button>
-    <button onclick="filterProjects('viz')"><i class="fas fa-floppy-disk"></i></button>
-    <button onclick="filterProjects('viz')"><i class="fas fa-hand-holding-heart"></i></button>
+    <button onclick="filterProjects('data')"><i class="fas fa-database"></i></button>
+    <button onclick="filterProjects('structure)"><i class="fas fa-server"></i></button>
+    <button onclick="filterProjects('node)"><i class="fas fa-chart-simple"></i></button>
+    <button onclick="filterProjects('disk')"><i class="fas fa-floppy-disk"></i></button>
+    <button onclick="filterProjects('heart)"><i class="fas fa-hand-holding-heart"></i></button>
   </nav>
    
-  <section id="projects">
-      <div class="card ml" data-category="ml">
-        <h3>Loan Default Predictor</h3>
-      </div>
+  <section id="projects">      
+    <div class="card" data-category="data">
+      <h3>LoanPredictor</h3>
+    </div>
 
-      <div class="card nlp" data-category="nlp">
-        <h3>Sentiment Analyzer</h3>
-      </div>
+    <div class="card" data-category="structure">
+      <h3>SentimAnalyzer</h3>
+    </div>
 
-      <div class="card viz" data-category="viz">
-        <h3>Retro Climate Dashboard</h3>
-      </div>
+     <div class="card" data-category="node">
+      <h3>Retashboard</h3>
+     </div>
   </section>
 
   <footer>
