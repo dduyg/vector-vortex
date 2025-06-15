@@ -103,7 +103,7 @@
       display: grid;
       gap: 1.5rem;
     }
-    .work-card {
+    .card {
       background: rgba(255,255,255,0.4);
       border: 2px solid #4adbc8;
       padding: 1rem;
@@ -111,16 +111,11 @@
       box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
       backdrop-filter: blur(4px);
     }
-    .work-card h3 {
+    .card h3 {
       color: #ff7eb9;
       margin-bottom: 0.3rem;
     }
-    .work-card .type {
-      font-size: 0.9rem;
-      color: #4adbc8;
-      margin-bottom: 0.5rem;
-    }
-    .work-card .desc {
+    .card .desc {
       margin: 0.5rem 0;
     }
     .tags {
@@ -241,10 +236,9 @@
 
       filtered.forEach(work => {
         const card = document.createElement('div');
-        card.className = 'work-card';
+        card.className = 'card';
         card.innerHTML = `
           <h3>${work.title}</h3>
-          <div class="type">${work.type}</div>
           <div class="desc">${work.description}</div>
           <div class="tags">${work.tags.map(tag => `<span>${tag}</span>`).join('')}</div>
         `;
