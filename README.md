@@ -441,9 +441,7 @@ If the image is used as a background:
 - [ ] Binary Tsunami
 - [ ] Digital Sea Breeze
 - [ ] Digital Tidebreaker
-- [ ] Neon Code Reef
 - [ ] Coded Currents
-- [ ] Data Depths
 - [ ] Riptide __Renderer__
 - [ ] Coral Code Crusaders
 - [ ] Seas of Syntax
@@ -457,15 +455,11 @@ If the image is used as a background:
 - [ ] The Data Abyss Navigator
 - [ ] Oceanic Algorithm Architect
 - [ ] Aquatic Data Wrangler
-- [ ] Coral Reef Data Miner
 - [ ] Subaquatic Data Explorer
 - [ ] Hydrostatistical Seer
 - [ ] Neon Dust Sync
 - [ ] Byte Loop Void
-- [ ] Dark Glow Core
 - [ ] Code Warp Grid
-- [ ] Tech Punk Rise
-- [ ] Glow Hack Zone
 - [ ] Code Wire Loop
 - [ ] Grid Fire Edge
 
