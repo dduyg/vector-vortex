@@ -160,7 +160,7 @@
     <div class="filters">
       <label for="tagInput">Filter by Tags</label>
       <div class="tag-box">
-        <input type="text" id="tagInput" placeholder="e.g. AI, ML..." oninput="showTagDropdown()">
+        <input type="text" id="tagInput" placeholder="e.g. AI, ML...">
         <div id="tagDropdown" class="tag-dropdown"></div>
         <div class="selected-tags" id="selectedTags"></div>
       </div>
@@ -189,11 +189,20 @@
     let selectedTags = [];
     let selectedType = '';
 
-    function showTagDropdown() {
-      const input = document.getElementById('tagInput').value.toLowerCase();
-      const dropdown = document.getElementById('tagDropdown');
-      dropdown.innerHTML = '';
-      const matched = tags.filter(tag => tag.toLowerCase().includes(input));
+    const tagInput = document.getElementById('tagInput');
+    const tagDropdown = document.getElementById('tagDropdown');
+
+    tagInput.addEventListener('focus', () => {
+      showTagDropdown('');
+    });
+
+    tagInput.addEventListener('input', () => {
+      showTagDropdown(tagInput.value.toLowerCase());
+    });
+
+    function showTagDropdown(filter = '') {
+      tagDropdown.innerHTML = '';
+      const matched = tags.filter(tag => tag.toLowerCase().includes(filter));
       matched.forEach(tag => {
         const div = document.createElement('div');
         div.textContent = tag;
@@ -202,13 +211,13 @@
             selectedTags.push(tag);
             updateTags();
             renderWorks();
-            document.getElementById('tagDropdown').style.display = 'none'; // 👈 Hide dropdown on select
-            document.getElementById('tagInput').value = ''; // Optional: Clear input
+            tagDropdown.style.display = 'none'; // hide dropdown after select
+            tagInput.value = ''; // clear input
           }
         };
-        dropdown.appendChild(div);
+        tagDropdown.appendChild(div);
       });
-      dropdown.style.display = matched.length ? 'block' : 'none';
+      tagDropdown.style.display = matched.length ? 'block' : 'none';
     }
 
     function updateTags() {
@@ -265,10 +274,8 @@
 
     // Click outside to close dropdown
     document.addEventListener('click', e => {
-      const dropdown = document.getElementById('tagDropdown');
-      const input = document.getElementById('tagInput');
-      if (!input.contains(e.target) && !dropdown.contains(e.target)) {
-        dropdown.style.display = 'none';
+      if (!tagInput.contains(e.target) && !tagDropdown.contains(e.target)) {
+        tagDropdown.style.display = 'none';
       }
     });
   </script>
