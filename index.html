@@ -4,44 +4,45 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Data Scientist Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --pink: #ff71ce;
-      --cyan: #01cdfe;
-      --purple: #b967ff;
-      --bg: #2d004d;
-      --glass: rgba(255,255,255,0.1);
+      --mint: #a7fff6;
+      --ocean: #4adbc8;
+      --coral: #ff7eb9;
+      --bg: #e6fdfd;
+      --glass: rgba(255,255,255,0.4);
+      --border: #a2d4d4;
     }
     body {
       margin: 0;
-      font-family: 'Inter', sans-serif;
-      background: linear-gradient(135deg, #2d004d, #1a0033);
-      color: white;
+      font-family: 'IBM Plex Mono', monospace;
+      background: linear-gradient(to bottom right, #d1fcf9, #e0f5f5);
+      color: #002e2e;
       padding: 2rem;
     }
     h1 {
-      font-family: 'Press Start 2P', cursive;
       text-align: center;
-      color: var(--pink);
-      font-size: 2rem;
-      margin-bottom: 1rem;
+      color: var(--ocean);
+      font-size: 2.2rem;
+      margin-bottom: 2rem;
     }
     .container {
-      max-width: 1000px;
-      margin: 0 auto;
+      max-width: 900px;
+      margin: auto;
     }
     .filters {
       background: var(--glass);
-      border: 2px solid var(--purple);
+      border: 2px solid var(--border);
       border-radius: 12px;
       padding: 1rem;
       margin-bottom: 2rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
     }
     .filters label {
       display: block;
       font-weight: bold;
-      color: var(--cyan);
+      color: var(--coral);
       margin-bottom: 0.5rem;
     }
     .tag-box {
@@ -51,30 +52,31 @@
     .tag-box input {
       width: 100%;
       padding: 0.6rem;
-      border: 2px solid var(--cyan);
-      background: transparent;
-      color: white;
+      border: 2px solid var(--ocean);
+      background: rgba(255,255,255,0.7);
+      color: #003333;
       border-radius: 8px;
+      font-family: inherit;
     }
     .tag-dropdown {
       position: absolute;
       top: 100%;
       left: 0;
       right: 0;
-      background: #1a0033;
-      border: 2px solid var(--cyan);
+      background: white;
+      border: 2px solid var(--ocean);
       max-height: 150px;
       overflow-y: auto;
       display: none;
       z-index: 10;
+      border-radius: 0 0 8px 8px;
     }
     .tag-dropdown div {
       padding: 0.5rem;
       cursor: pointer;
     }
     .tag-dropdown div:hover {
-      background: var(--cyan);
-      color: black;
+      background: var(--mint);
     }
     .selected-tags {
       margin-top: 0.5rem;
@@ -83,11 +85,11 @@
       gap: 0.5rem;
     }
     .selected-tags button {
-      background: var(--pink);
+      background: var(--coral);
       border: none;
       padding: 0.3rem 0.6rem;
       border-radius: 6px;
-      color: black;
+      color: white;
       font-weight: bold;
       cursor: pointer;
     }
@@ -99,17 +101,18 @@
     }
     .type-toggle button {
       flex: 1;
-      background: var(--glass);
-      border: 2px solid var(--purple);
-      color: var(--purple);
+      background: transparent;
+      border: 2px solid var(--coral);
+      color: var(--coral);
       padding: 0.5rem;
       font-weight: bold;
       cursor: pointer;
       border-radius: 8px;
       transition: all 0.2s ease;
+      font-family: inherit;
     }
     .type-toggle button.active {
-      background: var(--purple);
+      background: var(--coral);
       color: white;
     }
 
@@ -119,18 +122,20 @@
     }
     .work-card {
       background: var(--glass);
-      border: 2px solid var(--cyan);
+      border: 2px solid var(--ocean);
       padding: 1rem;
       border-radius: 12px;
-      backdrop-filter: blur(6px);
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+      backdrop-filter: blur(4px);
     }
     .work-card h3 {
-      color: var(--pink);
+      color: var(--coral);
       margin-bottom: 0.3rem;
     }
     .work-card .type {
       font-size: 0.9rem;
-      color: var(--cyan);
+      color: var(--ocean);
+      margin-bottom: 0.5rem;
     }
     .work-card .desc {
       margin: 0.5rem 0;
@@ -141,7 +146,7 @@
       gap: 0.4rem;
     }
     .tags span {
-      background: var(--cyan);
+      background: var(--mint);
       color: black;
       padding: 0.2rem 0.5rem;
       border-radius: 4px;
@@ -151,7 +156,7 @@
 </head>
 <body>
   <div class="container">
-    <h1>My Work Zone</h1>
+    <h1>Seapunk Portfolio</h1>
     <div class="filters">
       <label for="tagInput">Filter by Tags</label>
       <div class="tag-box">
@@ -197,11 +202,9 @@
             selectedTags.push(tag);
             updateTags();
             renderWorks();
+            document.getElementById('tagDropdown').style.display = 'none'; // 👈 Hide dropdown on select
+            document.getElementById('tagInput').value = ''; // Optional: Clear input
           }
-          // ✅ Fix: close dropdown, clear input, refocus
-          dropdown.style.display = 'none';
-          document.getElementById('tagInput').value = '';
-          document.getElementById('tagInput').focus();
         };
         dropdown.appendChild(div);
       });
