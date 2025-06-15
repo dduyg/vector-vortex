@@ -3,27 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Data Scientist Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <title>Liminal🪼Loop</title>
+  <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Federo&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --mint: #a7fff6;
-      --ocean: #4adbc8;
-      --coral: #ff7eb9;
-      --bg: #e6fdfd;
-      --glass: rgba(255,255,255,0.4);
-      --border: #a2d4d4;
-    }
     body {
       margin: 0;
-      font-family: 'IBM Plex Mono', monospace;
+      font-family: "VT323", monospace;
       background: linear-gradient(to bottom right, #d1fcf9, #e0f5f5);
       color: #002e2e;
       padding: 2rem;
     }
     h1 {
+      font-family: "Federo", sans-serif;
       text-align: center;
-      color: var(--ocean);
+      color: #4adbc8;
       font-size: 2.2rem;
       margin-bottom: 2rem;
     }
@@ -41,8 +35,8 @@
     .tag-box input {
       width: 100%;
       padding: 0.6rem;
-      background: var(--glass);
-      border: 2px solid var(--border);
+      background: rgba(255,255,255,0.4);
+      border: 2px solid #a2d4d4;
       box-shadow: 0 4px 10px rgba(0,0,0,0.05);
       border-radius: 8px;
       font-family: inherit;
@@ -53,7 +47,7 @@
       left: 0;
       right: 0;
       background: white;
-      border: 2px solid var(--ocean);
+      border: 2px solid #4adbc8;
       max-height: 150px;
       overflow-y: auto;
       display: none;
@@ -65,7 +59,7 @@
       cursor: pointer;
     }
     .tag-dropdown div:hover {
-      background: var(--mint);
+      background: #a7fff6;
     }
     .selected-tags {
       margin-top: 0.5rem;
@@ -74,7 +68,7 @@
       gap: 0.5rem;
     }
     .selected-tags button {
-      background: var(--coral);
+      background: #ff7eb9;
       border: none;
       padding: 0.3rem 0.6rem;
       border-radius: 6px;
@@ -91,8 +85,8 @@
     .type-toggle button {
       flex: 1;
       background: transparent;
-      border: 2px solid var(--coral);
-      color: var(--coral);
+      border: 2px solid #ff7eb9;
+      color: #ff7eb9;
       padding: 0.5rem;
       font-weight: bold;
       cursor: pointer;
@@ -101,7 +95,7 @@
       font-family: inherit;
     }
     .type-toggle button.active {
-      background: var(--coral);
+      background: #ff7eb9;
       color: white;
     }
 
@@ -110,20 +104,20 @@
       gap: 1.5rem;
     }
     .work-card {
-      background: var(--glass);
-      border: 2px solid var(--ocean);
+      background: rgba(255,255,255,0.4);
+      border: 2px solid #4adbc8;
       padding: 1rem;
       border-radius: 12px;
       box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
       backdrop-filter: blur(4px);
     }
     .work-card h3 {
-      color: var(--coral);
+      color: #ff7eb9;
       margin-bottom: 0.3rem;
     }
     .work-card .type {
       font-size: 0.9rem;
-      color: var(--ocean);
+      color: #4adbc8;
       margin-bottom: 0.5rem;
     }
     .work-card .desc {
@@ -135,7 +129,7 @@
       gap: 0.4rem;
     }
     .tags span {
-      background: var(--mint);
+      background: #a7fff6;
       color: black;
       padding: 0.2rem 0.5rem;
       border-radius: 4px;
