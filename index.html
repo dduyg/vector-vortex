@@ -55,9 +55,15 @@
     }
     #projects {
       display: flex;
-      overflow-x: auto;
       gap: 1.5rem;
       align-items: center;
+      overflow-x: auto;
+      overflow-y: hidden;
+      scrollbar-width: none; /* Firefox */
+      -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    }
+    #projects::-webkit-scrollbar {
+      display: none; /* Safari & Chrome */     
     }
     .card {
       border: 1px dashed;
