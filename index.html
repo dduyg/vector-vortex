@@ -30,6 +30,7 @@
     .filters {
       display: flex;
       justify-content: space-between;
+      align-items: flex-start;
       gap: 1rem;
       margin: 3rem 0;
     }
@@ -157,11 +158,11 @@
     .bubble {
       position: absolute;
       bottom: -100px;
-      width: 20px;
-      height: 20px;
-      background: rgba(0, 0, 0, 0.3);
+      width: 30px;
+      height: 30px;
+      background: rgba(0, 0, 0, 0.1);
       border-radius: 50%;
-      animation: rise 10s infinite;
+      animation: rise 15s infinite;
     }
     .bubble:nth-child(1) { left: 20%; animation-delay: 0s; }
     .bubble:nth-child(2) { left: 40%; animation-delay: 2s; }
