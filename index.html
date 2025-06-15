@@ -2,33 +2,45 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Liminal⚓️Loop</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     @font-face {
       font-family: 'Revetra';
       src: url('Revetra.woff2') format('woff2');
       font-weight: normal;
       font-style: normal;
     }
-    html,body {
-      height: 100%;
+
+    body {
       font-family: 'Revetra', sans-serif;
+      color: #00ffff;
+      height: 100vh;
       background: url('https://media4.giphy.com/media/xT9IgAyUXKqniwFj20/giphy.gif') no-repeat center center fixed;
       background-size: cover;
-      color: #00ffff;
       display: flex;
       flex-direction: column;
-      justify-content: center; /* Vertical centering */
-      align-items: center;
     }
 
-    header {
+    header, nav, section {
       text-align: center;
-      padding: 2rem 0;
+      padding: 1rem;
     }
+
+    .content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
     header h1 {
       font-size: 2.5rem;
     }
@@ -41,6 +53,7 @@
       border-top: 1px solid;
       border-bottom: 1px solid;
     }
+
     nav button {
       background: none;
       border: none;
@@ -49,22 +62,24 @@
       cursor: pointer;
       transition: all 0.3s ease;
     }
+
     nav button:hover {
       color: #eee;
     }
 
-    section {
-      padding: 2rem 0;
+    #items {
       display: flex;
       gap: 1.5rem;
       align-items: center;
       overflow-x: auto;
       overflow-y: hidden;
-      scrollbar-width: none; /* Firefox */
-      -ms-overflow-style: none; /* IE 10+ */
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      padding: 2rem 0;
     }
-    section::-webkit-scrollbar {
-      display: none; /* Safari & Chrome */
+
+    #items::-webkit-scrollbar {
+      display: none;
     }
 
     .item {
@@ -73,18 +88,23 @@
       margin-left: 1rem;
       height: 150px;
       transition: transform 0.3s;
-      min-width: 150px;
-      flex-shrink: 0;
+      min-width: 200px;
     }
+
     .item:hover {
       transform: scale(1.03);
     }
 
     footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
       text-align: center;
-      padding: 2rem 0;
+      padding: 1rem 0;
       font-size: 0.8rem;
       border-top: 1px solid;
+      background-color: rgba(0, 0, 0, 0.5); /* optional for readability */
     }
 
     .hidden {
@@ -93,33 +113,35 @@
   </style>
 </head>
 <body>
-  <header>
-    <h1>&lt;/CyberCoder&gt;</h1>
-    <p>Data Science Portfolio</p>
-  </header>
+  <div class="content">
+    <header>
+      <h1>&lt;/CyberCoder&gt;</h1>
+      <p>Data Science Portfolio</p>
+    </header>
 
-  <nav>
-    <button onclick="filterItems('all')">All</button>
-    <button onclick="filterItems('data')"><i class="fas fa-database"></i></button>
-    <button onclick="filterItems('structure')"><i class="fas fa-server"></i></button>
-    <button onclick="filterItems('node')"><i class="fas fa-chart-simple"></i></button>
-    <button onclick="filterItems('disk')"><i class="fas fa-floppy-disk"></i></button>
-    <button onclick="filterItems('heart')"><i class="fas fa-hand-holding-heart"></i></button>
-  </nav>
+    <nav>
+      <button onclick="filterItems('all')">All</button>
+      <button onclick="filterItems('data')"><i class="fas fa-database"></i></button>
+      <button onclick="filterItems('structure')"><i class="fas fa-server"></i></button>
+      <button onclick="filterItems('node')"><i class="fas fa-chart-simple"></i></button>
+      <button onclick="filterItems('disk')"><i class="fas fa-floppy-disk"></i></button>
+      <button onclick="filterItems('heart')"><i class="fas fa-hand-holding-heart"></i></button>
+    </nav>
 
-  <section id="projects">
-    <div class="item" data-category="data">
-      <h3>LoanPrictor</h3>
-    </div>
+    <section id="items">
+      <div class="item" data-category="data">
+        <h3>LoanPrictor</h3>
+      </div>
 
-    <div class="item" data-category="structure">
-      <h3>SentimAnalyzer</h3>
-    </div>
+      <div class="item" data-category="structure">
+        <h3>SentimAnalyzer</h3>
+      </div>
 
-    <div class="item" data-category="node">
-      <h3>Retashboard</h3>
-    </div>
-  </section>
+      <div class="item" data-category="node">
+        <h3>Retashboard</h3>
+      </div>
+    </section>
+  </div>
 
   <footer>
     <p>© 2025 Your Name | CyberCoder Portfolio</p>
@@ -127,14 +149,10 @@
 
   <script>
     function filterItems(category) {
-      const items = document.querySelectorAll('.item');
-      items.forEach((item) => {
-        const itemCategory = item.getAttribute('data-category');
-        if (category === 'all' || itemCategory === category) {
-          item.classList.remove('hidden');
-        } else {
-          item.classList.add('hidden');
-        }
+      const items = document.querySelectorAll(".item");
+      items.forEach(item => {
+        const match = item.getAttribute('data-category') === category || category === "all";
+        item.classList.toggle("hidden", !match);
       });
     }
   </script>
