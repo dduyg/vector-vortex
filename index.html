@@ -3,274 +3,267 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Vaporwave Data Scientist Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=VT323&display=swap" rel="stylesheet">
+  <title>Data Scientist Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --pink: #ff87d4;
-      --purple: #b388eb;
-      --blue: #8be9fd;
-      --bg: linear-gradient(135deg, #ffccf9, #c1c8ff);
-      --card-bg: rgba(255, 255, 255, 0.3);
+      --pink: #ff71ce;
+      --cyan: #01cdfe;
+      --purple: #b967ff;
+      --bg: #2d004d;
+      --glass: rgba(255,255,255,0.1);
     }
-
-    * {
-      box-sizing: border-box;
-    }
-
     body {
       margin: 0;
-      font-family: 'VT323', monospace;
-      background: var(--bg);
-      color: #2b2b2b;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #2d004d, #1a0033);
+      color: white;
       padding: 2rem;
     }
-
     h1 {
-      font-family: 'Orbitron', sans-serif;
+      font-family: 'Press Start 2P', cursive;
       text-align: center;
-      font-size: 3rem;
-      color: var(--purple);
+      color: var(--pink);
+      font-size: 2rem;
       margin-bottom: 1rem;
     }
-
-    .filters {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      margin: 2rem auto;
+    .container {
       max-width: 1000px;
+      margin: 0 auto;
     }
-
-    .filter-box {
-      flex: 1;
-      min-width: 250px;
-      position: relative;
-    }
-
-    .filter-box input {
-      width: 100%;
-      padding: 10px;
+    .filters {
+      background: var(--glass);
       border: 2px solid var(--purple);
-      border-radius: 6px;
-      font-size: 1rem;
+      border-radius: 12px;
+      padding: 1rem;
+      margin-bottom: 2rem;
     }
-
-    .dropdown, .type-dropdown {
+    .filters label {
+      display: block;
+      font-weight: bold;
+      color: var(--cyan);
+      margin-bottom: 0.5rem;
+    }
+    .tag-box {
+      position: relative;
+      width: 100%;
+    }
+    .tag-box input {
+      width: 100%;
+      padding: 0.6rem;
+      border: 2px solid var(--cyan);
+      background: transparent;
+      color: white;
+      border-radius: 8px;
+    }
+    .tag-dropdown {
       position: absolute;
       top: 100%;
       left: 0;
-      width: 100%;
-      background: white;
-      border: 1px solid var(--purple);
-      z-index: 10;
-      max-height: 200px;
+      right: 0;
+      background: #1a0033;
+      border: 2px solid var(--cyan);
+      max-height: 150px;
       overflow-y: auto;
       display: none;
+      z-index: 10;
     }
-
-    .dropdown div, .type-dropdown div {
-      padding: 8px 12px;
+    .tag-dropdown div {
+      padding: 0.5rem;
+      cursor: pointer;
+    }
+    .tag-dropdown div:hover {
+      background: var(--cyan);
+      color: black;
+    }
+    .selected-tags {
+      margin-top: 0.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .selected-tags button {
+      background: var(--pink);
+      border: none;
+      padding: 0.3rem 0.6rem;
+      border-radius: 6px;
+      color: black;
+      font-weight: bold;
       cursor: pointer;
     }
 
-    .dropdown div:hover, .type-dropdown div:hover {
-      background-color: var(--blue);
-    }
-
-    .selected-tags {
-      margin-top: 5px;
+    .type-toggle {
       display: flex;
-      flex-wrap: wrap;
-      gap: 5px;
+      gap: 0.5rem;
+      margin-top: 1rem;
     }
-
-    .tag {
+    .type-toggle button {
+      flex: 1;
+      background: var(--glass);
+      border: 2px solid var(--purple);
+      color: var(--purple);
+      padding: 0.5rem;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 8px;
+      transition: all 0.2s ease;
+    }
+    .type-toggle button.active {
       background: var(--purple);
       color: white;
-      padding: 4px 8px;
-      border-radius: 4px;
-      font-size: 0.9rem;
-      cursor: pointer;
     }
 
-    .type-selector {
-      cursor: pointer;
-      border: 2px solid var(--pink);
-      padding: 10px;
-      border-radius: 6px;
-      background: white;
-      font-size: 1rem;
-      position: relative;
-    }
-
-    .grid {
+    .works {
       display: grid;
-      gap: 2rem;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      max-width: 1200px;
-      margin: 0 auto;
+      gap: 1.5rem;
     }
-
-    .card {
-      background: var(--card-bg);
-      border: 2px solid var(--blue);
+    .work-card {
+      background: var(--glass);
+      border: 2px solid var(--cyan);
+      padding: 1rem;
       border-radius: 12px;
-      padding: 1.5rem;
-      box-shadow: 4px 4px 10px rgba(0,0,0,0.2);
+      backdrop-filter: blur(6px);
     }
-
-    .card h3 {
-      margin-top: 0;
+    .work-card h3 {
       color: var(--pink);
-      font-size: 1.5rem;
+      margin-bottom: 0.3rem;
     }
-
-    .card p {
-      font-size: 1.1rem;
-      margin: 0.5rem 0 1rem;
+    .work-card .type {
+      font-size: 0.9rem;
+      color: var(--cyan);
     }
-
-    .card .tag-list {
+    .work-card .desc {
+      margin: 0.5rem 0;
+    }
+    .tags {
       display: flex;
       flex-wrap: wrap;
-      gap: 5px;
+      gap: 0.4rem;
     }
-
-    .card .tag-list span {
-      background: var(--blue);
-      padding: 3px 8px;
+    .tags span {
+      background: var(--cyan);
+      color: black;
+      padding: 0.2rem 0.5rem;
       border-radius: 4px;
-      font-size: 0.9rem;
-    }
-
-    @media (max-width: 600px) {
-      .filters {
-        flex-direction: column;
-      }
+      font-size: 0.8rem;
     }
   </style>
 </head>
 <body>
-  <h1>🌴 My Retro Data Portfolio 🌴</h1>
+  <div class="container">
+    <h1>My Work Zone</h1>
+    <div class="filters">
+      <label for="tagInput">Filter by Tags</label>
+      <div class="tag-box">
+        <input type="text" id="tagInput" placeholder="e.g. AI, ML..." oninput="showTagDropdown()">
+        <div id="tagDropdown" class="tag-dropdown"></div>
+        <div class="selected-tags" id="selectedTags"></div>
+      </div>
 
-  <div class="filters">
-    <div class="filter-box">
-      <input type="text" placeholder="Filter by Tags..." oninput="showTags(this.value)" id="tagInput">
-      <div class="dropdown" id="tagDropdown"></div>
-      <div class="selected-tags" id="selectedTags"></div>
-    </div>
-    <div class="filter-box">
-      <div class="type-selector" onclick="toggleTypeDropdown()">Type: <span id="selectedType">All</span></div>
-      <div class="type-dropdown" id="typeDropdown">
-        <div onclick="selectType('')">All</div>
-        <div onclick="selectType('Project')">Project</div>
-        <div onclick="selectType('Product')">Product</div>
-        <div onclick="selectType('Post')">Post</div>
+      <div class="type-toggle">
+        <button onclick="selectType('')" class="active">All</button>
+        <button onclick="selectType('Project')">Project</button>
+        <button onclick="selectType('Product')">Product</button>
+        <button onclick="selectType('Post')">Post</button>
       </div>
     </div>
-  </div>
 
-  <div class="grid" id="worksList">
-    <!-- JS populated -->
+    <div class="works" id="worksList"></div>
   </div>
 
   <script>
+    const tags = ["AI", "ML", "NLP", "CV", "Web App", "Data Viz", "Product", "DL"];
     const works = [
-      { title: "AI Assistant", description: "A chatbot powered by transformers.", tags: ["AI", "NLP"], type: "Product" },
-      { title: "Market Predictor", description: "Predicts stock prices with ML.", tags: ["ML", "Data Viz"], type: "Project" },
-      { title: "Vision AI", description: "Classifies objects in real-time.", tags: ["Computer Vision", "AI"], type: "Project" },
-      { title: "DL Optimization Tips", description: "Blog about training tricks.", tags: ["Deep Learning"], type: "Post" },
-      { title: "Data Dashboard", description: "Interactive visualizations in a web app.", tags: ["Web App", "Data Viz"], type: "Product" }
+      { title: "AI Chatbot", tags: ["AI", "NLP"], type: "Product", description: "Conversational bot using GPT and NLU" },
+      { title: "Stock Predictor", tags: ["ML", "Data Viz"], type: "Project", description: "Predicts stock price trends using time series models" },
+      { title: "Deep Learning Tricks", tags: ["DL"], type: "Post", description: "A blog post covering training hacks" },
+      { title: "CV Classifier", tags: ["AI", "CV"], type: "Project", description: "Image classifier with CNNs" },
+      { title: "Interactive Dashboard", tags: ["Web App", "Data Viz"], type: "Product", description: "Real-time dashboards for business insights" },
     ];
 
-    const allTags = [...new Set(works.flatMap(w => w.tags))];
     let selectedTags = [];
     let selectedType = '';
 
-    const tagDropdown = document.getElementById('tagDropdown');
-    const selectedTagsDiv = document.getElementById('selectedTags');
-    const worksList = document.getElementById('worksList');
-
-    function showTags(filter) {
-      tagDropdown.innerHTML = '';
-      const matched = allTags.filter(tag => tag.toLowerCase().includes(filter.toLowerCase()) && !selectedTags.includes(tag));
+    function showTagDropdown() {
+      const input = document.getElementById('tagInput').value.toLowerCase();
+      const dropdown = document.getElementById('tagDropdown');
+      dropdown.innerHTML = '';
+      const matched = tags.filter(tag => tag.toLowerCase().includes(input));
       matched.forEach(tag => {
         const div = document.createElement('div');
         div.textContent = tag;
         div.onclick = () => {
-          selectedTags.push(tag);
-          updateTagDisplay();
-          renderWorks();
+          if (!selectedTags.includes(tag)) {
+            selectedTags.push(tag);
+            updateTags();
+            renderWorks();
+          }
         };
-        tagDropdown.appendChild(div);
+        dropdown.appendChild(div);
       });
-      tagDropdown.style.display = matched.length ? 'block' : 'none';
+      dropdown.style.display = matched.length ? 'block' : 'none';
     }
 
-    function updateTagDisplay() {
-      selectedTagsDiv.innerHTML = '';
+    function updateTags() {
+      const tagContainer = document.getElementById('selectedTags');
+      tagContainer.innerHTML = '';
       selectedTags.forEach(tag => {
-        const span = document.createElement('span');
-        span.className = 'tag';
-        span.textContent = tag + ' ✕';
-        span.onclick = () => {
+        const btn = document.createElement('button');
+        btn.textContent = tag + " ✕";
+        btn.onclick = () => {
           selectedTags = selectedTags.filter(t => t !== tag);
-          updateTagDisplay();
+          updateTags();
           renderWorks();
         };
-        selectedTagsDiv.appendChild(span);
+        tagContainer.appendChild(btn);
       });
+    }
+
+    function selectType(type) {
+      selectedType = type;
+      document.querySelectorAll('.type-toggle button').forEach(btn => btn.classList.remove('active'));
+      [...document.querySelectorAll('.type-toggle button')].find(btn => btn.textContent === (type || "All")).classList.add('active');
+      renderWorks();
     }
 
     function renderWorks() {
-      worksList.innerHTML = '';
-      const filtered = works.filter(work =>
-        selectedTags.every(tag => work.tags.includes(tag)) &&
-        (!selectedType || work.type === selectedType)
-      );
+      const container = document.getElementById('worksList');
+      container.innerHTML = '';
+      const filtered = works.filter(work => {
+        const matchesTags = selectedTags.every(tag => work.tags.includes(tag));
+        const matchesType = !selectedType || work.type === selectedType;
+        return matchesTags && matchesType;
+      });
 
       if (filtered.length === 0) {
-        worksList.innerHTML = "<p>No results found.</p>";
+        container.innerHTML = "<p>No matching works found.</p>";
         return;
       }
 
       filtered.forEach(work => {
         const card = document.createElement('div');
-        card.className = 'card';
+        card.className = 'work-card';
         card.innerHTML = `
           <h3>${work.title}</h3>
-          <p>${work.description}</p>
-          <p><strong>Type:</strong> ${work.type}</p>
-          <div class="tag-list">
-            ${work.tags.map(tag => `<span>${tag}</span>`).join('')}
-          </div>
+          <div class="type">${work.type}</div>
+          <div class="desc">${work.description}</div>
+          <div class="tags">${work.tags.map(tag => `<span>${tag}</span>`).join('')}</div>
         `;
-        worksList.appendChild(card);
+        container.appendChild(card);
       });
     }
 
-    // Type Dropdown
-    function toggleTypeDropdown() {
-      const dd = document.getElementById('typeDropdown');
-      dd.style.display = dd.style.display === 'block' ? 'none' : 'block';
-    }
+    // Initial render
+    renderWorks();
 
-    function selectType(type) {
-      selectedType = type;
-      document.getElementById('selectedType').textContent = type || 'All';
-      document.getElementById('typeDropdown').style.display = 'none';
-      renderWorks();
-    }
-
-    document.addEventListener('click', (e) => {
-      if (!e.target.closest('.filter-box')) {
-        tagDropdown.style.display = 'none';
-        document.getElementById('typeDropdown').style.display = 'none';
+    // Click outside to close dropdown
+    document.addEventListener('click', e => {
+      const dropdown = document.getElementById('tagDropdown');
+      const input = document.getElementById('tagInput');
+      if (!input.contains(e.target) && !dropdown.contains(e.target)) {
+        dropdown.style.display = 'none';
       }
     });
-
-    renderWorks();
   </script>
 </body>
 </html>
