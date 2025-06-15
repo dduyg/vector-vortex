@@ -7,6 +7,9 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body {
+      height: 100%;
+    }
     @font-face {
       font-family: 'Revetra';
       src: url('Revetra.woff2') format('woff2');
@@ -14,27 +17,40 @@
       font-style: normal;
     }
     body {
-      margin: 0;
-      padding: 0 1rem;
       font-family: 'Revetra', sans-serif;
-      background: #5f0f40;
+      background: url('https://media4.giphy.com/media/xT9IgAyUXKqniwFj20/giphy.gif') no-repeat center center fixed;
+      background-size: cover;
       color: #00ffff;
+      display: flex;
+      flex-direction: column;
     }
+
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem 1rem;
+    }
+
     header {
       text-align: center;
-      padding: 2rem 0;
+      padding-bottom: 1rem;
     }
     header h1 {
       font-size: 2.5rem;
     }
+
     nav {
       display: flex;
       justify-content: center;
-      gap: 2rem;
+      gap: 1.5rem;
       padding: 1rem 0;
       border-top: 1px solid;
       border-bottom: 1px solid;
-    }  
+    }
+
     nav button {
       background: none;
       border: none;
@@ -46,79 +62,84 @@
     nav button:hover {
       color: #eee;
     }
-    section {
-      max-width: 1000px;
-      margin: auto;
-      padding: 2rem 0;
-    }
-    #projects {
+
+    #gallery {
       display: flex;
-      gap: 1.5rem;  
+      gap: 1.5rem;
       align-items: center;
       overflow-x: auto;
       overflow-y: hidden;
-      scrollbar-width: none; /* Firefox */
-      -ms-overflow-style: none;  /* Internet Explorer 10+ */
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      padding: 2rem 0;
     }
-    #projects::-webkit-scrollbar {
-      display: none; /* Safari & Chrome */     
-    }
-    .card {
+    #gallery::-webkit-scrollbar { display: none; }
+
+    .item {
       border: 2px dashed;
       padding: 1rem;
       margin-left: 1rem;
       height: 150px;
       transition: transform 0.3s;
+      min-width: 200px;
+      text-align: center;
     }
-    .card:hover { transform: scale(1.03); }
+    .item:hover {
+      transform: scale(1.03);
+    }
+
     footer {
       text-align: center;
-      padding: 2rem 0;
+      padding: 1rem;
       font-size: 0.8rem;
       border-top: 1px solid;
+      background-color: rgba(0, 0, 0, 0.4);
     }
+
     .hidden { display: none; }
   </style>
 </head>
 <body>
-  <header>
-    <h1>&lt;/CyberCoder&gt;</h1>
-    <p>Data Science Portfolio</p>
-  </header>
+  <main>
+    <header>
+      <h1>&lt;/CyberCoder&gt;</h1>
+      <p>Data Science Portfolio</p>
+    </header>
 
-  <nav>
-    <button onclick="filterProjects('all')">All</button>
-    <button onclick="filterProjects('data')"><i class="fas fa-database"></i></button>
-    <button onclick="filterProjects('structure)"><i class="fas fa-server"></i></button>
-    <button onclick="filterProjects('node)"><i class="fas fa-chart-simple"></i></button>
-    <button onclick="filterProjects('disk')"><i class="fas fa-floppy-disk"></i></button>
-    <button onclick="filterProjects('heart)"><i class="fas fa-hand-holding-heart"></i></button>
-  </nav>
-   
-  <section id="projects">      
-    <div class="card" data-category="data">
-      <h3>LoanPrictor</h3>
-    </div>
+    <nav>
+      <button onclick="filterItems('all')">All</button>
+      <button onclick="filterItems('data')"><i class="fas fa-database"></i></button>
+      <button onclick="filterItems('structure')"><i class="fas fa-server"></i></button>
+      <button onclick="filterItems('node')"><i class="fas fa-chart-simple"></i></button>
+      <button onclick="filterItems('disk')"><i class="fas fa-floppy-disk"></i></button>
+      <button onclick="filterItems('heart')"><i class="fas fa-hand-holding-heart"></i></button>
+    </nav>
 
-    <div class="card" data-category="structure">
-      <h3>SentimAnalyzer</h3>
-    </div>
+    <section id="gallery">
+      <div class="item" data-category="data">
+        <h3>LoanPrictor</h3>
+      </div>
 
-     <div class="card" data-category="node">
-      <h3>Retashboard</h3>
-     </div>
-  </section>
+      <div class="item" data-category="structure">
+        <h3>SentimAnalyzer</h3>
+      </div>
+
+      <div class="item" data-category="node">
+        <h3>Retashboard</h3>
+      </div>
+    </section>
+  </main>
 
   <footer>
     <p>© 2025 Your Name | CyberCoder Portfolio</p>
   </footer>
 
   <script>
-    function filterProjects(category) {
-      const cards = document.querySelectorAll(".card");
-      cards.forEach(card => {
-        const match = card.classList.contains(category) || category === "all";
-        card.classList.toggle("hidden", !match);
+    function filterItems(category) {
+      const items = document.querySelectorAll(".item");
+      items.forEach(item => {
+        const match = item.dataset.category === category || category === "all";
+        item.classList.toggle("hidden", !match);
       });
     }
   </script>
