@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Data Scientist Portfolio - CyberVapor</title>
+  <title>Data Scientist Portfolio</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Press+Start+2P&display=swap" rel="stylesheet">
   <style>
@@ -37,31 +37,34 @@
   <section id="works" class="glass p-6 rounded-2xl shadow-2xl">
     <h2 class="text-3xl text-pink-400 mb-6">🧠 Works</h2>
 
-    <!-- FILTER CONTROLS -->
     <div class="flex flex-wrap gap-4 mb-8">
       <!-- TAG FILTER -->
       <div class="flex-1 relative">
         <input type="text" placeholder="Filter by Tags..." id="tagInput" class="w-full p-2 rounded-lg bg-gray-900 text-white border border-pink-400 focus:outline-none" onkeyup="filterTagDropdown()">
-        <div id="tagDropdown" class="absolute z-10 mt-1 bg-gray-800 border border-pink-500 rounded-md shadow-lg max-h-40 overflow-y-auto hidden">
-          <!-- Tag options injected by JS -->
-        </div>
+        <div id="tagDropdown" class="absolute z-10 mt-1 bg-gray-800 border border-pink-500 rounded-md shadow-lg max-h-40 overflow-y-auto hidden"></div>
         <div class="mt-2 flex flex-wrap gap-2" id="selectedTags"></div>
       </div>
 
-      <!-- TYPE FILTER -->
-      <div>
-        <select id="typeSelect" class="p-2 rounded-lg bg-gray-900 text-white border border-blue-400">
-          <option value="">All Types</option>
-          <option value="Project">Project</option>
-          <option value="Product">Product</option>
-          <option value="Post">Post</option>
-        </select>
+      <!-- CUSTOM TYPE DROPDOWN -->
+      <div class="relative w-48">
+        <button id="typeDropdownButton" class="w-full p-2 rounded-lg bg-gray-900 text-white border border-blue-400 flex justify-between items-center">
+          <span id="typeDropdownLabel">All Types</span>
+          <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path d="M19 9l-7 7-7-7"/>
+          </svg>
+        </button>
+        <div id="typeDropdown" class="absolute z-10 mt-1 w-full bg-gray-800 border border-blue-500 rounded shadow-lg hidden">
+          <div class="px-4 py-2 hover:bg-blue-600 cursor-pointer" onclick="selectType('')">All Types</div>
+          <div class="px-4 py-2 hover:bg-blue-600 cursor-pointer" onclick="selectType('Project')">Project</div>
+          <div class="px-4 py-2 hover:bg-blue-600 cursor-pointer" onclick="selectType('Product')">Product</div>
+          <div class="px-4 py-2 hover:bg-blue-600 cursor-pointer" onclick="selectType('Post')">Post</div>
+        </div>
       </div>
     </div>
 
     <!-- WORKS LIST -->
     <div id="worksList" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-      <!-- Example works -->
+      <!-- Injected by JS -->
     </div>
   </section>
 
@@ -79,12 +82,12 @@
     const tagDropdown = document.getElementById('tagDropdown');
     const selectedTagsContainer = document.getElementById('selectedTags');
     const worksList = document.getElementById('worksList');
-    const typeSelect = document.getElementById('typeSelect');
 
     let selectedTags = [];
+    let selectedType = '';
 
-    function renderTagDropdown() {
-      tagDropdown.innerHTML = "";
+    function filterTagDropdown() {
+      tagDropdown.innerHTML = '';
       const filter = tagInput.value.toLowerCase();
       const filteredTags = tags.filter(t => t.toLowerCase().includes(filter));
       filteredTags.forEach(tag => {
@@ -100,15 +103,11 @@
         };
         tagDropdown.appendChild(div);
       });
-      tagDropdown.style.display = filteredTags.length > 0 ? "block" : "none";
-    }
-
-    function filterTagDropdown() {
-      renderTagDropdown();
+      tagDropdown.style.display = filteredTags.length ? 'block' : 'none';
     }
 
     function updateSelectedTags() {
-      selectedTagsContainer.innerHTML = "";
+      selectedTagsContainer.innerHTML = '';
       selectedTags.forEach(tag => {
         const btn = document.createElement('button');
         btn.className = "tag-active px-2 py-1 rounded text-sm";
@@ -123,15 +122,14 @@
     }
 
     function renderWorks() {
-      worksList.innerHTML = "";
-      const typeFilter = typeSelect.value;
+      worksList.innerHTML = '';
       const filteredWorks = works.filter(work => {
         const matchesTags = selectedTags.every(tag => work.tags.includes(tag));
-        const matchesType = typeFilter === "" || work.type === typeFilter;
+        const matchesType = selectedType === '' || work.type === selectedType;
         return matchesTags && matchesType;
       });
 
-      if (filteredWorks.length === 0) {
+      if (!filteredWorks.length) {
         worksList.innerHTML = "<p class='text-gray-400 col-span-full'>No results found.</p>";
         return;
       }
@@ -150,15 +148,33 @@
       });
     }
 
-    tagInput.addEventListener('focus', renderTagDropdown);
+    // Type dropdown handling
+    const typeDropdownButton = document.getElementById('typeDropdownButton');
+    const typeDropdown = document.getElementById('typeDropdown');
+    const typeDropdownLabel = document.getElementById('typeDropdownLabel');
+
+    typeDropdownButton.addEventListener('click', () => {
+      typeDropdown.classList.toggle('hidden');
+    });
+
+    function selectType(type) {
+      selectedType = type;
+      typeDropdownLabel.textContent = type || 'All Types';
+      typeDropdown.classList.add('hidden');
+      renderWorks();
+    }
+
+    // Close dropdowns on outside click
     document.addEventListener('click', e => {
       if (!tagInput.contains(e.target) && !tagDropdown.contains(e.target)) {
-        tagDropdown.style.display = "none";
+        tagDropdown.style.display = 'none';
+      }
+      if (!typeDropdownButton.contains(e.target) && !typeDropdown.contains(e.target)) {
+        typeDropdown.classList.add('hidden');
       }
     });
-    typeSelect.addEventListener('change', renderWorks);
 
-    // Initial load
+    // Initial
     renderWorks();
   </script>
 </body>
