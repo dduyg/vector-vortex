@@ -3,144 +3,112 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Liminal⚓️Loop</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <title>Liminal🪩Loop</title>
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; outline: none; -webkit-tap-highlight-color: transparent; }
-    @font-face {
-      font-family: 'Revetra';
-      src: url('https://cdn.jsdelivr.net/gh/dduyg/LiminalLoop/fonts/Revetra.woff2') format('woff2');
-      font-weight: normal;
-      font-style: normal;
-    }
-    body {
-      font-family: 'Revetra', sans-serif;
-      color: #00ffff;
-      height: 100vh;
-      background: url('https://media4.giphy.com/media/xT9IgAyUXKqniwFj20/giphy.gif') no-repeat center center fixed;
-      background-size: cover;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      position: relative; /* to position ::before correctly */
-      z-index: 0; /* Ensure ::before is under the content */
-    }
-    body::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.3);
-      z-index: -1;
-    }
+  body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  background: #f5f5f5;
+  color: #333;
+}
 
-    header {
-      text-align: center;
-      padding: 0 0 2rem;
-    }
-    header h1 {
-      font-size: 2.2rem;
-    }
-    nav {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      padding: 1rem 0;
-      border-top: 2px solid;
-      border-bottom: 2px solid;
-    }
-    nav button {
-      background: none;
-      border: none;
-      font-size: 1.3rem;
-      font-family: monospace;
-      color: #00ffff;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-    nav button:hover {
-      color: #eee;
-    }
+header {
+  background: #1e293b;
+  color: white;
+  padding: 1.5rem;
+  text-align: center;
+}
 
-    #items {
-      display: flex;
-      gap: 1.5rem;
-      align-items: center;
-      overflow-x: auto;
-      overflow-y: hidden;
-      scrollbar-width: none;
-      -ms-overflow-style: none;
-      padding: 2rem 0;
-    }
-    #items::-webkit-scrollbar {
-      display: none;
-    }
+nav {
+  margin-top: 1rem;
+}
 
-    .item {
-      border: 2px dashed;
-      padding: 1rem;
-      margin-left: 1rem;
-      height: 120px;
-      transition: transform 0.3s;         
-      flex: 0 0 auto; /* prevent shrinking */
-      min-width: 100px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 1.4rem;
-      font-weight: bold;
-    }
-    .item:hover {
-      transform: scale(1.03);
-    }
+nav button {
+  margin: 0 0.5rem;
+  padding: 0.5rem 1rem;
+  background: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
 
-    footer {
-      text-align: center;
-      padding: 2rem 0;
-      font-size: 0.9rem;
-      border-top: 4px solid;
-    }
+nav button:hover {
+  background: #2563eb;
+}
 
-    .hidden {
-      display: none;
-    }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+}
+
+.card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
   </style>
 </head>
 <body>
-  <div class="content">
-    <header>
-      <h1>Find clarity<br>in cosmic<br>silence</h1>
-      <p>( the art of mental spaciousness )</p>
-    </header>
-
+  <header>
+    <h1>My Data Science Portfolio</h1>
     <nav>
-      <button onclick="filterItems('all')">All</button>
-      <button onclick="filterItems('data')"><i class="fas fa-database"></i></button>
-      <button onclick="filterItems('structure')"><i class="fas fa-server"></i></button>
-      <button onclick="filterItems('node')"><i class="fas fa-chart-simple"></i></button>
-      <button onclick="filterItems('disk')"><i class="fas fa-floppy-disk"></i></button>
-      <button onclick="filterItems('heart')"><i class="fas fa-hand-holding-heart"></i></button>
+      <button onclick="filterProjects('all')">All</button>
+      <button onclick="filterProjects('nlp')">NLP</button>
+      <button onclick="filterProjects('cv')">Computer Vision</button>
+      <button onclick="filterProjects('ml')">Machine Learning</button>
     </nav>
+  </header>
 
-    <main id="items">
-      <div class="item" data-category="data">&lt;/codeReef&gt;</div>
-      <div class="item" data-category="structure">&lt;/dataMiner&gt;</div>
-      <div class="item" data-category="node">&lt;/coralRise&gt;</div>
-      <div class="item" data-category="disk">&lt;/glowCore&gt;</div>
-      <div class="item" data-category="heart">&lt;/⚓️⚓️⚓️⚓️⚓️&gt;</div>
-      <div style="width: 30px; flex-shrink: 0;"></div>
-    </main>
+  <main class="grid">
+    <div class="card" data-category="nlp">
+      <h2>Text Sentiment Analyzer</h2>
+      <p>Analyzed product reviews using NLP techniques and a BERT model.</p>
+    </div>
 
-    <footer>
-      <p>▇▇ This is a tribute to my wandering mind.</p>
-    </footer>
-  </div>
+    <div class="card" data-category="cv">
+      <h2>Image Classifier</h2>
+      <p>Built a CNN to classify wildlife images with 92% accuracy.</p>
+    </div>
+
+    <div class="card" data-category="ml">
+      <h2>Churn Prediction</h2>
+      <p>Predicted customer churn using random forest and SHAP values.</p>
+    </div>
+
+    <div class="card" data-category="nlp">
+      <h2>Topic Modeling</h2>
+      <p>Used LDA and BERTopic on Twitter data for topic discovery.</p>
+    </div>
+
+    <div class="card" data-category="ml">
+      <h2>Price Forecasting</h2>
+      <p>Forecasted stock prices using LSTM and ARIMA models.</p>
+    </div>
+
+    <div class="card" data-category="cv">
+      <h2>Object Detection</h2>
+      <p>YOLOv5-based model detecting objects in real-time videos.</p>
+    </div>
+  </main>
 
   <script>
-    function filterItems(category) {
-      const items = document.querySelectorAll(".item");
-      items.forEach(item => {
-        const match = item.getAttribute('data-category') === category || category === "all";
-        item.classList.toggle("hidden", !match);
+    function filterProjects(category) {
+      const cards = document.querySelectorAll('.card');
+      cards.forEach(card => {
+        if (category === 'all' || card.dataset.category === category) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
       });
     }
   </script>
