@@ -4,71 +4,51 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>CyberCoder Data Science Portfolio</title>
+
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Press+Start+2P&display=swap" rel="stylesheet">
+  
+  <!-- Selectize CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/selectize@0.15.2/dist/css/selectize.default.min.css" rel="stylesheet" />
+
   <style>
     body {
       margin: 0;
       font-family: 'Orbitron', sans-serif;
       background: linear-gradient(135deg, #1b0033, #ff00cc);
       color: #fff;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
       padding: 2rem;
+      min-height: 100vh;
     }
 
     h1 {
       font-family: 'Press Start 2P', cursive;
       font-size: 2rem;
       color: #00fff7;
+      text-align: center;
       text-shadow: 0 0 8px #ff00cc;
-      margin-bottom: 1rem;
-    }
-
-    #search-bar {
-      padding: 0.75rem 1rem;
-      font-size: 1rem;
-      width: 300px;
-      margin-bottom: 1rem;
-      border: none;
-      border-radius: 8px;
-      background-color: #222;
-      color: #0ff;
-    }
-
-    #tag-filters {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
       margin-bottom: 2rem;
-      justify-content: center;
     }
 
-    .tag {
-      background: #ff00cc;
-      border: 1px solid #0ff;
-      padding: 6px 12px;
-      border-radius: 20px;
-      cursor: pointer;
-      font-size: 0.9rem;
-      transition: all 0.3s ease;
+    #tag-select-container {
+      max-width: 600px;
+      margin: 0 auto 2rem auto;
     }
 
-    .tag input {
-      display: none;
-    }
-
-    .tag.active {
-      background: #0ff;
-      color: #000;
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+      color: #0ff;
+      text-shadow: 0 0 4px #ff00cc;
     }
 
     .projects {
       display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 1.5rem;
-      max-width: 900px;
-      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
     .project {
@@ -86,30 +66,48 @@
     }
 
     .project h3 {
-      color: #0ff;
       margin-top: 0;
+      color: #0ff;
     }
 
     .project p {
       color: #ddd;
     }
 
-    .project .tags {
-      margin-top: 1rem;
-    }
-
-    .project .tags span {
-      font-size: 0.8rem;
+    .tags span {
+      font-size: 0.75rem;
       background: #ff00cc;
       color: black;
-      border-radius: 8px;
-      padding: 4px 8px;
+      border-radius: 6px;
+      padding: 3px 7px;
       margin-right: 5px;
+      display: inline-block;
+      margin-top: 5px;
+    }
+
+    .selectize-input {
+      background-color: #1c1c1c;
+      color: #0ff;
+      border: 1px solid #ff00cc;
+    }
+
+    .selectize-dropdown {
+      background-color: #1c1c1c;
+      color: #fff;
+    }
+
+    .selectize-dropdown-content .option {
+      padding: 8px;
+      cursor: pointer;
+    }
+
+    .selectize-dropdown-content .option:hover {
+      background-color: #333;
     }
 
     @media (max-width: 600px) {
-      #search-bar {
-        width: 100%;
+      h1 {
+        font-size: 1.2rem;
       }
     }
   </style>
@@ -117,86 +115,92 @@
 <body>
 
   <h1>CyberCoder Portfolio</h1>
-  <input type="text" id="search-bar" placeholder="Search projects..." />
 
-  <div id="tag-filters">
-    <label class="tag"><input type="checkbox" value="Machine Learning" />Machine Learning</label>
-    <label class="tag"><input type="checkbox" value="NLP" />NLP</label>
-    <label class="tag"><input type="checkbox" value="Computer Vision" />Computer Vision</label>
-    <label class="tag"><input type="checkbox" value="Deep Learning" />Deep Learning</label>
-    <label class="tag"><input type="checkbox" value="Time Series" />Time Series</label>
-    <label class="tag"><input type="checkbox" value="Big Data" />Big Data</label>
-    <label class="tag"><input type="checkbox" value="Visualization" />Visualization</label>
+  <div id="tag-select-container">
+    <label for="tag-filter">Filter by Tag</label>
+    <select id="tag-filter" multiple placeholder="Type or select tags...">
+      <option value="Machine Learning">Machine Learning</option>
+      <option value="Deep Learning">Deep Learning</option>
+      <option value="NLP">NLP</option>
+      <option value="Computer Vision">Computer Vision</option>
+      <option value="Visualization">Visualization</option>
+      <option value="Time Series">Time Series</option>
+      <option value="Big Data">Big Data</option>
+      <option value="Reinforcement Learning">Reinforcement Learning</option>
+      <option value="Statistics">Statistics</option>
+    </select>
   </div>
 
-  <div class="projects" id="project-list">
+  <div class="projects" id="projects">
     <div class="project" data-tags="Machine Learning,Visualization">
-      <h3>Customer Churn Predictor</h3>
-      <p>Used Random Forest and SHAP values to analyze telecom churn. Built interactive dashboards.</p>
+      <h3>Churn Prediction System</h3>
+      <p>Built using Random Forest with SHAP visualizations for telecom customer churn insights.</p>
       <div class="tags"><span>Machine Learning</span><span>Visualization</span></div>
     </div>
 
-    <div class="project" data-tags="NLP,Deep Learning">
-      <h3>Sentiment Analyzer</h3>
-      <p>Built a BERT-based model to classify tweets into sentiments. Deployed using Flask and Hugging Face.</p>
-      <div class="tags"><span>NLP</span><span>Deep Learning</span></div>
+    <div class="project" data-tags="Deep Learning,NLP">
+      <h3>Tweet Sentiment Classifier</h3>
+      <p>Used BERT transformer model to detect sentiment in tweets with real-time web interface.</p>
+      <div class="tags"><span>Deep Learning</span><span>NLP</span></div>
     </div>
 
     <div class="project" data-tags="Computer Vision,Deep Learning">
-      <h3>Medical Image Classifier</h3>
-      <p>Developed a CNN to classify chest X-rays with over 90% accuracy using transfer learning.</p>
+      <h3>AI Chest X-Ray Diagnoser</h3>
+      <p>Convolutional neural network trained on medical images with Grad-CAM visual explanations.</p>
       <div class="tags"><span>Computer Vision</span><span>Deep Learning</span></div>
     </div>
 
     <div class="project" data-tags="Time Series,Big Data">
-      <h3>Stock Market Forecaster</h3>
-      <p>Created a time series LSTM model on NASDAQ data using Spark for preprocessing.</p>
+      <h3>Stock Forecasting Model</h3>
+      <p>Built LSTM time series forecaster on stock data using Spark and distributed computing.</p>
       <div class="tags"><span>Time Series</span><span>Big Data</span></div>
     </div>
 
     <div class="project" data-tags="Visualization">
-      <h3>Interactive COVID-19 Dashboard</h3>
-      <p>Built with Plotly and Dash to visualize global pandemic data trends and forecasts.</p>
+      <h3>COVID-19 Global Dashboard</h3>
+      <p>Interactive Plotly dashboard tracking worldwide pandemic statistics and trends.</p>
       <div class="tags"><span>Visualization</span></div>
+    </div>
+
+    <div class="project" data-tags="Reinforcement Learning,Statistics">
+      <h3>Autonomous Trading Agent</h3>
+      <p>Implemented Q-Learning and policy gradient methods for portfolio optimization.</p>
+      <div class="tags"><span>Reinforcement Learning</span><span>Statistics</span></div>
     </div>
   </div>
 
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/selectize@0.15.2/dist/js/standalone/selectize.min.js"></script>
   <script>
-    const tagFilters = document.querySelectorAll('.tag input');
-    const projectList = document.getElementById('project-list');
-    const searchBar = document.getElementById('search-bar');
+    const select = document.getElementById('tag-filter');
+    const projectElements = document.querySelectorAll('.project');
 
-    function filterProjects() {
-      const selectedTags = Array.from(tagFilters)
-        .filter(input => input.checked)
-        .map(input => input.value.toLowerCase());
+    const tagSelect = Selectize.create(select, {
+      plugins: ['remove_button'],
+      persist: false,
+      maxItems: null,
+      valueField: 'value',
+      labelField: 'value',
+      searchField: 'value',
+      onChange: filterProjects
+    });
 
-      const searchTerm = searchBar.value.toLowerCase();
+    function filterProjects(selectedTags) {
+      selectedTags = selectedTags || [];
 
-      const projects = document.querySelectorAll('.project');
-      projects.forEach(project => {
-        const projectTags = project.dataset.tags.toLowerCase();
-        const textContent = project.textContent.toLowerCase();
+      projectElements.forEach(project => {
+        const projectTags = project.dataset.tags.toLowerCase().split(',').map(t => t.trim());
+        const matches = selectedTags.every(tag =>
+          projectTags.includes(tag.toLowerCase())
+        );
 
-        const tagMatch = selectedTags.every(tag => projectTags.includes(tag));
-        const searchMatch = textContent.includes(searchTerm);
-
-        if ((selectedTags.length === 0 || tagMatch) && searchMatch) {
+        if (selectedTags.length === 0 || matches) {
           project.style.display = 'block';
         } else {
           project.style.display = 'none';
         }
       });
     }
-
-    tagFilters.forEach(input => {
-      input.addEventListener('change', e => {
-        input.parentElement.classList.toggle('active', input.checked);
-        filterProjects();
-      });
-    });
-
-    searchBar.addEventListener('input', filterProjects);
   </script>
 </body>
 </html>
