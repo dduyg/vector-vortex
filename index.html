@@ -52,6 +52,7 @@
       background: none;
       border: none;
       font-size: 1.3rem;
+      font-family: monospace;
       color: #00ffff;
       cursor: pointer;
       transition: all 0.3s ease;
@@ -78,14 +79,14 @@
       border: 2px dashed;
       padding: 1rem;
       margin-left: 1rem;
-      height: 150px;
+      height: 120px;
       transition: transform 0.3s;         
       flex: 0 0 auto; /* prevent shrinking */
-      min-width: 200px;
+      min-width: 100px;
       display: flex;
       justify-content: center;
       align-items: center;
-      font-size: 1.2rem;      
+      font-size: 1.35rem;      
     }
     .item:hover {
       transform: scale(1.03);
@@ -94,8 +95,8 @@
     footer {
       text-align: center;
       padding: 2rem 0;
-      font-size: 0.8rem;
-      border-top: 1px solid;
+      font-size: 0.9rem;
+      border-top: 3px solid;
     }
 
     .hidden {
@@ -124,6 +125,7 @@
       <div class="item" data-category="structure">dataMiner</div>
       <div class="item" data-category="node">coralRise</div>
       <div class="item" data-category="disk">glowCore</div>
+      <div style="width: 50px; flex-shrink: 0;"></div>
     </section>
 
     <footer>
