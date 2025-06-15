@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>CyberCoder Data Science Portfolio</title>
+  <title>CyberCoder Portfolio</title>
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Press+Start+2P&display=swap" rel="stylesheet">
@@ -30,8 +30,8 @@
       margin-bottom: 2rem;
     }
 
-    #tag-select-container {
-      max-width: 600px;
+    .filter-section {
+      max-width: 700px;
       margin: 0 auto 2rem auto;
     }
 
@@ -41,6 +41,10 @@
       margin-bottom: 0.5rem;
       color: #0ff;
       text-shadow: 0 0 4px #ff00cc;
+    }
+
+    select {
+      width: 100%;
     }
 
     .projects {
@@ -74,7 +78,7 @@
       color: #ddd;
     }
 
-    .tags span {
+    .tags span, .type-label {
       font-size: 0.75rem;
       background: #ff00cc;
       color: black;
@@ -83,6 +87,11 @@
       margin-right: 5px;
       display: inline-block;
       margin-top: 5px;
+    }
+
+    .type-label {
+      background: #0ff;
+      color: #000;
     }
 
     .selectize-input {
@@ -116,9 +125,9 @@
 
   <h1>CyberCoder Portfolio</h1>
 
-  <div id="tag-select-container">
+  <div class="filter-section">
     <label for="tag-filter">Filter by Tag</label>
-    <select id="tag-filter" multiple placeholder="Type or select tags...">
+    <select id="tag-filter" multiple placeholder="Select tags...">
       <option value="Machine Learning">Machine Learning</option>
       <option value="Deep Learning">Deep Learning</option>
       <option value="NLP">NLP</option>
@@ -131,51 +140,76 @@
     </select>
   </div>
 
+  <div class="filter-section">
+    <label for="type-filter">Filter by Type</label>
+    <select id="type-filter">
+      <option value="">All Types</option>
+      <option value="Project">Project</option>
+      <option value="Product">Product</option>
+      <option value="Post">Post</option>
+    </select>
+  </div>
+
   <div class="projects" id="projects">
-    <div class="project" data-tags="Machine Learning,Visualization">
+    <div class="project" data-tags="Machine Learning,Visualization" data-type="Project">
       <h3>Churn Prediction System</h3>
-      <p>Built using Random Forest with SHAP visualizations for telecom customer churn insights.</p>
-      <div class="tags"><span>Machine Learning</span><span>Visualization</span></div>
+      <p>Random Forest + SHAP to explain churn behavior in telecom.</p>
+      <div class="tags">
+        <span class="type-label">Project</span>
+        <span>Machine Learning</span><span>Visualization</span>
+      </div>
     </div>
 
-    <div class="project" data-tags="Deep Learning,NLP">
-      <h3>Tweet Sentiment Classifier</h3>
-      <p>Used BERT transformer model to detect sentiment in tweets with real-time web interface.</p>
-      <div class="tags"><span>Deep Learning</span><span>NLP</span></div>
+    <div class="project" data-tags="NLP,Deep Learning" data-type="Product">
+      <h3>Tweet Sentiment Analyzer</h3>
+      <p>Deployable tool built with BERT for real-time Twitter sentiment tracking.</p>
+      <div class="tags">
+        <span class="type-label">Product</span>
+        <span>NLP</span><span>Deep Learning</span>
+      </div>
     </div>
 
-    <div class="project" data-tags="Computer Vision,Deep Learning">
-      <h3>AI Chest X-Ray Diagnoser</h3>
-      <p>Convolutional neural network trained on medical images with Grad-CAM visual explanations.</p>
-      <div class="tags"><span>Computer Vision</span><span>Deep Learning</span></div>
+    <div class="project" data-tags="Computer Vision,Deep Learning" data-type="Project">
+      <h3>Chest X-Ray Diagnosis AI</h3>
+      <p>Trained CNN using PyTorch on open-access datasets with Grad-CAM overlays.</p>
+      <div class="tags">
+        <span class="type-label">Project</span>
+        <span>Computer Vision</span><span>Deep Learning</span>
+      </div>
     </div>
 
-    <div class="project" data-tags="Time Series,Big Data">
-      <h3>Stock Forecasting Model</h3>
-      <p>Built LSTM time series forecaster on stock data using Spark and distributed computing.</p>
-      <div class="tags"><span>Time Series</span><span>Big Data</span></div>
+    <div class="project" data-tags="Time Series,Big Data" data-type="Post">
+      <h3>Forecasting Stocks with Spark</h3>
+      <p>Wrote an in-depth blog on LSTM and distributed time series forecasting.</p>
+      <div class="tags">
+        <span class="type-label">Post</span>
+        <span>Time Series</span><span>Big Data</span>
+      </div>
     </div>
 
-    <div class="project" data-tags="Visualization">
-      <h3>COVID-19 Global Dashboard</h3>
-      <p>Interactive Plotly dashboard tracking worldwide pandemic statistics and trends.</p>
-      <div class="tags"><span>Visualization</span></div>
+    <div class="project" data-tags="Visualization" data-type="Product">
+      <h3>COVID-19 Dashboard</h3>
+      <p>Deployed Dash & Plotly app for interactive pandemic visual insights.</p>
+      <div class="tags">
+        <span class="type-label">Product</span>
+        <span>Visualization</span>
+      </div>
     </div>
 
-    <div class="project" data-tags="Reinforcement Learning,Statistics">
-      <h3>Autonomous Trading Agent</h3>
-      <p>Implemented Q-Learning and policy gradient methods for portfolio optimization.</p>
-      <div class="tags"><span>Reinforcement Learning</span><span>Statistics</span></div>
+    <div class="project" data-tags="Reinforcement Learning,Statistics" data-type="Post">
+      <h3>Q-Learning for Traders</h3>
+      <p>Blog post exploring RL strategies in quantitative finance with code.</p>
+      <div class="tags">
+        <span class="type-label">Post</span>
+        <span>Reinforcement Learning</span><span>Statistics</span>
+      </div>
     </div>
   </div>
 
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/selectize@0.15.2/dist/js/standalone/selectize.min.js"></script>
   <script>
-    const select = document.getElementById('tag-filter');
-    const projectElements = document.querySelectorAll('.project');
-
-    const tagSelect = Selectize.create(select, {
+    const tagSelect = Selectize.create('#tag-filter', {
       plugins: ['remove_button'],
       persist: false,
       maxItems: null,
@@ -185,16 +219,22 @@
       onChange: filterProjects
     });
 
-    function filterProjects(selectedTags) {
-      selectedTags = selectedTags || [];
+    const typeSelect = document.getElementById('type-filter');
+    typeSelect.addEventListener('change', filterProjects);
 
-      projectElements.forEach(project => {
+    function filterProjects() {
+      const selectedTags = tagSelect.getValue();
+      const selectedType = typeSelect.value.toLowerCase();
+      const projects = document.querySelectorAll('.project');
+
+      projects.forEach(project => {
         const projectTags = project.dataset.tags.toLowerCase().split(',').map(t => t.trim());
-        const matches = selectedTags.every(tag =>
-          projectTags.includes(tag.toLowerCase())
-        );
+        const projectType = project.dataset.type.toLowerCase();
 
-        if (selectedTags.length === 0 || matches) {
+        const tagMatch = selectedTags.every(tag => projectTags.includes(tag.toLowerCase()));
+        const typeMatch = !selectedType || projectType === selectedType;
+
+        if ((selectedTags.length === 0 || tagMatch) && typeMatch) {
           project.style.display = 'block';
         } else {
           project.style.display = 'none';
