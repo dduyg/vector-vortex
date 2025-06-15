@@ -6,32 +6,40 @@
   <title>LiminalLoop</title>
   <style>
     :root {
-      --bg: #1a1a2e;
+      --bg-color: #0d0221;
       --accent: #ff6ec7;
-      --secondary: #0f3460;
+      --neon: #00f0ff;
+      --card-bg: #1a0033;
       --text: #e0e0e0;
-      --neon: #00fff7;
+      --secondary: #1f003d;
     }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
-      background: linear-gradient(120deg, var(--bg), #0d1b2a);
-      font-family: 'Orbitron', sans-serif;
+      background: linear-gradient(135deg, var(--bg-color), #220046);
       color: var(--text);
+      font-family: 'Orbitron', sans-serif;
       padding: 2rem;
     }
+
     h1 {
       font-family: 'Press Start 2P', cursive;
-      color: var(--accent);
+      font-size: 1.8rem;
       text-align: center;
-      margin-bottom: 2rem;
+      color: var(--accent);
       text-shadow: 0 0 5px var(--accent), 0 0 10px var(--accent);
+      margin-bottom: 2rem;
     }
 
     .filter-buttons {
       display: flex;
-      justify-content: center;
       flex-wrap: wrap;
+      justify-content: center;
       gap: 1rem;
       margin-bottom: 2rem;
     }
@@ -40,17 +48,17 @@
       background: none;
       border: 2px solid var(--neon);
       color: var(--neon);
-      padding: 0.5rem 1rem;
+      padding: 0.5rem 1.2rem;
+      font-size: 0.9rem;
       cursor: pointer;
-      font-family: 'Orbitron', sans-serif;
-      transition: all 0.3s;
+      border-radius: 6px;
+      transition: 0.3s;
     }
 
     .filter-buttons button:hover,
     .filter-buttons button.active {
       background-color: var(--neon);
-      color: var(--bg);
-      text-shadow: none;
+      color: var(--bg-color);
     }
 
     .projects {
@@ -60,28 +68,28 @@
     }
 
     .project-card {
-      background: var(--secondary);
+      background-color: var(--card-bg);
       border: 2px solid var(--accent);
       border-radius: 1rem;
-      padding: 1rem;
-      box-shadow: 0 0 15px var(--accent);
-      transition: transform 0.3s ease;
+      padding: 1.5rem;
+      box-shadow: 0 0 20px var(--accent);
+      transition: 0.3s ease;
     }
 
     .project-card:hover {
-      transform: scale(1.03);
+      transform: translateY(-5px);
     }
 
     .project-title {
-      font-size: 1.2rem;
-      margin-bottom: 0.5rem;
+      font-size: 1.3rem;
       color: var(--neon);
+      margin-bottom: 0.5rem;
     }
 
     .project-description {
       font-size: 0.95rem;
-      color: #ccc;
-      margin-bottom: 0.5rem;
+      color: #cfcfcf;
+      margin-bottom: 1rem;
     }
 
     .project-tags {
@@ -93,77 +101,98 @@
       margin-top: 3rem;
       text-align: center;
       font-size: 0.75rem;
-      color: #aaa;
+      color: #999;
+    }
+
+    @media (max-width: 600px) {
+      .project-title {
+        font-size: 1.1rem;
+      }
     }
   </style>
 </head>
 <body>
-  <h1>CyberCoder Portfolio</h1>
+
+  <h1>CyberCoder: Data Science Portfolio</h1>
 
   <div class="filter-buttons">
     <button class="active" onclick="filterProjects('all')">All</button>
-    <button onclick="filterProjects('ml')">Machine Learning</button>
-    <button onclick="filterProjects('ds')">Data Science</button>
-    <button onclick="filterProjects('viz')">Data Visualization</button>
-    <button onclick="filterProjects('web')">Web Apps</button>
+    <button onclick="filterProjects('datascience')">Data Science</button>
+    <button onclick="filterProjects('machinelearning')">Machine Learning</button>
+    <button onclick="filterProjects('visualization')">Visualization</button>
+    <button onclick="filterProjects('nlp')">NLP</button>
+    <button onclick="filterProjects('webapp')">Web App</button>
   </div>
 
   <div class="projects" id="projectGrid">
     <!-- Project 1 -->
-    <div class="project-card" data-category="ml ds">
-      <div class="project-title">Predictive Sales Forecasting</div>
-      <div class="project-description">Time-series model using Prophet & XGBoost for retail forecasting.</div>
-      <div class="project-tags">#MachineLearning #DataScience</div>
+    <div class="project-card" data-category="datascience machinelearning">
+      <div class="project-title">Customer Churn Prediction</div>
+      <div class="project-description">Built a logistic regression and XGBoost model to predict churn using telecom customer data.</div>
+      <div class="project-tags">#DataScience #MachineLearning</div>
     </div>
 
     <!-- Project 2 -->
-    <div class="project-card" data-category="viz ds">
-      <div class="project-title">Interactive COVID-19 Dashboard</div>
-      <div class="project-description">D3.js powered dashboard visualizing global COVID-19 trends.</div>
+    <div class="project-card" data-category="visualization datascience">
+      <div class="project-title">Interactive Data Dashboard</div>
+      <div class="project-description">Created a dynamic dashboard with Plotly and Dash to explore sales performance by region.</div>
       <div class="project-tags">#Visualization #DataScience</div>
     </div>
 
     <!-- Project 3 -->
-    <div class="project-card" data-category="web ml">
-      <div class="project-title">ML-Powered Resume Screener</div>
-      <div class="project-description">NLP web app for automated resume scoring using BERT.</div>
-      <div class="project-tags">#WebApp #MachineLearning</div>
+    <div class="project-card" data-category="machinelearning webapp">
+      <div class="project-title">Fraud Detection API</div>
+      <div class="project-description">Deployed a real-time fraud detection system with Flask and LightGBM via REST API.</div>
+      <div class="project-tags">#MachineLearning #WebApp</div>
     </div>
 
     <!-- Project 4 -->
-    <div class="project-card" data-category="ds">
-      <div class="project-title">Customer Churn Analysis</div>
-      <div class="project-description">Logistic regression & clustering on telecom churn data.</div>
-      <div class="project-tags">#DataScience</div>
+    <div class="project-card" data-category="nlp machinelearning">
+      <div class="project-title">Resume Ranker with BERT</div>
+      <div class="project-description">Used transformers to score and rank resumes based on job relevance using BERT embeddings.</div>
+      <div class="project-tags">#NLP #MachineLearning</div>
     </div>
 
     <!-- Project 5 -->
-    <div class="project-card" data-category="viz">
-      <div class="project-title">Neon Visualizer</div>
-      <div class="project-description">Cyberpunk-themed real-time data visualizations with Three.js.</div>
+    <div class="project-card" data-category="visualization">
+      <div class="project-title">Cyberpunk Data Visualizer</div>
+      <div class="project-description">Real-time 3D visualizations with Three.js and WebGL for live sensor streaming.</div>
       <div class="project-tags">#Visualization</div>
+    </div>
+
+    <!-- Project 6 -->
+    <div class="project-card" data-category="datascience nlp">
+      <div class="project-title">Sentiment Analysis on Product Reviews</div>
+      <div class="project-description">Analyzed 50k+ reviews using NLP pipelines, VADER, and topic modeling (LDA).</div>
+      <div class="project-tags">#NLP #DataScience</div>
+    </div>
+
+    <!-- Project 7 -->
+    <div class="project-card" data-category="webapp machinelearning">
+      <div class="project-title">ML Model Hosting Platform</div>
+      <div class="project-description">Full-stack web platform where users can upload and test ML models in real-time.</div>
+      <div class="project-tags">#WebApp #MachineLearning</div>
     </div>
   </div>
 
   <footer>
-    Designed with 💾 by CyberCoder · Vaporwave vibes included
+    &copy; 2025 CyberCoder • Powered by Python & Neon ✨
   </footer>
 
   <script>
     function filterProjects(category) {
+      const cards = document.querySelectorAll('.project-card');
       const buttons = document.querySelectorAll('.filter-buttons button');
+
       buttons.forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
 
-      const activeBtn = Array.from(buttons).find(btn => btn.textContent.toLowerCase().includes(category));
-      if (activeBtn) activeBtn.classList.add('active');
-
-      const projects = document.querySelectorAll('.project-card');
-      projects.forEach(project => {
-        const categories = project.getAttribute('data-category').split(' ');
+      cards.forEach(card => {
+        const categories = card.getAttribute('data-category').split(' ');
         if (category === 'all' || categories.includes(category)) {
-          project.style.display = 'block';
+          card.style.display = 'block';
         } else {
-          project.style.display = 'none';
+          card.style.display = 'none';
         }
       });
     }
