@@ -1,158 +1,172 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Liminal⚓️Loop</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    @font-face {
-      font-family: 'Revetra';
-      src: url('Revetra.woff2') format('woff2');
-      font-weight: normal;
-      font-style: normal;
-    }
-
-    body {
+<!DOCTYPE html>            
+<html lang="en">            
+<head>            
+  <meta charset="UTF-8" />            
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>            
+  <title>Liminal⚓️Loop</title>            
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />            
+  <style>            
+    * { margin: 0; padding: 0; box-sizing: border-box; }            
+    
+    /* Background GIF full screen */
+    body, html {
+      height: 100%;
       font-family: 'Revetra', sans-serif;
-      background: url('https://media4.giphy.com/media/xT9IgAyUXKqniwFj20/giphy.gif') no-repeat center center fixed;
-      background-size: cover;
+      background: #5f0f40;
       color: #00ffff;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    /* Background image with fixed positioning */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: url('https://media4.giphy.com/media/xT9IgAyUXKqniwFj20/giphy.gif') center center / cover no-repeat;
+      opacity: 0.15; /* adjust transparency */
+      z-index: -1;
+      pointer-events: none;
+    }
+    
+    /* Container to center content vertically and horizontally */
+    body > div.wrapper {
       height: 100vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
-    }
-
-    header {
+      align-items: center;
+      padding: 0 1rem;
+      max-width: 1000px;
+      margin: 0 auto;
       text-align: center;
+    }
+    
+    @font-face {            
+      font-family: 'Revetra';            
+      src: url('Revetra.woff2') format('woff2');            
+      font-weight: normal;            
+      font-style: normal;            
+    }            
+    
+    header h1 {            
+      font-size: 2.5rem;            
+    }            
+    
+    nav {            
+      display: flex;            
+      justify-content: center;            
+      gap: 2rem;            
+      padding: 1rem 0;            
+      border-top: 1px solid;            
+      border-bottom: 1px solid;            
+    }              
+    
+    nav button {            
+      background: none;            
+      border: none;            
+      font-size: 1.3rem;            
+      color: #00ffff;            
+      cursor: pointer;            
+      transition: all 0.3s ease;            
+    }            
+    
+    nav button:hover {            
+      color: #eee;            
+    }            
+    
+    section#items {            
+      display: flex;            
+      gap: 1.5rem;              
+      align-items: center;            
+      overflow-x: auto;            
+      overflow-y: hidden;            
+      scrollbar-width: none; /* Firefox */            
+      -ms-overflow-style: none;  /* Internet Explorer 10+ */            
       padding: 2rem 0;
-    }
-
-    header h1 {
-      font-size: 2.5rem;
-    }
-
-    nav {
+      width: 100%;
+      justify-content: center;
+    }            
+    
+    section#items::-webkit-scrollbar {            
+      display: none; /* Safari & Chrome */                 
+    }            
+    
+    .item {            
+      border: 2px dashed;            
+      padding: 1rem;            
+      margin-left: 1rem;            
+      height: 150px;            
+      transition: transform 0.3s;            
+      flex: 0 0 auto; /* prevent shrinking */
+      min-width: 200px;
       display: flex;
       justify-content: center;
-      gap: 2rem;
-      padding: 1rem 0;
-      border-top: 1px solid;
-      border-bottom: 1px solid;
-    }
-
-    nav button {
-      background: none;
-      border: none;
-      font-size: 1.3rem;
-      color: #00ffff;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    nav button:hover {
-      color: #eee;
-    }
-
-    section {
-      max-width: 1000px;
-      margin: auto;
-      padding: 2rem 0;
-    }
-
-    #items {
-      display: flex;
-      gap: 1.5rem;
       align-items: center;
-      overflow-x: auto;
-      overflow-y: hidden;
-      scrollbar-width: none;
-      -ms-overflow-style: none;
-    }
+      font-size: 1.2rem;
+    }            
+    
+    .item:hover { transform: scale(1.03); }            
+    
+    footer {            
+      text-align: center;            
+      padding: 2rem 0;            
+      font-size: 0.8rem;            
+      border-top: 1px solid;            
+      width: 100%;
+    }            
+    
+    .hidden { display: none; }            
+  </style>            
+</head>            
+<body>  
 
-    #items::-webkit-scrollbar {
-      display: none;
-    }
-
-    .item {
-      border: 2px dashed;
-      padding: 1rem;
-      margin-left: 1rem;
-      height: 150px;
-      transition: transform 0.3s;
-      min-width: 200px;
-      flex-shrink: 0;
-    }
-
-    .item:hover {
-      transform: scale(1.03);
-    }
-
-    footer {
-      text-align: center;
-      padding: 2rem 0;
-      font-size: 0.8rem;
-      border-top: 1px solid;
-    }
-
-    .hidden {
-      display: none;
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <h1>&lt;/CyberCoder&gt;</h1>
-    <p>Data Science Portfolio</p>
-  </header>
-
-  <nav>
-    <button onclick="filterItems('all')">All</button>
-    <button onclick="filterItems('data')"><i class="fas fa-database"></i></button>
-    <button onclick="filterItems('structure')"><i class="fas fa-server"></i></button>
-    <button onclick="filterItems('node')"><i class="fas fa-chart-simple"></i></button>
-    <button onclick="filterItems('disk')"><i class="fas fa-floppy-disk"></i></button>
-    <button onclick="filterItems('heart')"><i class="fas fa-hand-holding-heart"></i></button>
-  </nav>
-
-  <section id="items">
-    <div class="item" data-category="data">
-      <h3>LoanPrictor</h3>
-    </div>
-    <div class="item" data-category="structure">
-      <h3>SentimAnalyzer</h3>
-    </div>
-    <div class="item" data-category="node">
-      <h3>Retashboard</h3>
-    </div>
-    <div class="item" data-category="heart">
-      <h3>CareTrack</h3>
-    </div>
-    <div class="item" data-category="disk">
-      <h3>BackupToolX</h3>
-    </div>
-  </section>
-
-  <footer>
-    <p>© 2025 Your Name | CyberCoder Portfolio</p>
-  </footer>
-
-  <script>
-    function filterItems(category) {
-      const items = document.querySelectorAll(".item");
-      items.forEach(item => {
-        const itemCategory = item.getAttribute("data-category");
-        const show = category === "all" || itemCategory === category;
-        item.classList.toggle("hidden", !show);
-      });
-    }
-  </script>
-</body>
+  <div class="wrapper">
+    <header>            
+      <h1>&lt;/CyberCoder&gt;</h1>            
+      <p>Data Science Portfolio</p>            
+    </header>            
+    
+    <nav>            
+      <button onclick="filterItems('all')">All</button>            
+      <button onclick="filterItems('data')"><i class="fas fa-database"></i></button>            
+      <button onclick="filterItems('structure')"><i class="fas fa-server"></i></button>            
+      <button onclick="filterItems('node')"><i class="fas fa-chart-simple"></i></button>            
+      <button onclick="filterItems('disk')"><i class="fas fa-floppy-disk"></i></button>            
+      <button onclick="filterItems('heart')"><i class="fas fa-hand-holding-heart"></i></button>            
+    </nav>            
+             
+    <section id="items">                  
+      <div class="item" data-category="data">            
+        <h3>LoanPrictor</h3>            
+      </div>            
+      
+      <div class="item" data-category="structure">            
+        <h3>SentimAnalyzer</h3>            
+      </div>            
+      
+      <div class="item" data-category="node">            
+        <h3>Retashboard</h3>            
+      </div>            
+    </section>            
+    
+    <footer>            
+      <p>© 2025 Your Name | CyberCoder Portfolio</p>            
+    </footer>
+  </div>          
+  
+  <script>            
+    function filterItems(category) {            
+      const items = document.querySelectorAll(".item");            
+      items.forEach(item => {            
+        if (category === "all") {
+          item.classList.remove("hidden");
+        } else {
+          const itemCategory = item.getAttribute("data-category");
+          item.classList.toggle("hidden", itemCategory !== category);
+        }
+      });            
+    }            
+  </script>            
+</body>            
 </html>
