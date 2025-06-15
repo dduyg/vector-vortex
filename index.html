@@ -26,6 +26,10 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
+    .modal {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(12px);
+    }
   </style>
 </head>
 <body class="min-h-screen px-6 py-10">
@@ -66,20 +70,61 @@
     </div>
   </section>
 
+  <!-- Modal -->
+  <div id="modalOverlay" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+    <div class="modal p-6 rounded-xl shadow-xl max-w-lg w-full relative">
+      <button onclick="closeModal()" class="absolute top-2 right-2 text-gray-600 hover:text-gray-900 text-xl">&times;</button>
+      <h2 id="modalTitle" class="text-2xl font-semibold text-indigo-700 mb-2"></h2>
+      <p id="modalType" class="text-sm text-gray-700 mb-3"></p>
+      <div id="modalTags" class="flex flex-wrap gap-2 mb-4 text-sm"></div>
+      <p id="modalDescription" class="text-gray-800 leading-relaxed text-sm"></p>
+    </div>
+  </div>
+
   <script>
     const tags = ["AI", "ML", "NLP", "Computer Vision", "Data Viz", "Product", "Deep Learning", "Web App"];
     const works = [
-      { title: "AI Chatbot", tags: ["AI", "NLP"], type: "Product" },
-      { title: "Stock Predictor", tags: ["ML", "Data Viz"], type: "Project" },
-      { title: "Blog: Deep Learning Tricks", tags: ["Deep Learning"], type: "Post" },
-      { title: "Vision Classifier", tags: ["Computer Vision", "AI"], type: "Project" },
-      { title: "Interactive Dashboard", tags: ["Web App", "Data Viz"], type: "Product" },
+      {
+        title: "AI Chatbot",
+        tags: ["AI", "NLP"],
+        type: "Product",
+        description: "Built a conversational AI assistant that handles customer support using NLP and transformer models."
+      },
+      {
+        title: "Stock Predictor",
+        tags: ["ML", "Data Viz"],
+        type: "Project",
+        description: "A model that predicts stock trends using LSTM and displays interactive visualizations."
+      },
+      {
+        title: "Blog: Deep Learning Tricks",
+        tags: ["Deep Learning"],
+        type: "Post",
+        description: "A deep-dive article on optimizing deep neural networks and avoiding common pitfalls."
+      },
+      {
+        title: "Vision Classifier",
+        tags: ["Computer Vision", "AI"],
+        type: "Project",
+        description: "Trained a convolutional neural network to classify medical images with 94% accuracy."
+      },
+      {
+        title: "Interactive Dashboard",
+        tags: ["Web App", "Data Viz"],
+        type: "Product",
+        description: "A Flask dashboard with real-time data charts and user interactivity for business KPIs."
+      }
     ];
 
     const tagInput = document.getElementById('tagInput');
     const tagDropdown = document.getElementById('tagDropdown');
     const selectedTagsContainer = document.getElementById('selectedTags');
     const worksList = document.getElementById('worksList');
+    const modalOverlay = document.getElementById('modalOverlay');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalTags = document.getElementById('modalTags');
+    const modalType = document.getElementById('modalType');
+    const modalDescription = document.getElementById('modalDescription');
 
     let selectedTags = [];
     let selectedType = '';
@@ -134,7 +179,8 @@
 
       filteredWorks.forEach(work => {
         const div = document.createElement('div');
-        div.className = "glass p-5 rounded-lg border border-gray-200 shadow-lg transition hover:shadow-xl";
+        div.className = "glass p-5 rounded-lg border border-gray-200 shadow-lg transition hover:shadow-xl cursor-pointer";
+        div.onclick = () => openModal(work);
         div.innerHTML = `
           <h3 class="text-xl font-semibold text-indigo-600 mb-2">${work.title}</h3>
           <p class="text-sm text-gray-700 mb-2">Type: <strong>${work.type}</strong></p>
@@ -144,6 +190,21 @@
         `;
         worksList.appendChild(div);
       });
+    }
+
+    // Modal open/close
+    function openModal(work) {
+      modalTitle.textContent = work.title;
+      modalType.textContent = `Type: ${work.type}`;
+      modalTags.innerHTML = work.tags.map(tag => `<span class="bg-indigo-100 text-indigo-700 px-2 py-1 rounded">${tag}</span>`).join('');
+      modalDescription.textContent = work.description;
+      modalOverlay.classList.remove('hidden');
+      modalOverlay.classList.add('flex');
+    }
+
+    function closeModal() {
+      modalOverlay.classList.add('hidden');
+      modalOverlay.classList.remove('flex');
     }
 
     // Type dropdown
@@ -162,7 +223,7 @@
       renderWorks();
     }
 
-    // Outside click to close
+    // Close dropdowns on outside click
     document.addEventListener('click', e => {
       if (!tagInput.contains(e.target) && !tagDropdown.contains(e.target)) {
         tagDropdown.style.display = 'none';
