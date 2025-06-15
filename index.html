@@ -25,14 +25,23 @@
       max-width: 900px;
       margin: auto;
     }
-    .filters {  
+
+    .filters {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 1rem;
+      flex-wrap: wrap;
       margin-bottom: 2rem;
     }
-    .tag-box {
+
+    .setTag {
+      flex: 1;
+      min-width: 250px;
       position: relative;
-      width: 100%;
     }
-    .tag-box input {
+
+    .setTag input {
       box-sizing: border-box;
       width: 100%;
       padding: 0.6rem;
@@ -42,6 +51,7 @@
       border-radius: 8px;
       font-family: inherit;
     }
+
     .tag-dropdown {
       position: absolute;
       top: 100%;
@@ -55,19 +65,23 @@
       z-index: 10;
       border-radius: 0 0 8px 8px;
     }
+
     .tag-dropdown div {
       padding: 0.5rem;
       cursor: pointer;
     }
+
     .tag-dropdown div:hover {
       background: #a7fff6;
     }
+
     .selected-tags {
       margin-top: 0.5rem;
       display: flex;
       flex-wrap: wrap;
       gap: 0.5rem;
     }
+
     .selected-tags button {
       background: #a7fff6;
       color: black;
@@ -78,13 +92,15 @@
       cursor: pointer;
     }
 
-    .type-toggle {
+    .setType {
+      flex: 1;
+      min-width: 250px;
       display: flex;
-      margin-top: 1rem;
       border-top: 1px solid #ff7eb9;
       border-bottom: 1px solid #ff7eb9;
     }
-    .type-toggle button {
+
+    .setType button {
       flex: 1;
       background: transparent;
       border: none;
@@ -95,7 +111,8 @@
       transition: all 0.2s ease;
       font-family: inherit;
     }
-    .type-toggle button.active {
+
+    .setType button.active {
       background: #ff7eb9;
       color: white;
     }
@@ -104,26 +121,39 @@
       display: grid;
       gap: 1.5rem;
     }
+
     .card {
+      display: block;
+      text-decoration: none;
+      color: inherit;
       background: rgba(255,255,255,0.4);
       border: 2px solid #4adbc8;
       padding: 1rem;
       border-radius: 12px;
       box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
       backdrop-filter: blur(4px);
+      transition: transform 0.2s ease;
     }
+
+    .card:hover {
+      transform: translateY(-2px);
+    }
+
     .card h3 {
       color: #ff7eb9;
       margin-bottom: 0.3rem;
     }
+
     .card .desc {
       margin: 0.5rem 0;
     }
+
     .tags {
       display: flex;
       flex-wrap: wrap;
       gap: 0.4rem;
     }
+
     .tags span {
       background: #a7fff6;
       color: black;
@@ -131,20 +161,29 @@
       border-radius: 4px;
       font-size: 0.8rem;
     }
+
+    @media (max-width: 600px) {
+      .filters {
+        flex-direction: column;
+      }
+      .setTag, .setType {
+        width: 100%;
+      }
+    }
   </style>
 </head>
 <body>
   <div class="container">
     <h1>Seapunk Portfolio</h1>
- 
+
     <div class="filters">
-      <div class="tag-box">
+      <div class="setTag">
         <input type="text" id="tagInput" placeholder="Filter by Tags...">
         <div id="tagDropdown" class="tag-dropdown"></div>
         <div class="selected-tags" id="selectedTags"></div>
-      </div>      
+      </div>
 
-      <div class="type-toggle">
+      <div class="setType">
         <button onclick="selectType('')" class="active">All</button>
         <button onclick="selectType('Project')">Project</button>
         <button onclick="selectType('Product')">Product</button>
@@ -158,11 +197,11 @@
   <script>
     const tags = ["AI", "ML", "NLP", "CV", "Web App", "Data Viz", "Product", "DL"];
     const works = [
-      { title: "AI Chatbot", tags: ["AI", "NLP"], type: "Product", description: "Conversational bot using GPT and NLU" },
-      { title: "Stock Predictor", tags: ["ML", "Data Viz"], type: "Project", description: "Predicts stock price trends using time series models" },
-      { title: "Deep Learning Tricks", tags: ["DL"], type: "Post", description: "A blog post covering training hacks" },
-      { title: "CV Classifier", tags: ["AI", "CV"], type: "Project", description: "Image classifier with CNNs" },
-      { title: "Interactive Dashboard", tags: ["Web App", "Data Viz"], type: "Product", description: "Real-time dashboards for business insights" },
+      { title: "AI Chatbot", tags: ["AI", "NLP"], type: "Product", description: "Conversational bot using GPT and NLU", url: "https://example.com/chatbot" },
+      { title: "Stock Predictor", tags: ["ML", "Data Viz"], type: "Project", description: "Predicts stock price trends using time series models", url: "https://example.com/stock" },
+      { title: "Deep Learning Tricks", tags: ["DL"], type: "Post", description: "A blog post covering training hacks", url: "https://example.com/dl-tricks" },
+      { title: "CV Classifier", tags: ["AI", "CV"], type: "Project", description: "Image classifier with CNNs", url: "https://example.com/cv" },
+      { title: "Interactive Dashboard", tags: ["Web App", "Data Viz"], type: "Product", description: "Real-time dashboards for business insights", url: "https://example.com/dashboard" },
     ];
 
     let selectedTags = [];
@@ -190,8 +229,8 @@
             selectedTags.push(tag);
             updateTags();
             renderWorks();
-            tagDropdown.style.display = 'none'; // hide dropdown after select
-            tagInput.value = ''; // clear input
+            tagDropdown.style.display = 'none';
+            tagInput.value = '';
           }
         };
         tagDropdown.appendChild(div);
@@ -216,8 +255,8 @@
 
     function selectType(type) {
       selectedType = type;
-      document.querySelectorAll('.type-toggle button').forEach(btn => btn.classList.remove('active'));
-      [...document.querySelectorAll('.type-toggle button')].find(btn => btn.textContent === (type || "All")).classList.add('active');
+      document.querySelectorAll('.setType button').forEach(btn => btn.classList.remove('active'));
+      [...document.querySelectorAll('.setType button')].find(btn => btn.textContent === (type || "All")).classList.add('active');
       renderWorks();
     }
 
@@ -236,8 +275,10 @@
       }
 
       filtered.forEach(work => {
-        const card = document.createElement('div');
+        const card = document.createElement('a');
         card.className = 'card';
+        card.href = work.url;
+        card.target = "_blank";
         card.innerHTML = `
           <h3>${work.title}</h3>
           <div class="desc">${work.description}</div>
