@@ -7,20 +7,19 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    html, body {
-      height: 100%;
-    }
     @font-face {
       font-family: 'Revetra';
       src: url('Revetra.woff2') format('woff2');
       font-weight: normal;
       font-style: normal;
     }
+
     body {
       font-family: 'Revetra', sans-serif;
       background: url('https://media4.giphy.com/media/xT9IgAyUXKqniwFj20/giphy.gif') no-repeat center center fixed;
       background-size: cover;
       color: #00ffff;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
     }
@@ -31,12 +30,14 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      padding: 1rem;
+      text-align: center;
     }
 
     header {
-      text-align: center;
-      padding-bottom: 1rem;
+      padding: 2rem 0 1rem 0;
     }
+
     header h1 {
       font-size: 2.5rem;
     }
@@ -44,7 +45,7 @@
     nav {
       display: flex;
       justify-content: center;
-      gap: 1.5rem;
+      gap: 2rem;
       padding: 1rem 0;
       border-top: 1px solid;
       border-bottom: 1px solid;
@@ -58,21 +59,25 @@
       cursor: pointer;
       transition: all 0.3s ease;
     }
+
     nav button:hover {
       color: #eee;
     }
 
-    #gallery {
+    #items {
       display: flex;
       gap: 1.5rem;
       align-items: center;
       overflow-x: auto;
       overflow-y: hidden;
+      padding: 2rem 0;
       scrollbar-width: none;
       -ms-overflow-style: none;
-      padding: 2rem 0;
     }
-    #gallery::-webkit-scrollbar { display: none; }
+
+    #items::-webkit-scrollbar {
+      display: none;
+    }
 
     .item {
       border: 2px dashed;
@@ -81,21 +86,23 @@
       height: 150px;
       transition: transform 0.3s;
       min-width: 200px;
-      text-align: center;
     }
+
     .item:hover {
       transform: scale(1.03);
     }
 
+    .hidden {
+      display: none;
+    }
+
     footer {
       text-align: center;
-      padding: 1rem;
+      padding: 2rem 0;
       font-size: 0.8rem;
       border-top: 1px solid;
       background-color: rgba(0, 0, 0, 0.4);
     }
-
-    .hidden { display: none; }
   </style>
 </head>
 <body>
@@ -114,7 +121,7 @@
       <button onclick="filterItems('heart')"><i class="fas fa-hand-holding-heart"></i></button>
     </nav>
 
-    <section id="gallery">
+    <section id="items">
       <div class="item" data-category="data">
         <h3>LoanPrictor</h3>
       </div>
@@ -137,7 +144,8 @@
     function filterItems(category) {
       const items = document.querySelectorAll(".item");
       items.forEach(item => {
-        const match = item.dataset.category === category || category === "all";
+        const itemCategory = item.getAttribute('data-category');
+        const match = category === "all" || itemCategory === category;
         item.classList.toggle("hidden", !match);
       });
     }
