@@ -62,7 +62,12 @@
       display: none;
       z-index: 10;
       border-radius: 0 0 8px 8px;
+      scrollbar-width: none; /* Firefox */
+      -ms-overflow-style: none;  /* Internet Explorer 10+ */
     }
+    #tagDropdown::-webkit-scrollbar {
+      display: none; /* Safari & Chrome */     
+    }   
     #tagDropdown div {
       padding: 0.5rem;
       cursor: pointer;
