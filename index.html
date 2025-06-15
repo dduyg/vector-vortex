@@ -66,16 +66,13 @@
       display: none; /* Safari & Chrome */     
     }
     .card {
-      border: 1px dashed;
+      border: 2px dashed;
       padding: 1rem;
-      height: 200px;
+      height: 150px;
       transition: transform 0.3s;
     }
     .card:hover {
       transform: scale(1.03);
-    }
-    .card p {
-      margin: 0.5rem 0;
     }
     footer {
       text-align: center;
@@ -106,17 +103,14 @@
   <section id="projects">
       <div class="card ml" data-category="ml">
         <h3>Loan Default Predictor</h3>
-        <p>XGBoost model that predicts loan default risk. Deployed using Flask and Docker.</p>
       </div>
 
       <div class="card nlp" data-category="nlp">
         <h3>Sentiment Analyzer</h3>
-        <p>Python app using sp on GitHub</p>
       </div>
 
       <div class="card viz" data-category="viz">
         <h3>Retro Climate Dashboard</h3>
-        <p>Interactive Plotly dashboard showing 80s-style animated climate trends.</p>
       </div>
   </section>
 
