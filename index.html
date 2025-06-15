@@ -7,6 +7,7 @@
   <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Federo&display=swap" rel="stylesheet">
   <style>
+    * { box-sizing: border-box; outline: none; -webkit-tap-highlight-color: transparent; }
     body {
       margin: 0;
       font-family: "VT323", monospace;
@@ -29,9 +30,7 @@
     .filters {
       display: flex;
       justify-content: space-between;
-      align-items: flex-start;
-      gap: 1rem;
-      flex-wrap: wrap;
+      align-items: center;
       margin-bottom: 2rem;
     }
     .setTag {
@@ -40,7 +39,6 @@
       position: relative;
     }
     .setTag input {
-      box-sizing: border-box;
       width: 100%;
       padding: 0.6rem;
       background: rgba(255,255,255,0.4);
@@ -48,6 +46,7 @@
       box-shadow: 0 4px 10px rgba(0,0,0,0.05);
       border-radius: 8px;
       font-family: inherit;
+      font-size: 1.2em;
     }
 
     #tagDropdown {
@@ -79,7 +78,7 @@
     #selectedTags button {
       background: #a7fff6;
       color: black;
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       padding: 0.3rem 0.6rem;
       border: 1px solid #4adbc8;
       border-radius: 6px;
@@ -100,6 +99,7 @@
       color: #ff7eb9;
       padding: 0.5rem;
       font-weight: bold;
+      text-transform: uppercase;
       cursor: pointer;
       transition: all 0.2s ease;
       font-family: inherit;
@@ -157,7 +157,7 @@
 </head>
 <body>
   <div class="container">
-    <h1>Seapunk Portfolio</h1>
+    <h1>The Water Bubble ◆</h1>
 
     <nav class="filters">
       <div class="setTag">
