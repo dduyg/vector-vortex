@@ -3,244 +3,163 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>CyberCoder Portfolio</title>
-
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Press+Start+2P&display=swap" rel="stylesheet">
-  
-  <!-- Selectize CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/selectize@0.15.2/dist/css/selectize.default.min.css" rel="stylesheet" />
-
+  <title>Data Scientist Portfolio - CyberVapor</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Press+Start+2P&display=swap" rel="stylesheet">
   <style>
     body {
-      margin: 0;
       font-family: 'Orbitron', sans-serif;
-      background: linear-gradient(135deg, #1b0033, #ff00cc);
-      color: #fff;
-      padding: 2rem;
-      min-height: 100vh;
+      background: linear-gradient(135deg, #2b003b, #0f0f2d);
+      color: #f7f7f7;
     }
-
-    h1 {
+    .vapor-title {
       font-family: 'Press Start 2P', cursive;
-      font-size: 2rem;
-      color: #00fff7;
-      text-align: center;
-      text-shadow: 0 0 8px #ff00cc;
-      margin-bottom: 2rem;
+      color: #00ffff;
+      text-shadow: 2px 2px #ff00ff;
     }
-
-    .filter-section {
-      max-width: 700px;
-      margin: 0 auto 2rem auto;
-    }
-
-    label {
-      display: block;
-      font-weight: bold;
-      margin-bottom: 0.5rem;
-      color: #0ff;
-      text-shadow: 0 0 4px #ff00cc;
-    }
-
-    select {
-      width: 100%;
-    }
-
-    .projects {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .project {
-      background: rgba(0, 0, 0, 0.6);
-      padding: 1.5rem;
-      border-radius: 16px;
-      border: 2px solid #ff00cc;
-      box-shadow: 0 0 10px #00fff7;
-      transition: 0.3s;
-    }
-
-    .project:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 0 20px #ff00cc;
-    }
-
-    .project h3 {
-      margin-top: 0;
-      color: #0ff;
-    }
-
-    .project p {
-      color: #ddd;
-    }
-
-    .tags span, .type-label {
-      font-size: 0.75rem;
-      background: #ff00cc;
+    .tag-active {
+      background-color: #ff00ff;
       color: black;
-      border-radius: 6px;
-      padding: 3px 7px;
-      margin-right: 5px;
-      display: inline-block;
-      margin-top: 5px;
     }
-
-    .type-label {
-      background: #0ff;
-      color: #000;
-    }
-
-    .selectize-input {
-      background-color: #1c1c1c;
-      color: #0ff;
-      border: 1px solid #ff00cc;
-    }
-
-    .selectize-dropdown {
-      background-color: #1c1c1c;
-      color: #fff;
-    }
-
-    .selectize-dropdown-content .option {
-      padding: 8px;
-      cursor: pointer;
-    }
-
-    .selectize-dropdown-content .option:hover {
-      background-color: #333;
-    }
-
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 1.2rem;
-      }
+    .glass {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
     }
   </style>
 </head>
-<body>
+<body class="min-h-screen px-6 py-10">
+  <header class="text-center mb-12">
+    <h1 class="text-5xl vapor-title mb-4">CyberCoder Portfolio</h1>
+    <p class="text-lg text-gray-300">Data Science // AI Engineering // Products & Posts</p>
+  </header>
 
-  <h1>CyberCoder Portfolio</h1>
+  <section id="works" class="glass p-6 rounded-2xl shadow-2xl">
+    <h2 class="text-3xl text-pink-400 mb-6">🧠 Works</h2>
 
-  <div class="filter-section">
-    <label for="tag-filter">Filter by Tag</label>
-    <select id="tag-filter" multiple placeholder="Select tags...">
-      <option value="Machine Learning">Machine Learning</option>
-      <option value="Deep Learning">Deep Learning</option>
-      <option value="NLP">NLP</option>
-      <option value="Computer Vision">Computer Vision</option>
-      <option value="Visualization">Visualization</option>
-      <option value="Time Series">Time Series</option>
-      <option value="Big Data">Big Data</option>
-      <option value="Reinforcement Learning">Reinforcement Learning</option>
-      <option value="Statistics">Statistics</option>
-    </select>
-  </div>
+    <!-- FILTER CONTROLS -->
+    <div class="flex flex-wrap gap-4 mb-8">
+      <!-- TAG FILTER -->
+      <div class="flex-1 relative">
+        <input type="text" placeholder="Filter by Tags..." id="tagInput" class="w-full p-2 rounded-lg bg-gray-900 text-white border border-pink-400 focus:outline-none" onkeyup="filterTagDropdown()">
+        <div id="tagDropdown" class="absolute z-10 mt-1 bg-gray-800 border border-pink-500 rounded-md shadow-lg max-h-40 overflow-y-auto hidden">
+          <!-- Tag options injected by JS -->
+        </div>
+        <div class="mt-2 flex flex-wrap gap-2" id="selectedTags"></div>
+      </div>
 
-  <div class="filter-section">
-    <label for="type-filter">Filter by Type</label>
-    <select id="type-filter">
-      <option value="">All Types</option>
-      <option value="Project">Project</option>
-      <option value="Product">Product</option>
-      <option value="Post">Post</option>
-    </select>
-  </div>
-
-  <div class="projects" id="projects">
-    <div class="project" data-tags="Machine Learning,Visualization" data-type="Project">
-      <h3>Churn Prediction System</h3>
-      <p>Random Forest + SHAP to explain churn behavior in telecom.</p>
-      <div class="tags">
-        <span class="type-label">Project</span>
-        <span>Machine Learning</span><span>Visualization</span>
+      <!-- TYPE FILTER -->
+      <div>
+        <select id="typeSelect" class="p-2 rounded-lg bg-gray-900 text-white border border-blue-400">
+          <option value="">All Types</option>
+          <option value="Project">Project</option>
+          <option value="Product">Product</option>
+          <option value="Post">Post</option>
+        </select>
       </div>
     </div>
 
-    <div class="project" data-tags="NLP,Deep Learning" data-type="Product">
-      <h3>Tweet Sentiment Analyzer</h3>
-      <p>Deployable tool built with BERT for real-time Twitter sentiment tracking.</p>
-      <div class="tags">
-        <span class="type-label">Product</span>
-        <span>NLP</span><span>Deep Learning</span>
-      </div>
+    <!-- WORKS LIST -->
+    <div id="worksList" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Example works -->
     </div>
+  </section>
 
-    <div class="project" data-tags="Computer Vision,Deep Learning" data-type="Project">
-      <h3>Chest X-Ray Diagnosis AI</h3>
-      <p>Trained CNN using PyTorch on open-access datasets with Grad-CAM overlays.</p>
-      <div class="tags">
-        <span class="type-label">Project</span>
-        <span>Computer Vision</span><span>Deep Learning</span>
-      </div>
-    </div>
-
-    <div class="project" data-tags="Time Series,Big Data" data-type="Post">
-      <h3>Forecasting Stocks with Spark</h3>
-      <p>Wrote an in-depth blog on LSTM and distributed time series forecasting.</p>
-      <div class="tags">
-        <span class="type-label">Post</span>
-        <span>Time Series</span><span>Big Data</span>
-      </div>
-    </div>
-
-    <div class="project" data-tags="Visualization" data-type="Product">
-      <h3>COVID-19 Dashboard</h3>
-      <p>Deployed Dash & Plotly app for interactive pandemic visual insights.</p>
-      <div class="tags">
-        <span class="type-label">Product</span>
-        <span>Visualization</span>
-      </div>
-    </div>
-
-    <div class="project" data-tags="Reinforcement Learning,Statistics" data-type="Post">
-      <h3>Q-Learning for Traders</h3>
-      <p>Blog post exploring RL strategies in quantitative finance with code.</p>
-      <div class="tags">
-        <span class="type-label">Post</span>
-        <span>Reinforcement Learning</span><span>Statistics</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- Scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/selectize@0.15.2/dist/js/standalone/selectize.min.js"></script>
   <script>
-    const tagSelect = Selectize.create('#tag-filter', {
-      plugins: ['remove_button'],
-      persist: false,
-      maxItems: null,
-      valueField: 'value',
-      labelField: 'value',
-      searchField: 'value',
-      onChange: filterProjects
-    });
+    const tags = ["AI", "ML", "NLP", "Computer Vision", "Data Viz", "Product", "Deep Learning", "Web App"];
+    const works = [
+      { title: "AI Chatbot", tags: ["AI", "NLP"], type: "Product" },
+      { title: "Stock Predictor", tags: ["ML", "Data Viz"], type: "Project" },
+      { title: "Blog: Deep Learning Tricks", tags: ["Deep Learning"], type: "Post" },
+      { title: "Vision Classifier", tags: ["Computer Vision", "AI"], type: "Project" },
+      { title: "Interactive Dashboard", tags: ["Web App", "Data Viz"], type: "Product" },
+    ];
 
-    const typeSelect = document.getElementById('type-filter');
-    typeSelect.addEventListener('change', filterProjects);
+    const tagInput = document.getElementById('tagInput');
+    const tagDropdown = document.getElementById('tagDropdown');
+    const selectedTagsContainer = document.getElementById('selectedTags');
+    const worksList = document.getElementById('worksList');
+    const typeSelect = document.getElementById('typeSelect');
 
-    function filterProjects() {
-      const selectedTags = tagSelect.getValue();
-      const selectedType = typeSelect.value.toLowerCase();
-      const projects = document.querySelectorAll('.project');
+    let selectedTags = [];
 
-      projects.forEach(project => {
-        const projectTags = project.dataset.tags.toLowerCase().split(',').map(t => t.trim());
-        const projectType = project.dataset.type.toLowerCase();
+    function renderTagDropdown() {
+      tagDropdown.innerHTML = "";
+      const filter = tagInput.value.toLowerCase();
+      const filteredTags = tags.filter(t => t.toLowerCase().includes(filter));
+      filteredTags.forEach(tag => {
+        const div = document.createElement('div');
+        div.textContent = tag;
+        div.className = "cursor-pointer hover:bg-pink-600 px-3 py-2";
+        div.onclick = () => {
+          if (!selectedTags.includes(tag)) {
+            selectedTags.push(tag);
+            updateSelectedTags();
+            renderWorks();
+          }
+        };
+        tagDropdown.appendChild(div);
+      });
+      tagDropdown.style.display = filteredTags.length > 0 ? "block" : "none";
+    }
 
-        const tagMatch = selectedTags.every(tag => projectTags.includes(tag.toLowerCase()));
-        const typeMatch = !selectedType || projectType === selectedType;
+    function filterTagDropdown() {
+      renderTagDropdown();
+    }
 
-        if ((selectedTags.length === 0 || tagMatch) && typeMatch) {
-          project.style.display = 'block';
-        } else {
-          project.style.display = 'none';
-        }
+    function updateSelectedTags() {
+      selectedTagsContainer.innerHTML = "";
+      selectedTags.forEach(tag => {
+        const btn = document.createElement('button');
+        btn.className = "tag-active px-2 py-1 rounded text-sm";
+        btn.textContent = tag + " ✕";
+        btn.onclick = () => {
+          selectedTags = selectedTags.filter(t => t !== tag);
+          updateSelectedTags();
+          renderWorks();
+        };
+        selectedTagsContainer.appendChild(btn);
       });
     }
+
+    function renderWorks() {
+      worksList.innerHTML = "";
+      const typeFilter = typeSelect.value;
+      const filteredWorks = works.filter(work => {
+        const matchesTags = selectedTags.every(tag => work.tags.includes(tag));
+        const matchesType = typeFilter === "" || work.type === typeFilter;
+        return matchesTags && matchesType;
+      });
+
+      if (filteredWorks.length === 0) {
+        worksList.innerHTML = "<p class='text-gray-400 col-span-full'>No results found.</p>";
+        return;
+      }
+
+      filteredWorks.forEach(work => {
+        const div = document.createElement('div');
+        div.className = "glass p-4 rounded-lg border border-pink-600 shadow-xl hover:scale-105 transition transform duration-200";
+        div.innerHTML = `
+          <h3 class="text-xl text-cyan-300 mb-2">${work.title}</h3>
+          <p class="text-sm mb-1">Type: <span class="text-pink-400">${work.type}</span></p>
+          <div class="flex flex-wrap gap-2 text-sm text-purple-200">
+            ${work.tags.map(tag => `<span class="bg-pink-900 px-2 py-1 rounded">${tag}</span>`).join('')}
+          </div>
+        `;
+        worksList.appendChild(div);
+      });
+    }
+
+    tagInput.addEventListener('focus', renderTagDropdown);
+    document.addEventListener('click', e => {
+      if (!tagInput.contains(e.target) && !tagDropdown.contains(e.target)) {
+        tagDropdown.style.display = "none";
+      }
+    });
+    typeSelect.addEventListener('change', renderWorks);
+
+    // Initial load
+    renderWorks();
   </script>
 </body>
 </html>
