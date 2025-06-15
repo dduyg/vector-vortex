@@ -34,13 +34,11 @@
       flex-wrap: wrap;
       margin-bottom: 2rem;
     }
-
     .setTag {
       flex: 1;
       min-width: 250px;
       position: relative;
     }
-
     .setTag input {
       box-sizing: border-box;
       width: 100%;
@@ -52,7 +50,7 @@
       font-family: inherit;
     }
 
-    .tag-dropdown {
+    #tagDropdown {
       position: absolute;
       top: 100%;
       left: 0;
@@ -65,24 +63,20 @@
       z-index: 10;
       border-radius: 0 0 8px 8px;
     }
-
-    .tag-dropdown div {
+    #tagDropdown div {
       padding: 0.5rem;
       cursor: pointer;
     }
-
-    .tag-dropdown div:hover {
+    #tagDropdown div:hover {
       background: #a7fff6;
     }
-
-    .selected-tags {
+    #selectedTags {
       margin-top: 0.5rem;
       display: flex;
       flex-wrap: wrap;
       gap: 0.5rem;
     }
-
-    .selected-tags button {
+    #selectedTags button {
       background: #a7fff6;
       color: black;
       font-size: 0.85rem;
@@ -99,7 +93,6 @@
       border-top: 1px solid #ff7eb9;
       border-bottom: 1px solid #ff7eb9;
     }
-
     .setType button {
       flex: 1;
       background: transparent;
@@ -111,7 +104,6 @@
       transition: all 0.2s ease;
       font-family: inherit;
     }
-
     .setType button.active {
       background: #ff7eb9;
       color: white;
@@ -121,7 +113,6 @@
       display: grid;
       gap: 1.5rem;
     }
-
     .card {
       display: block;
       text-decoration: none;
@@ -134,26 +125,18 @@
       backdrop-filter: blur(4px);
       transition: transform 0.2s ease;
     }
-
-    .card:hover {
-      transform: translateY(-2px);
-    }
-
+    .card:hover { transform: translateY(-2px); }
     .card h3 {
       color: #ff7eb9;
       margin-bottom: 0.3rem;
     }
-
-    .card .desc {
-      margin: 0.5rem 0;
-    }
+    .card .desc { margin: 0.5rem 0; }
 
     .tags {
       display: flex;
       flex-wrap: wrap;
       gap: 0.4rem;
     }
-
     .tags span {
       background: #a7fff6;
       color: black;
@@ -176,11 +159,11 @@
   <div class="container">
     <h1>Seapunk Portfolio</h1>
 
-    <div class="filters">
+    <nav class="filters">
       <div class="setTag">
         <input type="text" id="tagInput" placeholder="Filter by Tags...">
-        <div id="tagDropdown" class="tag-dropdown"></div>
-        <div class="selected-tags" id="selectedTags"></div>
+        <div id="tagDropdown"></div>
+        <div id="selectedTags"></div>
       </div>
 
       <div class="setType">
@@ -189,7 +172,7 @@
         <button onclick="selectType('Product')">Product</button>
         <button onclick="selectType('Post')">Post</button>
       </div>
-    </div>
+    </nav>
 
     <div class="works" id="worksList"></div>
   </div>
