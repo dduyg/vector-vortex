@@ -3,51 +3,86 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Data Scientist Portfolio</title>
+  <title>LiminalLoop</title>
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
     :root {
       --pink: #ff71ce;
       --cyan: #01cdfe;
       --purple: #b967ff;
-      --bg: #2d004d;
+      --bg1: #2d004d;
+      --bg2: #1a0033;
       --glass: rgba(255,255,255,0.1);
     }
     body {
       margin: 0;
       font-family: 'Inter', sans-serif;
-      background: linear-gradient(135deg, #2d004d, #1a0033);
+      background: linear-gradient(135deg, var(--bg1), var(--bg2));
+      background-size: 400% 400%;
+      animation: gradientShift 20s ease infinite;
       color: white;
       padding: 2rem;
+      position: relative;
+      overflow-x: hidden;
     }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      background: repeating-linear-gradient(
+        0deg,
+        rgba(255, 255, 255, 0.01),
+        rgba(255, 255, 255, 0.01) 1px,
+        transparent 1px,
+        transparent 3px
+      );
+      z-index: 999;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
     h1 {
       font-family: 'Press Start 2P', cursive;
       text-align: center;
       color: var(--pink);
       font-size: 2rem;
       margin-bottom: 1rem;
+      text-shadow: 0 0 5px var(--pink), 0 0 10px var(--pink);
     }
+
     .container {
       max-width: 1000px;
       margin: 0 auto;
     }
+
     .filters {
       background: var(--glass);
       border: 2px solid var(--purple);
       border-radius: 12px;
       padding: 1rem;
       margin-bottom: 2rem;
+      box-shadow: 0 0 15px var(--purple);
     }
+
     .filters label {
       display: block;
       font-weight: bold;
       color: var(--cyan);
       margin-bottom: 0.5rem;
     }
+
     .tag-box {
       position: relative;
       width: 100%;
     }
+
     .tag-box input {
       width: 100%;
       padding: 0.6rem;
@@ -55,7 +90,9 @@
       background: transparent;
       color: white;
       border-radius: 8px;
+      box-shadow: 0 0 8px var(--cyan);
     }
+
     .tag-dropdown {
       position: absolute;
       top: 100%;
@@ -68,20 +105,25 @@
       display: none;
       z-index: 10;
     }
+
     .tag-dropdown div {
       padding: 0.5rem;
       cursor: pointer;
+      transition: background 0.2s ease;
     }
+
     .tag-dropdown div:hover {
       background: var(--cyan);
       color: black;
     }
+
     .selected-tags {
       margin-top: 0.5rem;
       display: flex;
       flex-wrap: wrap;
       gap: 0.5rem;
     }
+
     .selected-tags button {
       background: var(--pink);
       border: none;
@@ -90,6 +132,12 @@
       color: black;
       font-weight: bold;
       cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.3s ease;
+    }
+
+    .selected-tags button:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 10px var(--pink);
     }
 
     .type-toggle {
@@ -97,6 +145,7 @@
       gap: 0.5rem;
       margin-top: 1rem;
     }
+
     .type-toggle button {
       flex: 1;
       background: var(--glass);
@@ -108,44 +157,66 @@
       border-radius: 8px;
       transition: all 0.2s ease;
     }
+
     .type-toggle button.active {
       background: var(--purple);
       color: white;
+      box-shadow: 0 0 8px var(--purple);
     }
 
     .works {
       display: grid;
       gap: 1.5rem;
     }
+
     .work-card {
       background: var(--glass);
       border: 2px solid var(--cyan);
       padding: 1rem;
       border-radius: 12px;
       backdrop-filter: blur(6px);
+      box-shadow: 0 0 10px var(--cyan);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
+
+    .work-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 0 20px var(--cyan), 0 0 40px var(--purple);
+    }
+
     .work-card h3 {
       color: var(--pink);
       margin-bottom: 0.3rem;
+      text-shadow: 0 0 6px var(--pink);
     }
+
     .work-card .type {
       font-size: 0.9rem;
       color: var(--cyan);
     }
+
     .work-card .desc {
       margin: 0.5rem 0;
     }
+
     .tags {
       display: flex;
       flex-wrap: wrap;
       gap: 0.4rem;
     }
+
     .tags span {
       background: var(--cyan);
       color: black;
       padding: 0.2rem 0.5rem;
       border-radius: 4px;
       font-size: 0.8rem;
+      transition: transform 0.2s ease, box-shadow 0.3s ease;
+    }
+
+    .tags span:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 6px var(--cyan);
     }
   </style>
 </head>
